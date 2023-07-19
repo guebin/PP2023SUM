@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "2_1.html",
+    "href": "2_1.html",
+    "title": "Chap 5. 모듈",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "3_1.html",
+    "href": "3_1.html",
+    "title": "Chap 7. Data Wrangling",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "3_2.html",
+    "href": "3_2.html",
+    "title": "Chap 8. 고차원 자료 시각화",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "1_2.html",
+    "href": "1_2.html",
+    "title": "Chap 2. Numpy",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "1_4.html",
+    "href": "1_4.html",
+    "title": "Chap 4. 간단한 데이터 조작",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "1_1.html",
+    "href": "1_1.html",
+    "title": "Chap 1. 기초문법",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "3_3.html",
+    "href": "3_3.html",
+    "title": "Chap 9. 판다스 백엔드",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "2_2.html",
+    "href": "2_2.html",
+    "title": "Chap 6. 함수, 제어, 반복",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "1_3.html",
+    "href": "1_3.html",
+    "title": "Chap 3. Pandas",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PP2023SUM",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 19, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 16, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  }
+]
