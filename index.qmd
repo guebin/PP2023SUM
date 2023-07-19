@@ -1,14 +1,21 @@
 ---
-title: "PP2023SUM"
+title: "파이썬을 이용한 통계자료분석"
 listing:
+  sort: 
+    - "date"
+    - "title"
   contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
+  type: table
+  categories: false
   sort-ui: false
   filter-ui: false
 page-layout: full
 title-block-banner: true
 ---
 
+이 강의들은 2022년 파이썬입문^[학부 2학년1학기], 2022년 데이터시각화^[학부 2학년2학기] 수업을 바탕으로 작성되었습니다. 
+복습을 위해서 각 Lesson마다 ref를 표시하였으니^[ref를 타고 들어가면 강의영상이 있음] 참고하시기 바랍니다. 
 
++
+
+Lesson5는 빠져있네요. Lesson4의 바로 뒷 내용은 Lesson 6 입니다.  (라벨링을 손으로 하다 보니까 실수가 있었습니다)

@@ -1,0 +1,13 @@
+---
+title: "Chap 6. 함수, 제어, 반복"
+listing:
+  contents: posts/Day2/06_Functions, ControlFlow
+  sort: "title"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---

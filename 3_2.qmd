@@ -1,0 +1,13 @@
+---
+title: "Chap 8. 고차원 자료 시각화"
+listing:
+  contents: posts/Day3/08_ggplot2
+  sort: "title"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---
