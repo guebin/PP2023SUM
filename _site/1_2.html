@@ -76,9 +76,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -173,9 +173,40 @@ ul.task-list li input[type="checkbox"] {
 <table class="quarto-listing-table table">
 <thead>
 <tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+<th>
+Author
+</th>
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1675004400000" data-listing-file-modified-sort="1689733809000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Lesson 06: numpy 공부 1단계 ~ 2단계" data-listing-filename-sort="ls5.ipynb">
+<td>
+<span class="listing-date">Jan 30, 2023</span>
+</td>
+<td>
+<a href="./posts/Day1/02_Numpy/ls5.html" class="title listing-title">Lesson 06: numpy 공부 1단계 ~ 2단계</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1675004400000" data-listing-file-modified-sort="1689733809000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Lesson 07: numpy 공부 3단계 ~ 5단계" data-listing-filename-sort="ls6.ipynb">
+<td>
+<span class="listing-date">Jan 30, 2023</span>
+</td>
+<td>
+<a href="./posts/Day1/02_Numpy/ls6.html" class="title listing-title">Lesson 07: numpy 공부 3단계 ~ 5단계</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">

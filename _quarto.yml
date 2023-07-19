@@ -2,18 +2,40 @@ project:
   type: website
 
 website:
-  title: "PP2023SUM"
+  title: "2023년도 하계 WORKSHOP"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/guebin
+      - icon: youtube
+        href: https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg
+  sidebar:
+      style: "docked"
+      search: true
+      contents:
+        - section: "Day 1: 파이썬 입문"
+          contents:
+            - 1_1.qmd
+            - 1_2.qmd
+            - 1_3.qmd
+            - 1_4.qmd
+        - section: "Day 2: 파이썬 프로그래밍"
+          contents:
+            - 2_1.qmd
+            - 2_2.qmd                    
+        - section: "Day 3: 데이터 시각화"
+          contents:
+            - 3_1.qmd
+            - 3_2.qmd
+            - 3_3.qmd
 format:
   html:
     theme: cosmo
     css: styles.css
-
-
-
+    toc: true
+    code-fold: false
+    code-line-numbers: true
+    code-copy: true    
+    
+    
