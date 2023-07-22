@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
-<meta name="dcterms.date" content="2023-01-30">
+<meta name="dcterms.date" content="2023-06-24">
 
 <title>2023년도 하계 WORKSHOP - Lesson 04: 파이썬의 자료형 III (dict, set)</title>
 <style>
@@ -157,35 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Lesson 04: 파이썬의 자료형 III (dict, set)</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>최규빈 </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">January 30, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -292,8 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ref" id="toc-ref" class="nav-link active" data-scroll-target="#ref">ref</a></li>
-  <li><a href="#dict" id="toc-dict" class="nav-link" data-scroll-target="#dict">dict</a>
+  <li><a href="#dict" id="toc-dict" class="nav-link active" data-scroll-target="#dict">dict</a>
   <ul class="collapse">
   <li><a href="#연산" id="toc-연산" class="nav-link" data-scroll-target="#연산">연산</a></li>
   <li><a href="#메소드" id="toc-메소드" class="nav-link" data-scroll-target="#메소드">메소드</a></li>
@@ -315,21 +286,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#메소드-1" id="toc-메소드-1" class="nav-link" data-scroll-target="#메소드-1">메소드</a></li>
   <li><a href="#for문-1" id="toc-for문-1" class="nav-link" data-scroll-target="#for문-1">for문</a></li>
   </ul></li>
-  <li><a href="#quiz" id="toc-quiz" class="nav-link" data-scroll-target="#quiz">Quiz</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ls4.out.ipynb" download="ls4.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lesson 04: 파이썬의 자료형 III (dict, set)</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<p><a href="https://colab.research.google.com/github/guebin/IP2023WIN/blob/main/posts/Day1/01_PythonBasicSyntax/2023-01-30-Lesson4.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<section id="ref" class="level1">
-<h1>ref</h1>
-<p><a href="https://guebin.github.io/IP2022/2022/03/23/(4주차)-3월23일.html" class="uri">https://guebin.github.io/IP2022/2022/03/23/(4주차)-3월23일.html</a></p>
-</section>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 24, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day1/01_PythonBasicSyntax/ls4.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="dict" class="level1">
 <h1>dict</h1>
 <section id="연산" class="level2">
@@ -872,13 +864,9 @@ notebook
 desktop</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="quiz" class="level1">
-<h1>Quiz</h1>
-<p>길이가 4인 집합을 두개만들고 공통원소를 2개로 설정한뒤 합집합을 구하는 코드를 작성하라.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1177,6 +1165,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="guebin/PP2023SUM" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 

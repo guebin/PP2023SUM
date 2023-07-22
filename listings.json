@@ -69,10 +69,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Day1/01_PythonBasicSyntax/ls1.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls2.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls3.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls4.html",
       "/posts/Day1/02_Numpy/ls5.html",
       "/posts/Day1/02_Numpy/ls6.html",
       "/posts/Day1/03_Pandas/ls7.html",
@@ -90,7 +86,11 @@
       "/posts/Day3/08_ggplot2/ls18.html",
       "/posts/Day3/09_PandasBackend/ls19.html",
       "/posts/Day3/09_PandasBackend/ls20.html",
-      "/posts/Day3/09_PandasBackend/ls21.html"
+      "/posts/Day3/09_PandasBackend/ls21.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls1.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls2.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls3.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls4.html"
     ]
   }
 ]
