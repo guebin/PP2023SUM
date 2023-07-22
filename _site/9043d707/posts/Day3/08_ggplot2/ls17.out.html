@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.193">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2023년도 하계 WORKSHOP - Lesson 18: FIFA23 자료분석</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">2023년도 하계 WORKSHOP</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg" rel="" target=""><i class="bi bi-youtube" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lesson 18: FIFA23 자료분석</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Day 1: 파이썬 입문</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../1_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 1. 기초문법</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../1_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 2. Numpy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../1_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 3. Pandas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../1_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 4. 간단한 데이터 조작</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Day 2: 파이썬 프로그래밍</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../2_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 5. 모듈</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../2_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 6. 함수, 제어, 반복</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Day 3: 데이터 시각화</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../3_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 7. Data Wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../3_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 8. 고차원 자료 시각화</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../3_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 9. 판다스 백엔드</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ref" id="toc-ref" class="nav-link active" data-scroll-target="#ref">ref</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#fifa23-데이터분석" id="toc-fifa23-데이터분석" class="nav-link" data-scroll-target="#fifa23-데이터분석">FIFA23 데이터분석</a>
+  <ul class="collapse">
+  <li><a href="#fifa23-data" id="toc-fifa23-data" class="nav-link" data-scroll-target="#fifa23-data">FIFA23 data</a></li>
+  <li><a href="#데이터살펴보기" id="toc-데이터살펴보기" class="nav-link" data-scroll-target="#데이터살펴보기">데이터살펴보기</a></li>
+  <li><a href="#데이터정리하기" id="toc-데이터정리하기" class="nav-link" data-scroll-target="#데이터정리하기">데이터정리하기</a></li>
+  <li><a href="#데이터분석시각화" id="toc-데이터분석시각화" class="nav-link" data-scroll-target="#데이터분석시각화">데이터분석+시각화</a></li>
+  </ul></li>
+  <li><a href="#fifa22-데이터분석" id="toc-fifa22-데이터분석" class="nav-link" data-scroll-target="#fifa22-데이터분석">FIFA22 데이터분석</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lesson 18: FIFA23 자료분석</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>최규빈<br>
+2023-07-26</p>
+<p><a href="https://colab.research.google.com/github/guebin/IP2023WIN/blob/main/posts/Day3/08_ggplot2/2023-02-01-Lesson18.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<section id="ref" class="level1">
+<h1>ref</h1>
+<p><a href="https://guebin.github.io/DV2022/posts/2022-10-24-8wk-12.html#fifa23-데이터분석" class="uri">https://guebin.github.io/DV2022/posts/2022-10-24-8wk-12.html#fifa23-데이터분석</a></p>
+<p><a href="https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html#자료분석-및-시각화-i-40점-fifa22자료" class="uri">https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html#자료분석-및-시각화-i-40점-fifa22자료</a></p>
+</section>
+<section id="imports" class="level1">
+<h1>imports</h1>
+<div id="4ea1451e-6627-429a-8410-18dbe0c25279" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># !pip install pandas_profiling</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="ebc0442b-6163-48a8-9dea-1f6d71381801" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="im">import</span> pandas_profiling</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fifa23-데이터분석" class="level1">
+<h1>FIFA23 데이터분석</h1>
+<section id="fifa23-data" class="level2">
+<h2 class="anchored" data-anchor-id="fifa23-data">FIFA23 data</h2>
+<p><code>-</code> FIFA23라는 축구게임이 있음</p>
+<p><code>-</code> 게임에 실제 선수들이 나오면서 선수들의 능력치가 세밀하게 구현되어 있음</p>
+<p><code>-</code> 선수들 능력치에 대한 데이터셋은 캐글에 공개되어 있음 - https://www.kaggle.com/datasets/bryanb/fifa-player-stats-database?select=FIFA23_official_data.csv</p>
+</section>
+<section id="데이터살펴보기" class="level2">
+<h2 class="anchored" data-anchor-id="데이터살펴보기">데이터살펴보기</h2>
+<p><code>-</code> 일단 살펴보기</p>
+<div id="fb784718-17fd-4076-b037-334c6870609a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.loc[[<span class="st">'Fernandes'</span> <span class="kw">in</span> df.Name[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">17660</span>)],[<span class="st">'Name'</span>,<span class="st">'Overall'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="71a1d967-8122-4254-97da-b6e393ba31c7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>트랜스포즈하여 보는 것이 편할때도 있음</p>
+<div id="9d589d11-bfc6-46db-97d0-1d49dac0bfa2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> column이름조사</p>
+<div id="7b6a157e-5844-4173-9572-1791e7ba5b91" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>이름에 space가 있어서 좀 거슬림</li>
+</ul>
+<p><code>-</code> 각 column 별로 자료형조사</p>
+<div id="9699ba8b-43c6-4202-bc66-9c6569939bf6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>pd.DataFrame({<span class="st">'colname'</span>:df.keys(), <span class="st">'dtype'</span>:[df[key].dtype <span class="cf">for</span> key <span class="kw">in</span> df.keys()]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 결측치조사</p>
+<div id="4a3c9886-9603-43a1-b466-6966fa7ec65e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>pd.DataFrame({<span class="st">'colname'</span>:df.keys(), </span>
+<span id="cb8-2"><a href="#cb8-2"></a>              <span class="st">'dtype'</span>:[df[key].dtype <span class="cf">for</span> key <span class="kw">in</span> df.keys()],</span>
+<span id="cb8-3"><a href="#cb8-3"></a>              <span class="st">'na'</span>:[df[key].isna().<span class="bu">sum</span>() <span class="cf">for</span> key <span class="kw">in</span> df.keys()]</span>
+<span id="cb8-4"><a href="#cb8-4"></a>             })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(퀴즈) 열의선택: 결측치가 10000개 이상인 열을 보고싶다면?</p>
+<div id="9a23bdc0-2cee-43f6-b4c7-d6ea6b2a4f70" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df.loc[:,[df[key].isna().<span class="bu">sum</span>()<span class="op">&gt;</span><span class="dv">10000</span> <span class="cf">for</span> key <span class="kw">in</span> df.keys()]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> .info()</p>
+<div id="514f25da-ee85-4394-9afe-8fea776d8af5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 17660 entries, 0 to 17659
+Data columns (total 29 columns):
+ #   Column                    Non-Null Count  Dtype  
+---  ------                    --------------  -----  
+ 0   ID                        17660 non-null  int64  
+ 1   Name                      17660 non-null  object 
+ 2   Age                       17660 non-null  int64  
+ 3   Photo                     17660 non-null  object 
+ 4   Nationality               17660 non-null  object 
+ 5   Flag                      17660 non-null  object 
+ 6   Overall                   17660 non-null  int64  
+ 7   Potential                 17660 non-null  int64  
+ 8   Club                      17449 non-null  object 
+ 9   Club Logo                 17660 non-null  object 
+ 10  Value                     17660 non-null  object 
+ 11  Wage                      17660 non-null  object 
+ 12  Special                   17660 non-null  int64  
+ 13  Preferred Foot            17660 non-null  object 
+ 14  International Reputation  17660 non-null  float64
+ 15  Weak Foot                 17660 non-null  float64
+ 16  Skill Moves               17660 non-null  float64
+ 17  Work Rate                 17660 non-null  object 
+ 18  Body Type                 17622 non-null  object 
+ 19  Real Face                 17622 non-null  object 
+ 20  Position                  17625 non-null  object 
+ 21  Joined                    16562 non-null  object 
+ 22  Loaned From               694 non-null    object 
+ 23  Contract Valid Until      17299 non-null  object 
+ 24  Height                    17660 non-null  object 
+ 25  Weight                    17660 non-null  object 
+ 26  Release Clause            16509 non-null  object 
+ 27  Kit Number                17625 non-null  float64
+ 28  Best Overall Rating       21 non-null     object 
+dtypes: float64(4), int64(5), object(20)
+memory usage: 3.9+ MB</code></pre>
+</div>
+</div>
+<p><code>-</code> .describe(): 숫자들이 저장된 column에 대하여 기본통계량 조사</p>
+<div id="4292cb73-f9b5-4f97-8f5a-c8b86728c670" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> pandas_profiling.ProfileReport()을 이용한 전체적인 조사</p>
+<div id="42d7431c-ea24-44ea-9ffe-d0a9f2d59885" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># pandas_profiling.ProfileReport(df).to_file('fifa2023_reprot.html')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 특정열을 중심으로 정렬하여 보기</p>
+<div id="d892600d-1b33-4f55-aaa0-492ef03398ee" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df.sort_values(by<span class="op">=</span><span class="st">'Overall'</span>,ascending<span class="op">=</span><span class="va">False</span>).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 특정열을 중심으로 그룹화하여 보기 (<span class="math inline">\(\star\)</span>)</p>
+<div id="1d576096-35a0-4cac-962c-b5d52489b8ba" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df.Nationality.unique() <span class="co"># 데이터셋에 포함된 나라들 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="50f92f1a-7559-4c83-ab1f-5018fa1e8083" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>df.groupby(by<span class="op">=</span><span class="st">'Nationality'</span>)[[<span class="st">'Overall'</span>]].agg({np.mean,<span class="bu">len</span>}).sort_values((<span class="st">'Overall'</span>, <span class="st">'mean'</span>),ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>groupby는 나중에 다시 설명 합니다.</li>
+</ul>
+</section>
+<section id="데이터정리하기" class="level2">
+<h2 class="anchored" data-anchor-id="데이터정리하기">데이터정리하기</h2>
+<p><code>-</code> 칼럼이름변경</p>
+<div id="f5ac963a-d0d6-4427-a124-a8cf07f9beff" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df.set_axis(pd.Index(<span class="bu">map</span>(<span class="kw">lambda</span> x: x.replace(<span class="st">' '</span>,<span class="st">'_'</span>), df.columns)), axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 결측치제거</p>
+<div id="83d687b4-a7c8-4ab2-a769-87b29c1b564e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'Loaned From'</span>, <span class="st">'Best Overall Rating'</span>]).dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> Height, Weight의 자료형을 float형으로 수정하기</p>
+<div id="a5e3e3b7-d05e-4721-b81e-a842b2ab0812" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>df.assign(</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    Height<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="bu">float</span>(x[:<span class="op">-</span><span class="dv">2</span>]), df.Height)),</span>
+<span id="cb19-3"><a href="#cb19-3"></a>    Weight<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="bu">float</span>(x[:<span class="op">-</span><span class="dv">2</span>]), df.Weight))</span>
+<span id="cb19-4"><a href="#cb19-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> Release Clause의 자료형을 float으로 수정하기</p>
+<div id="5f2db01a-b31f-460d-a29f-3a3b5c878825" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>df[<span class="st">'Release Clause'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="959043fb-de06-4a9b-bb53-543267bc7bca" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>_f <span class="op">=</span> <span class="kw">lambda</span> x: <span class="bu">float</span>(x[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>])<span class="op">*</span><span class="dv">1000</span> <span class="cf">if</span> x[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'K'</span> <span class="cf">else</span> <span class="bu">float</span>(x[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>])<span class="op">*</span><span class="dv">1000000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4b47422e-fcb4-4442-87ed-ef9f5aa558df" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>_f(<span class="st">'€157M'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="67f8f815-4930-449a-a6cc-717055948046" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>_f(<span class="st">'€131K'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(시도1–실패)</p>
+<div id="1ff5bef8-8b20-49a9-889d-6ee1d120cd51" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">list</span>(<span class="bu">map</span>(_f,df[<span class="st">'Release Clause'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(시도1이 실패한 이유)</p>
+<div id="be7ca62b-aec9-42e6-aed2-dd6f0b9a96dc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df[<span class="st">'Release Clause'</span>].isna().<span class="bu">sum</span>() <span class="co"># 이 column에는 1151개의 결측치가 존재</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(nan에 대한 예비학습)</p>
+<div id="6af036ac-d795-49cd-a45d-96f62b2bab70" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df.loc[df[<span class="st">'Release Clause'</span>].isna(), <span class="st">'Release Clause'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="ef4676f0-164a-4546-bbe6-dde2b85c2343" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.loc[<span class="dv">18</span>, <span class="st">'Release Clause'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cc3d6cd0-f28e-4329-8c97-4631ab8e5601" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>pd.isna(df.loc[<span class="dv">18</span>, <span class="st">'Release Clause'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="db50d898-fede-4e75-aae0-02f480a60d86" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="bu">type</span>(df.loc[<span class="dv">18</span>, <span class="st">'Release Clause'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="22481bd5-af88-4df2-9c3e-4d45b3b20bb7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>df.loc[<span class="dv">18</span>, <span class="st">'Release Clause'</span>][<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(시도2–성공)</p>
+<div id="c6ccdedf-57e9-4fae-a3ee-3e3ccdcbc307" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>df.rename(columns<span class="op">=</span>{<span class="st">'Release Clause'</span>:<span class="st">'ReleaseClause'</span>})<span class="op">\</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>.assign(ReleaseClause <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: _f(x) <span class="cf">if</span> pd.isna(x)<span class="op">==</span><span class="va">False</span> <span class="cf">else</span> x , df[<span class="st">'Release Clause'</span>])))<span class="op">\</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>.rename(columns<span class="op">=</span>{<span class="st">'ReleaseClause'</span>:<span class="st">'Release Clause'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(시도3–성공) 그냥 결측치를 제거하고 변형해도 무방..</p>
+<div id="da45769d-079f-40fb-b279-fa932d5bbeff" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df2 <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'Loaned From'</span>, <span class="st">'Best Overall Rating'</span>]).dropna()</span>
+<span id="cb32-2"><a href="#cb32-2"></a>df2[<span class="st">'Release Clause'</span>] <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: _f(x) <span class="cf">if</span> pd.isna(x)<span class="op">==</span><span class="va">False</span> <span class="cf">else</span> x , df2[<span class="st">'Release Clause'</span>]))</span>
+<span id="cb32-3"><a href="#cb32-3"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>분석의 편의를 위하여 (1) colnames를 변경하고 (2) 결측치를 제거하고 (3) 몇 가지 전 처리를 추가로 진행한 뒤 df2를 만들어서 분석하는게 좋음</p>
+</blockquote>
+</section>
+<section id="데이터분석시각화" class="level2">
+<h2 class="anchored" data-anchor-id="데이터분석시각화">데이터분석+시각화</h2>
+<p><code>-</code> Overall vs Potential</p>
+<div id="881299a8-9c47-45b9-8c6d-11e7c78311c8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>ggplot(data<span class="op">=</span>df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'Overall'</span>,y<span class="op">=</span><span class="st">'Potential'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>뭔가 Potential &gt; Overall 인 관계가 성립하는 듯 하다. <span class="math inline">\(\to\)</span> 우리가 생각하는 포텐셜의 의미는 사실 Potential2 = Potential - Overall 에 더 가깝다. <span class="math inline">\(\to\)</span> Potential2 = Potential - Overall 인 변수를 새로 만들고 시각화 해보자.</li>
+</ul>
+<p><code>-</code> Potential2 = Potential - Overall 를 계산하여 새로운 열을 추가하자.</p>
+<div id="84aee0a1-ef62-4a0d-a46e-9eef223bdb41" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 수정된 데이터프레임으로 다시 시각화를 하자.</p>
+<div id="192d7d87-8543-400c-856f-a3118768bb54" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>ggplot(data<span class="op">=</span>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>))<span class="op">\</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'Overall'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>),alpha<span class="op">=</span><span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-35-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 일부점들이 겹치므로 position = ’jitter’를 사용하여 점들을 흩뿌리자.</p>
+<div id="a94744a4-660e-4521-a340-ce25d8bd45dd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>ggplot(data<span class="op">=</span>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>))<span class="op">\</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'Overall'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>),alpha<span class="op">=</span><span class="fl">0.05</span>,position<span class="op">=</span><span class="st">'jitter'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 해석 - 해석1: Overall, Potential2는 음의 상관관계가 있다. - 해석2: 0근처에 데이터가 많음 <span class="math inline">\(\to\)</span> 이미 은퇴한 선수들이 아닐까? - 해석3: Overall의 값이 작을수록 Potential2의 분산이 크다.</p>
+<p><code>-</code> 은퇴한 선수들은 제외하고 시각화하자.</p>
+<div id="6521a0b8-00e2-493c-a54e-8e12970c0f44" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>ggplot(data<span class="op">=</span>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>).query(<span class="st">'Potential2 &gt; 1'</span>))<span class="op">\</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'Overall'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>),alpha<span class="op">=</span><span class="fl">0.05</span>,position<span class="op">=</span><span class="st">'jitter'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> Overall에 따라서 구간을 나누고 그 구간에 대응하는 boxplot을 그리자.</p>
+<div id="1570c415-eec9-4c6a-ac52-c00c783afb17" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>).query(<span class="st">'Potential2 &gt; 1'</span>)<span class="op">\</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>.Overall.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d275dc66-ebfb-4ce7-a320-5393daf17e7d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb39-2"><a href="#cb39-2"></a>    <span class="cf">if</span> x<span class="op">&gt;</span><span class="dv">66</span>: </span>
+<span id="cb39-3"><a href="#cb39-3"></a>        y<span class="op">=</span><span class="st">'66&lt;'</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>    <span class="cf">elif</span> x<span class="op">&gt;</span><span class="dv">61</span>:</span>
+<span id="cb39-5"><a href="#cb39-5"></a>        y<span class="op">=</span><span class="st">'61~66'</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>    <span class="cf">elif</span> x<span class="op">&gt;</span><span class="dv">56</span>:</span>
+<span id="cb39-7"><a href="#cb39-7"></a>        y<span class="op">=</span><span class="st">'56~61'</span></span>
+<span id="cb39-8"><a href="#cb39-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb39-9"><a href="#cb39-9"></a>        y<span class="op">=</span><span class="st">'&lt;56'</span> </span>
+<span id="cb39-10"><a href="#cb39-10"></a>    <span class="cf">return</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="f8904acb-4213-4990-afc3-d78e8d9bb357" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>ggplot(data<span class="op">=</span>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>).query(<span class="st">'Potential2 &gt; 1'</span>)<span class="op">\</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>.assign(Overall_grouped<span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(f,df.Overall))))<span class="op">\</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a>    <span class="op">+</span> geom_boxplot(aes(x<span class="op">=</span><span class="st">'Overall_grouped'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>,color<span class="op">=</span><span class="st">'Overall_grouped'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li><p>Overall_grouped = “&lt;56” 에 대응하는 점들을 모두 뽑아서 mean(Overall)를 계산하고 그 값을 Overall_grouped = “&lt;56” 에 대응하는 박스플랏의 x축위치로 설정</p></li>
+<li><p>Overall_grouped = “56~61” 에 대응하는 점들을 모두 뽑아서 mean(Overall)를 계산하고 그 값을 Overall_grouped = “56~61” 에 대응하는 박스플랏의 x축위치로 설정</p></li>
+<li><p>Overall_grouped = “61~66” 에 대응하는 점들을 모두 뽑아서 mean(Overall)를 계산하고 그 값을 Overall_grouped = “61~66” 에 대응하는 박스플랏의 x축위치로 설정</p></li>
+<li><p>Overall_grouped = “66&lt;” 에 대응하는 점들을 모두 뽑아서 mean(Overall)를 계산하고 그 값을 Overall_grouped = “66&lt;” 에 대응하는 박스플랏의 x축위치로 설정</p></li>
+</ul>
+<div id="68f5a654-5e4d-4282-9d17-ba0aaa7783c6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>).query(<span class="st">'Potential2 &gt; 1'</span>)<span class="op">\</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>.assign(Overall_grouped<span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(f,df.Overall)))<span class="op">\</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>.query(<span class="st">"Overall_grouped == '66&lt;'"</span>).Overall.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(방법1)</p>
+<div id="417c5762-6540-4903-a328-b9eaf275bc17" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="kw">def</span> g(x):</span>
+<span id="cb42-2"><a href="#cb42-2"></a>    <span class="cf">if</span> x<span class="op">==</span><span class="st">'66&lt;'</span>: </span>
+<span id="cb42-3"><a href="#cb42-3"></a>        y<span class="op">=</span> <span class="fl">71.8127687727423</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>    <span class="cf">elif</span> x<span class="op">==</span><span class="st">'61~66'</span>:</span>
+<span id="cb42-5"><a href="#cb42-5"></a>        y<span class="op">=</span> <span class="fl">63.773918342474104</span></span>
+<span id="cb42-6"><a href="#cb42-6"></a>    <span class="cf">elif</span> x<span class="op">==</span><span class="st">'56~61'</span>:</span>
+<span id="cb42-7"><a href="#cb42-7"></a>        y<span class="op">=</span> <span class="fl">59.155840684309005</span></span>
+<span id="cb42-8"><a href="#cb42-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb42-9"><a href="#cb42-9"></a>        y<span class="op">=</span> <span class="fl">52.87743190661479</span></span>
+<span id="cb42-10"><a href="#cb42-10"></a>    <span class="cf">return</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c6feb07b-b547-433a-8579-e14a5f9aa02d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>).query(<span class="st">'Potential2 &gt; 1'</span>)<span class="op">\</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>.assign(Overall_grouped<span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(f,df.Overall)))<span class="op">\</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>.assign(Overall_x<span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(g,df.Overall_grouped)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="bae6e6de-76a9-4ebb-8d23-2e7f9951c2a8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>df2<span class="op">=</span> df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>).query(<span class="st">'Potential2 &gt; 1'</span>)<span class="op">\</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>.assign(Overall_grouped<span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(f,df.Overall)))<span class="op">\</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>.assign(Overall_x<span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(g,df.Overall_grouped)))</span>
+<span id="cb44-4"><a href="#cb44-4"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="13dbf1e3-16b1-443f-8f41-02b85a30406d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>ggplot(data<span class="op">=</span>df2)<span class="op">\</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="op">+</span>geom_point(aes(x<span class="op">=</span><span class="st">'Overall'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>,color<span class="op">=</span><span class="st">'Overall_grouped'</span>),position<span class="op">=</span><span class="st">'jitter'</span>,alpha<span class="op">=</span><span class="fl">0.05</span>)<span class="op">\</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="op">+</span>geom_boxplot(aes(x<span class="op">=</span><span class="st">'Overall_x'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>,color<span class="op">=</span><span class="st">'Overall_grouped'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-45-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>(방법2)</p>
+<div id="d3e851f6-3115-4bd7-abd2-05feb58ead12" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>_df <span class="op">=</span> df.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential - Overall'</span>).query(<span class="st">'Potential2 &gt; 1'</span>)<span class="op">\</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>.assign(Overall_grouped<span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(f,df.Overall)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="29096a01-c1e9-495d-ac4b-aaed47d2a27b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>df3<span class="op">=</span>_df.groupby(by<span class="op">=</span><span class="st">"Overall_grouped"</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()<span class="op">\</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>.rename(columns<span class="op">=</span>{<span class="st">'Overall'</span>:<span class="st">'Overall_x'</span>}).merge(_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="35559458-82d7-4ab8-9ac2-89db08e86f69" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>ggplot(data<span class="op">=</span>df3)<span class="op">\</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="op">+</span>geom_point(aes(x<span class="op">=</span><span class="st">'Overall'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>,color<span class="op">=</span><span class="st">'Overall_grouped'</span>),position<span class="op">=</span><span class="st">'jitter'</span>,alpha<span class="op">=</span><span class="fl">0.05</span>)<span class="op">\</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="op">+</span>geom_boxplot(aes(x<span class="op">=</span><span class="st">'Overall_x'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>,color<span class="op">=</span><span class="st">'Overall_grouped'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="fifa22-데이터분석" class="level1">
+<h1>FIFA22 데이터분석</h1>
+<p>데이터시각화 중간고사문제에서 발췌</p>
+<p>아래의 코드를 활용하여 FIFA22의 자료를 불러온뒤 물음에 답하라.</p>
+<div id="9ef2588d-e0f3-491a-a275-b7cd6065841a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)</span>
+<span id="cb49-2"><a href="#cb49-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>(1)</code> 연령별로 선수들의 잠재력을 시각화하고 싶다. 여기에서 잠재력은 아래의 수식의 Potential2를 의미한다.</p>
+<pre><code>Potential2 = Potential - Overall</code></pre>
+<p>아래의 세부지침에 맞추어 연령별 Potential2의 산점도와 boxplot을 그려라. – (10점)</p>
+<p><strong>(세부지침)</strong></p>
+<p><strong>step1</strong>: 결측치가 가장 많은 2개의 컬럼을 찾고 이를 제거하라.</p>
+<p><strong>step2</strong>: dropna()를 이용하여 결측치를 제거하라.</p>
+<p><strong>step3</strong>: Potential2 = Potential - Overall 를 이용하여 Potential2를 구하라.</p>
+<p><strong>step4</strong>: 구간 [0,20,22,26,100]를 설정하고 이를 기준으로 Age를 그룹화하라. (총 4개의 그룹으로 나누어져야 한다)</p>
+<p><strong>step5</strong>: 그룹화된 Age를 x축으로, Potential2를 y축으로, 색깔을 그룹화된 Age로 설정한 뒤 산점도와 박스플랏을 겹쳐그려라. - 산점도의 파라메터: alpha=0.5,size=0.1,position=‘jitter’ - 박스플랏의 파라메터: alpha=0.8</p>
+<p>(풀이)</p>
+<div id="608a34e7-ee9e-4fb8-91f6-21208e09319c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 16710 entries, 0 to 16709
+Data columns (total 65 columns):
+ #   Column                    Non-Null Count  Dtype  
+---  ------                    --------------  -----  
+ 0   ID                        16710 non-null  int64  
+ 1   Name                      16710 non-null  object 
+ 2   Age                       16710 non-null  int64  
+ 3   Photo                     16710 non-null  object 
+ 4   Nationality               16710 non-null  object 
+ 5   Flag                      16710 non-null  object 
+ 6   Overall                   16710 non-null  int64  
+ 7   Potential                 16710 non-null  int64  
+ 8   Club                      16446 non-null  object 
+ 9   Club Logo                 16710 non-null  object 
+ 10  Value                     16710 non-null  object 
+ 11  Wage                      16710 non-null  object 
+ 12  Special                   16710 non-null  int64  
+ 13  Preferred Foot            16710 non-null  object 
+ 14  International Reputation  16710 non-null  float64
+ 15  Weak Foot                 16710 non-null  float64
+ 16  Skill Moves               16710 non-null  float64
+ 17  Work Rate                 16710 non-null  object 
+ 18  Body Type                 16681 non-null  object 
+ 19  Real Face                 16681 non-null  object 
+ 20  Position                  16684 non-null  object 
+ 21  Jersey Number             16684 non-null  float64
+ 22  Joined                    15198 non-null  object 
+ 23  Loaned From               1132 non-null   object 
+ 24  Contract Valid Until      16359 non-null  object 
+ 25  Height                    16710 non-null  object 
+ 26  Weight                    16710 non-null  object 
+ 27  Crossing                  16710 non-null  float64
+ 28  Finishing                 16710 non-null  float64
+ 29  HeadingAccuracy           16710 non-null  float64
+ 30  ShortPassing              16710 non-null  float64
+ 31  Volleys                   16673 non-null  float64
+ 32  Dribbling                 16710 non-null  float64
+ 33  Curve                     16673 non-null  float64
+ 34  FKAccuracy                16710 non-null  float64
+ 35  LongPassing               16710 non-null  float64
+ 36  BallControl               16710 non-null  float64
+ 37  Acceleration              16710 non-null  float64
+ 38  SprintSpeed               16710 non-null  float64
+ 39  Agility                   16673 non-null  float64
+ 40  Reactions                 16710 non-null  float64
+ 41  Balance                   16673 non-null  float64
+ 42  ShotPower                 16710 non-null  float64
+ 43  Jumping                   16673 non-null  float64
+ 44  Stamina                   16710 non-null  float64
+ 45  Strength                  16710 non-null  float64
+ 46  LongShots                 16710 non-null  float64
+ 47  Aggression                16710 non-null  float64
+ 48  Interceptions             16702 non-null  float64
+ 49  Positioning               16702 non-null  float64
+ 50  Vision                    16673 non-null  float64
+ 51  Penalties                 16710 non-null  float64
+ 52  Composure                 16459 non-null  float64
+ 53  Marking                   892 non-null    float64
+ 54  StandingTackle            16710 non-null  float64
+ 55  SlidingTackle             16673 non-null  float64
+ 56  GKDiving                  16710 non-null  float64
+ 57  GKHandling                16710 non-null  float64
+ 58  GKKicking                 16710 non-null  float64
+ 59  GKPositioning             16710 non-null  float64
+ 60  GKReflexes                16710 non-null  float64
+ 61  Best Position             16710 non-null  object 
+ 62  Best Overall Rating       16710 non-null  float64
+ 63  Release Clause            14961 non-null  object 
+ 64  DefensiveAwareness        15818 non-null  float64
+dtypes: float64(40), int64(5), object(20)
+memory usage: 8.3+ MB</code></pre>
+</div>
+</div>
+<ul>
+<li>’Loaned From’와 ’Marking’이 가장 결측치가 많이 포함되어있음</li>
+</ul>
+<div id="31a08ca8-ad1d-44f7-9f14-7e715ca523ec" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>data1<span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'Loaned From'</span>, <span class="st">'Marking'</span>]).dropna()<span class="op">\</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>.<span class="bu">eval</span>(<span class="st">'Potential2 = Potential- Overall'</span>)<span class="op">\</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>.assign(Age <span class="op">=</span> <span class="kw">lambda</span> df: pd.cut(df[<span class="st">'Age'</span>],[<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">26</span>,<span class="dv">100</span>]))</span>
+<span id="cb53-4"><a href="#cb53-4"></a>data1 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="96a60893-36c8-40ee-a939-6d1a6b3250bb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>fig <span class="op">=</span> ggplot(data<span class="op">=</span>data1)</span>
+<span id="cb54-2"><a href="#cb54-2"></a>scatter <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>,colour<span class="op">=</span><span class="st">'Age'</span>),alpha<span class="op">=</span><span class="fl">0.5</span>,size<span class="op">=</span><span class="fl">0.1</span>,position<span class="op">=</span><span class="st">'jitter'</span>)</span>
+<span id="cb54-3"><a href="#cb54-3"></a>boxplot <span class="op">=</span> geom_boxplot(aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'Potential2'</span>,colour<span class="op">=</span><span class="st">'Age'</span>),alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb54-4"><a href="#cb54-4"></a>fig<span class="op">+</span>scatter<span class="op">+</span>boxplot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-52-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>채점기준: Age의 Label을 사용하지 않아도 만점으로 인정함.</li>
+</ul>
+<p><code>(2)</code> 포지션별로 선수들의 능력치와 Wage를 시각화하고 싶다. 아래의 dictionary를 이용하여 Position을 재정의하라.</p>
+<div id="e12e6035-cde0-4218-97b0-3ff2bbc2f134" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>position_dict <span class="op">=</span> {</span>
+<span id="cb55-2"><a href="#cb55-2"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
+<span id="cb55-3"><a href="#cb55-3"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
+<span id="cb55-4"><a href="#cb55-4"></a>    <span class="st">'MIDFIELDER'</span>:{<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>},</span>
+<span id="cb55-5"><a href="#cb55-5"></a>    <span class="st">'FORWARD'</span>:{<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>},</span>
+<span id="cb55-6"><a href="#cb55-6"></a>    <span class="st">'SUB'</span>:{<span class="st">'SUB'</span>},</span>
+<span id="cb55-7"><a href="#cb55-7"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
+<span id="cb55-8"><a href="#cb55-8"></a>}</span>
+<span id="cb55-9"><a href="#cb55-9"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>아래의 세부지침에 맞추어 포지션별 ShotPower와 SlidingTackle의 산점도를 그려라. – (30점)</p>
+<p><strong>세부지침</strong></p>
+<p><strong>step1</strong>: 결측치가 가장 많은 2개의 컬럼을 찾고 이를 제거하라.</p>
+<p><strong>step2</strong>: dropna()를 이용하여 결측치를 제거하라.</p>
+<p><strong>step3</strong>: hint1과 position_dict을 참고하여 Position을 적절하게 변환하라. (변환된 값을 Position으로 저장할 것)</p>
+<p><strong>step4</strong>: hint2를 참고하여 Wage를 적절하게 변환하라. (변환된 값을 Wage에 저장할 것)</p>
+<p><strong>step5</strong>: Position==“DEFENDER” or Position==“FORWARD”에 해당하는 관측치를 고른 뒤 x축에 ShotPower, y축에 SlidingTackle 을 시각화하라. Position은 color로 구분하고 Wage는 size와 alpha로 구분하라.</p>
+<p><strong>hint1</strong>: Position column의 변환을 위한 코드</p>
+<div id="b9cbc90a-8f20-47c2-86ac-c734d1e7f123" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">'&lt;span class="pos pos18"&gt;CAM'</span>.split(<span class="st">'&gt;'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>hint2</strong>: Wage column의 변환을 위한 함수</p>
+<div id="b10e44ef-1d11-4ff7-afe8-fabce6ba2fa0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb57-2"><a href="#cb57-2"></a>    <span class="cf">if</span> x[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'K'</span> :</span>
+<span id="cb57-3"><a href="#cb57-3"></a>        y<span class="op">=</span> <span class="bu">float</span>(x[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>])<span class="op">*</span><span class="dv">1000</span></span>
+<span id="cb57-4"><a href="#cb57-4"></a>    <span class="cf">elif</span> x[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'M'</span> : </span>
+<span id="cb57-5"><a href="#cb57-5"></a>        y<span class="op">=</span> <span class="bu">float</span>(x[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>])<span class="op">*</span><span class="dv">1000000</span></span>
+<span id="cb57-6"><a href="#cb57-6"></a>    <span class="cf">else</span>:</span>
+<span id="cb57-7"><a href="#cb57-7"></a>        y<span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb57-8"><a href="#cb57-8"></a>    <span class="cf">return</span> y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(풀이)</p>
+<div id="b597f535-7c13-4939-93a4-fd19c0438427" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>data2<span class="op">=</span>df.drop(columns<span class="op">=</span>[<span class="st">'Loaned From'</span>, <span class="st">'Marking'</span>]).dropna()<span class="op">\</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>.assign(Wage <span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(f,df[<span class="st">'Wage'</span>])))<span class="op">\</span></span>
+<span id="cb58-3"><a href="#cb58-3"></a>.assign(Position <span class="op">=</span> <span class="kw">lambda</span> df: <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x.split(<span class="st">'&gt;'</span>)[<span class="op">-</span><span class="dv">1</span>], df.Position)))<span class="op">\</span></span>
+<span id="cb58-4"><a href="#cb58-4"></a>.assign(Position <span class="op">=</span> <span class="kw">lambda</span> df: </span>
+<span id="cb58-5"><a href="#cb58-5"></a>        [key <span class="cf">for</span> x <span class="kw">in</span> df.Position <span class="cf">for</span> key <span class="kw">in</span> position_dict <span class="cf">if</span> x <span class="kw">in</span> position_dict[key]]</span>
+<span id="cb58-6"><a href="#cb58-6"></a>       )</span>
+<span id="cb58-7"><a href="#cb58-7"></a>data2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a2ef0d49-02a8-437a-a754-2b391650a694" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>fig <span class="op">=</span> ggplot(data<span class="op">=</span>data2.query(<span class="st">'Position=="DEFENDER" or Position=="FORWARD"'</span>))</span>
+<span id="cb59-2"><a href="#cb59-2"></a>scatter <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ShotPower'</span>,y<span class="op">=</span><span class="st">'SlidingTackle'</span>,color<span class="op">=</span><span class="st">'Position'</span>,size<span class="op">=</span><span class="st">'Wage'</span>,alpha<span class="op">=</span><span class="st">'Wage'</span>))</span>
+<span id="cb59-3"><a href="#cb59-3"></a>fig<span class="op">+</span>scatter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls17.out_files/figure-html/cell-57-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>채점기준: df[‘Position’]이 아니라 df[‘Best Position’]을 이용하여 자료를 변형하고 시각화 하는 경우 부분점수 없이 0점임</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      try { hash = new URL(url).hash; } catch {}
+      const id = hash.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note !== null) {
+        try {
+          const html = processXRef(id, note);
+          instance.setContent(html);
+        } finally {
+          instance.enable();
+          instance.show();
+        }
+      } else {
+        // See if we can fetch this
+        fetch(url.split('#')[0])
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.getElementById(id);
+          if (note !== null) {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
