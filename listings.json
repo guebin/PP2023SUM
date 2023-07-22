@@ -13,12 +13,9 @@
     ]
   },
   {
-    "listing": "/3_2.html",
+    "listing": "/1_3.html",
     "items": [
-      "/posts/Day3/08_ggplot2/ls15.html",
-      "/posts/Day3/08_ggplot2/ls16.html",
-      "/posts/Day3/08_ggplot2/ls17.html",
-      "/posts/Day3/08_ggplot2/ls18.html"
+      "/posts/Day1/03_Pandas/ls7.html"
     ]
   },
   {
@@ -61,9 +58,12 @@
     ]
   },
   {
-    "listing": "/1_3.html",
+    "listing": "/3_2.html",
     "items": [
-      "/posts/Day1/03_Pandas/ls7.html"
+      "/posts/Day3/08_ggplot2/ls15.html",
+      "/posts/Day3/08_ggplot2/ls16.html",
+      "/posts/Day3/08_ggplot2/ls17.html",
+      "/posts/Day3/08_ggplot2/ls18.html"
     ]
   },
   {
@@ -90,8 +90,7 @@
       "/posts/Day3/08_ggplot2/ls18.html",
       "/posts/Day3/09_PandasBackend/ls19.html",
       "/posts/Day3/09_PandasBackend/ls20.html",
-      "/posts/Day3/09_PandasBackend/ls21.html",
-      "/posts/Day1/Untitled.html"
+      "/posts/Day3/09_PandasBackend/ls21.html"
     ]
   }
 ]
