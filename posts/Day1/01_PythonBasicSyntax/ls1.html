@@ -1085,6 +1085,47 @@ This is equivalent to (real + imag*1j) where imag defaults to 0.
 <span id="cb182-5"><a href="#cb182-5"></a>(c) <span class="st">'a'</span><span class="op">+</span><span class="dv">2</span> </span>
 <span id="cb182-6"><a href="#cb182-6"></a></span>
 <span id="cb182-7"><a href="#cb182-7"></a>(d) <span class="st">'a'</span><span class="op">+</span><span class="st">'2'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>5</code>. 아래의 예제를 관찰하라.</p>
+<div id="6424a2a6-8c92-4578-81ae-ce637dcdff61" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb183-1"><a href="#cb183-1"></a><span class="co">'제 이름은 {}입니다'</span>.<span class="bu">format</span>(<span class="st">'최규빈'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>'제 이름은 최규빈입니다'</code></pre>
+</div>
+</div>
+<div id="afa316ca-a364-4c52-a18b-d03ba187a56c" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb185-1"><a href="#cb185-1"></a><span class="co">'제 이름은 {}이고 사는곳은 {}입니다.'</span>.<span class="bu">format</span>(<span class="st">'최규빈'</span>,<span class="st">'전주'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>'제 이름은 최규빈이고 사는곳은 전주입니다.'</code></pre>
+</div>
+</div>
+<p>이 예제를 바탕으로 문자열에 포함된 <code>.format()</code>함수의 기능을 유추하라. 그리고 아래의 결과를 확인하라.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb187-1"><a href="#cb187-1"></a>string <span class="op">=</span> <span class="st">'전북대학교 학생엠티가 </span><span class="sc">{}</span><span class="st">월</span><span class="sc">{}</span><span class="st">일-</span><span class="sc">{}</span><span class="st">월</span><span class="sc">{}</span><span class="st">일 완주 곶감펜션에서 있다고 합니다. 자세한 일정 등은 다시 공지하겠습니다.'</span> </span>
+<span id="cb187-2"><a href="#cb187-2"></a>string.<span class="bu">format</span>(<span class="dv">3</span>,<span class="dv">24</span>,<span class="dv">3</span>,<span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ChatGPT를 활용하여 <code>.format()</code>함수의 기능을 학습하라.</p>
+<p><code>6</code>. 아래의 예제를 관찰하라.</p>
+<div id="a324f70a-0ec3-4de9-9837-841cc1ef3120" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb188-1"><a href="#cb188-1"></a><span class="co">'abcdefg'</span>.replace(<span class="st">'g'</span>,<span class="st">'u'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>'abcdefu'</code></pre>
+</div>
+</div>
+<p>이 예제를 바탕으로 문자열의 <code>.replace()</code> 기능을 유추하라. 유추한 기능을 chatGPT로 확인하라.</p>
+<p><code>7</code>. 아래의 코드를 관찰하라.</p>
+<div id="923876ce-5f24-48a5-a860-2a755fee70fe" class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb190-1"><a href="#cb190-1"></a><span class="co">'2023-03-22'</span>.split(<span class="st">'-'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<pre><code>['2023', '03', '22']</code></pre>
+</div>
+</div>
+<p>이 코드를 바탕으로 split의 기능을 유추하라. 유추한 기능을 chatGPT로 확인하라.</p>
+<p><code>8</code>. 아래의 코드를 관찰하라.</p>
+<div id="cc34c667-ab0c-408d-b1bc-e1471344f013" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1"></a><span class="co">'a'</span> <span class="kw">in</span> <span class="st">'abcd'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>이 코드를 바탕으로 in 의 사용방법을 유추하라. 유추한 기능을 chatGPT로 확인하라.</p>
 
 
 </section>
