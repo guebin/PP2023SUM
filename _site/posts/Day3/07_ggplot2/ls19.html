@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-07-26">
 
-<title>2023년도 하계 WORKSHOP - Lesson 19: 심슨의 역설</title>
+<title>2023년도 하계 WORKSHOP - Lesson 19: 아이스크림을 많이 먹으면 걸리는 병</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -152,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lesson 19: 심슨의 역설</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lesson 19: 아이스크림을 많이 먹으면 걸리는 병</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -263,25 +263,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ref" id="toc-ref" class="nav-link active" data-scroll-target="#ref">ref</a></li>
-  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
-  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot">barplot</a>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#아이스크림을-많이-먹으면-걸리는-병-1" id="toc-아이스크림을-많이-먹으면-걸리는-병-1" class="nav-link" data-scroll-target="#아이스크림을-많이-먹으면-걸리는-병-1">아이스크림을 많이 먹으면 걸리는 병 (1)</a>
   <ul class="collapse">
-  <li><a href="#geom_col" id="toc-geom_col" class="nav-link" data-scroll-target="#geom_col">geom_col</a></li>
-  <li><a href="#geom_col-positiondodge" id="toc-geom_col-positiondodge" class="nav-link" data-scroll-target="#geom_col-positiondodge">geom_col + position=‘dodge’</a></li>
-  <li><a href="#geom_col-coord_flip" id="toc-geom_col-coord_flip" class="nav-link" data-scroll-target="#geom_col-coord_flip">geom_col + coord_flip()</a></li>
-  <li><a href="#geom_col-facet_wrapvar" id="toc-geom_col-facet_wrapvar" class="nav-link" data-scroll-target="#geom_col-facet_wrapvar">geom_col + facet_wrap(var)</a></li>
-  <li><a href="#geom_col-facet_gridvar_y-var_x" id="toc-geom_col-facet_gridvar_y-var_x" class="nav-link" data-scroll-target="#geom_col-facet_gridvar_y-var_x">geom_col + facet_grid(‘var_y ~ var_x’)</a></li>
-  <li><a href="#geom_bar-vs-geom_col" id="toc-geom_bar-vs-geom_col" class="nav-link" data-scroll-target="#geom_bar-vs-geom_col">geom_bar vs geom_col</a></li>
-  <li><a href="#geom_bar의-불편한점" id="toc-geom_bar의-불편한점" class="nav-link" data-scroll-target="#geom_bar의-불편한점">geom_bar()의 불편한점</a></li>
+  <li><a href="#toy-exam" id="toc-toy-exam" class="nav-link" data-scroll-target="#toy-exam">Toy exam</a></li>
   </ul></li>
-  <li><a href="#심슨의-역설" id="toc-심슨의-역설" class="nav-link" data-scroll-target="#심슨의-역설">심슨의 역설</a>
+  <li><a href="#아이스크림을-많이-먹으면-걸리는-병-2" id="toc-아이스크림을-많이-먹으면-걸리는-병-2" class="nav-link" data-scroll-target="#아이스크림을-많이-먹으면-걸리는-병-2">아이스크림을 많이 먹으면 걸리는 병 (2)</a>
   <ul class="collapse">
-  <li><a href="#시각화1-전체합격률" id="toc-시각화1-전체합격률" class="nav-link" data-scroll-target="#시각화1-전체합격률">시각화1: 전체합격률</a></li>
-  <li><a href="#시각화2-학과별-합격률" id="toc-시각화2-학과별-합격률" class="nav-link" data-scroll-target="#시각화2-학과별-합격률">시각화2: 학과별 합격률</a></li>
+  <li><a href="#자료생성-좀-더-그럴듯한-자료-만들기" id="toc-자료생성-좀-더-그럴듯한-자료-만들기" class="nav-link" data-scroll-target="#자료생성-좀-더-그럴듯한-자료-만들기">자료생성: 좀 더 그럴듯한 자료 (만들기)</a>
+  <ul class="collapse">
+  <li><a href="#숨은진짜상황1-온도-to-아이스크림-판매량" id="toc-숨은진짜상황1-온도-to-아이스크림-판매량" class="nav-link" data-scroll-target="#숨은진짜상황1-온도-to-아이스크림-판매량"><code>#</code> 숨은진짜상황1: 온도 <span class="math inline">\(\to\)</span> 아이스크림 판매량</a></li>
+  <li><a href="#숨은진짜상황2-온도-to-소아마비-반응수치" id="toc-숨은진짜상황2-온도-to-소아마비-반응수치" class="nav-link" data-scroll-target="#숨은진짜상황2-온도-to-소아마비-반응수치"><code>#</code> 숨은진짜상황2: 온도 <span class="math inline">\(\to\)</span> 소아마비 반응수치</a></li>
+  <li><a href="#우리가-관측한-상황-온도는-은닉되어있음" id="toc-우리가-관측한-상황-온도는-은닉되어있음" class="nav-link" data-scroll-target="#우리가-관측한-상황-온도는-은닉되어있음"><code>#</code> 우리가 관측한 상황 (온도는 은닉되어있음)</a></li>
   </ul></li>
-  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">HW</a></li>
-  <li><a href="#hw-1" id="toc-hw-1" class="nav-link" data-scroll-target="#hw-1">HW</a></li>
+  <li><a href="#직관-여름만-뽑아서-plot-해보자." id="toc-직관-여름만-뽑아서-plot-해보자." class="nav-link" data-scroll-target="#직관-여름만-뽑아서-plot-해보자.">직관: 여름만 뽑아서 plot 해보자.</a></li>
+  <li><a href="#ggplot-온도구간을-세분화-하여-시각화" id="toc-ggplot-온도구간을-세분화-하여-시각화" class="nav-link" data-scroll-target="#ggplot-온도구간을-세분화-하여-시각화">ggplot: 온도구간을 세분화 하여 시각화</a>
+  <ul class="collapse">
+  <li><a href="#구간세분화" id="toc-구간세분화" class="nav-link" data-scroll-target="#구간세분화"><code>#</code> 구간세분화</a></li>
+  <li><a href="#ggplot" id="toc-ggplot" class="nav-link" data-scroll-target="#ggplot"><code>#</code> ggplot</a></li>
+  <li><a href="#해석" id="toc-해석" class="nav-link" data-scroll-target="#해석"><code>#</code> 해석</a></li>
+  </ul></li>
+  <li><a href="#그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면" id="toc-그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면" class="nav-link" data-scroll-target="#그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면">그냥 궁금해서: 진짜 만약에 아이스크림과 소아마비가 관련있는 경우라면?</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ls19.out.ipynb" download="ls19.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
@@ -290,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lesson 19: 심슨의 역설</h1>
+<h1 class="title">Lesson 19: 아이스크림을 많이 먹으면 걸리는 병</h1>
 </div>
 
 
@@ -317,695 +320,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><a href="https://colab.research.google.com/github/guebin/IP2023WIN/blob/main/posts/Day3/08_ggplot2/2023-02-01-Lesson19.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<section id="ref" class="level1">
-<h1>ref</h1>
-<p><a href="https://guebin.github.io/DV2022/posts/2022-11-07-10wk-1.html#barplot" class="uri">https://guebin.github.io/DV2022/posts/2022-11-07-10wk-1.html#barplot</a></p>
-<p><a href="https://guebin.github.io/DV2022/posts/2022-11-09-10wk-2.html#심슨의-역설" class="uri">https://guebin.github.io/DV2022/posts/2022-11-09-10wk-2.html#심슨의-역설</a></p>
-</section>
+<p><a href="https://colab.research.google.com/github/guebin/IP2023WIN/blob/main/posts/Day3/08_ggplot2/2023-02-01-Lesson17.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div id="15901c5b-e9c8-492a-8516-538c83a62f37" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="1">
+<div id="49180247-abad-48f8-8f2c-34d12d554cd2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="barplot" class="level1">
-<h1>barplot</h1>
-<div id="a1aef197-fcec-4b06-831c-317ee5dc0640" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="835">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)<span class="op">\</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>.query(<span class="st">'Nationality=="Korea Republic" or Nationality=="Japan"'</span>)<span class="op">\</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>[[<span class="st">'Nationality'</span>,<span class="st">'Overall'</span>,<span class="st">'Age'</span>]].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="835">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Overall</th>
-<th data-quarto-table-cell-role="th">Age</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Korea Republic</td>
-<td>89</td>
-<td>28</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Japan</td>
-<td>77</td>
-<td>28</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Japan</td>
-<td>73</td>
-<td>28</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Korea Republic</td>
-<td>72</td>
-<td>31</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Japan</td>
-<td>71</td>
-<td>28</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">456</td>
-<td>Japan</td>
-<td>59</td>
-<td>21</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">457</td>
-<td>Korea Republic</td>
-<td>60</td>
-<td>21</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">458</td>
-<td>Japan</td>
-<td>54</td>
-<td>17</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">459</td>
-<td>Korea Republic</td>
-<td>51</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">460</td>
-<td>Korea Republic</td>
-<td>58</td>
-<td>25</td>
-</tr>
-</tbody>
-</table>
-
-<p>461 rows × 3 columns</p>
+<section id="아이스크림을-많이-먹으면-걸리는-병-1" class="level1">
+<h1>아이스크림을 많이 먹으면 걸리는 병 (1)</h1>
+<p><code>-</code> ref- <a href="https://github.com/guebin/DV2022/blob/master/posts/ds.pdf">데이터 과학자의 사고법: 더 나은 선택을 위한 통계학적 통찰의 힘</a></p>
+<ul>
+<li>구매할만한 책입니다</li>
+</ul>
+<p><code>-</code> 내용요약</p>
+<ul>
+<li>여름 <span class="math inline">\(\to\)</span> 수영장 <span class="math inline">\(\to\)</span> 소아마비</li>
+<li>여름 <span class="math inline">\(\to\)</span> 아이스크림</li>
+<li>아이스크림과 소아마비는 상관관계가 높다: 아이스크림 성분중에서 소아마비를 유발하는 유해물질이 있을 것이다 (?)</li>
+</ul>
+<p><code>-</code> 아래와 같이 모형을 간단하게 하자.</p>
+<ul>
+<li>온도 <span class="math inline">\(\to\)</span> 소아마비</li>
+<li>온도 <span class="math inline">\(\to\)</span> 아이스크림</li>
+</ul>
+<section id="toy-exam" class="level2">
+<h2 class="anchored" data-anchor-id="toy-exam">Toy exam</h2>
+<p><code>-</code> 교재의 예제상황은 예를들면 아래와 같다.</p>
+<p>(숨은진짜상황1)</p>
+<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \epsilon\]</span></p>
+<div id="05c003a2-2698-409b-b7cf-1389ae54a450" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>np.random.seed(<span class="dv">1</span>) </span>
+<span id="cb2-2"><a href="#cb2-2"></a>temp<span class="op">=</span> np.array([<span class="op">-</span><span class="fl">10.2</span>, <span class="op">-</span><span class="fl">5.2</span>, <span class="fl">0.1</span>, <span class="fl">10.1</span>, <span class="fl">12.2</span>, <span class="fl">14.7</span>, </span>
+<span id="cb2-3"><a href="#cb2-3"></a>                <span class="fl">25.4</span>, <span class="fl">26.8</span>, <span class="fl">28.9</span>, <span class="fl">35.1</span>, <span class="fl">32.2</span>, <span class="fl">34.6</span>])</span>
+<span id="cb2-4"><a href="#cb2-4"></a>eps<span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">12</span>,scale<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>icecream<span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> temp <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<section id="geom_col" class="level2">
-<h2 class="anchored" data-anchor-id="geom_col">geom_col</h2>
-<p><code>-</code> 예시1: 한국과 일본의 평균능력치 비교</p>
-<div id="cdc35d4f-c409-4614-be02-7174720e4aab" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="765">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()</span>
-<span id="cb3-2"><a href="#cb3-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="765">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Overall</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>65.457627</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="4e377707-33fc-4d0d-a3ea-b9abaa41b9dc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="766">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d4b66f0a-3e6e-4b1b-9b8b-dd6c4593aaac" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>plt.plot(temp,icecream,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+<p><img src="ls19_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시2: 한국과 일본의 평균능력치 비교 (색상변경)</p>
-<div id="dd82f18e-73ea-479b-ad3c-f87b4c2bdc20" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="767">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()</span>
-<span id="cb5-2"><a href="#cb5-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="767">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Overall</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>65.457627</td>
-</tr>
-</tbody>
-</table>
-
+<ul>
+<li>온도와 아이스크림 판매량의 산점도</li>
+</ul>
+<p>(숨은진짜상황2)</p>
+<p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.5 \times \text{온도} + \epsilon\]</span> - 좌변은 소아마비임을 나타내는 어떠한 반응수치라고 생각하자.</p>
+<div id="d3599e18-7588-4317-8507-c97a509759e7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>np.random.seed(<span class="dv">2</span>) </span>
+<span id="cb4-2"><a href="#cb4-2"></a>eps <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">12</span>,scale<span class="op">=</span><span class="dv">5</span>) </span>
+<span id="cb4-3"><a href="#cb4-3"></a>disease <span class="op">=</span> <span class="dv">30</span><span class="op">+</span> temp<span class="op">*</span> <span class="fl">0.5</span> <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="af20bcb0-ca6c-497d-8d4d-a9bf09357ea4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.plot(temp,disease,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-</div>
-<div id="bd742ef5-de50-4e8a-a6fe-4b796871bd23" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="769">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#ggplot(data)+geom_col(aes(x='Nationality',y='Overall',color='Nationality'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>온도와 소아마비의 산점도</li>
+</ul>
+<p><strong>(우리가 데이터로부터 관측한 상황)</strong></p>
+<p><code>-</code> 아이스크림과 질병의 산점도를 그려보자.</p>
+<div id="63d7ba21-5a3a-400e-ab84-df62e9361f2e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.plot(icecream,disease,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls19_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시3: 한국과 일본의 평균연령 비교</p>
-<div id="68e87796-12aa-4006-8578-bba8bcd560b0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="770">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Age'</span>:np.mean}).reset_index()</span>
-<span id="cb7-2"><a href="#cb7-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="770">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Age</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>26.084507</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>27.158192</td>
-</tr>
-</tbody>
-</table>
-
+<ul>
+<li>양의 상관관계에 있다.</li>
+</ul>
+<p><code>-</code> 아이스크림 중 어떠한 물질이 소아마비를 일으키는것이 분명하므로 (인과성이 분명해보이니까) 아래와 같은 모형을 세우자. &lt;– 여기서부터 틀렸음</p>
+<p><span class="math display">\[{\tt disease}_i =\beta_0 +\beta_1 {\tt icecream}_i +\epsilon_i,\quad \textbf{for} ~~ i=1,2,\dots, 12\]</span></p>
+<p><code>-</code> 적절한 <span class="math inline">\(\beta_0\)</span>와 <span class="math inline">\(\beta_1\)</span>을 추정하면 우리는 아이스크림과 소아마비의 관계를 알 수 있다. &lt;– 틀린주장</p>
+<ul>
+<li>틀린 모형</li>
+<li>도데체 우리가 뭘 잘못했는가?</li>
+</ul>
+<p><code>-</code> 두 변수 사이에 상관관계가 있어도 실제 원인은 다른 변수에 숨겨져 있는 경우가 많다.</p>
+<p>(ex1)</p>
+<ul>
+<li>온도 <span class="math inline">\(\to\)</span> 익사</li>
+<li>온도 <span class="math inline">\(\to\)</span> 아이스크림</li>
+<li>아이스크림과 익사자도 양의 상관관계에 있을것이다.</li>
+<li>아이스크림을 먹이면 물에 빠져 죽는다 <span class="math inline">\(\to\)</span> 틀린주장</li>
+<li>사실 기온이 숨겨진 원인이다. 기온이 증가하면 아이스크림 판매량도 증가하고 폭염때문에 익사사고율도 높아지는 구조이다.</li>
+</ul>
+<p>(ex2)</p>
+<ul>
+<li>인구수 <span class="math inline">\(\to\)</span> 교회</li>
+<li>인구수 <span class="math inline">\(\to\)</span> 범죄건수</li>
+<li>지역별 교회와 범죄건수를 살펴보면 상관관계가 높게 나올것임</li>
+<li>교회를 지으면 범죄건수도 증가한다? <span class="math inline">\(\to\)</span> 틀린주장</li>
+<li>사실 인구가 숨겨진 요인임</li>
+</ul>
+<p><code>-</code> ex2, ex1에 대하여 바른 분석을 하려면?</p>
+<ul>
+<li>ex2: 인구가 비슷한 도시끼리 묶어서 비교해보면 교회와 범죄의 건수는 양의 상관관계에 있지 않을것임</li>
+<li>ex1: 온도가 비슷한 그룹끼리 묶어보자.</li>
+</ul>
+<p><code>-</code> 올바른 분석: 온도가 비슷한 그룹끼리 묶어서 그려보자. <span class="math inline">\(\to\)</span> 상관계수가 줄어들 것이다.</p>
+<div id="1be32e39-e7d3-442c-8187-49a1a6486741" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plt.plot(icecream[:<span class="dv">6</span>],disease[:<span class="dv">6</span>],<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-</div>
-<div id="b886b25b-03e1-4855-b349-09e368a4909f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="772">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Age'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1874550d-87eb-442a-8b96-b7d7b3f7ba16" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>plt.plot(icecream[<span class="dv">6</span>:],disease[<span class="dv">6</span>:],<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls19_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-</section>
-<section id="geom_col-positiondodge" class="level2">
-<h2 class="anchored" data-anchor-id="geom_col-positiondodge">geom_col + position=‘dodge’</h2>
-<p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치 비교</p>
-<div id="1d58af4f-5455-4799-ade3-643be780d3fb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="786">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="786">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">level_1</th>
-<th data-quarto-table-cell-role="th">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>Overall</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Japan</td>
-<td>Age</td>
-<td>26.084507</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Korea Republic</td>
-<td>Overall</td>
-<td>65.457627</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Korea Republic</td>
-<td>Age</td>
-<td>27.158192</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="515b600d-045e-4047-afda-aa3326aff2ef" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="788">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="geom_col-coord_flip" class="level2">
-<h2 class="anchored" data-anchor-id="geom_col-coord_flip">geom_col + coord_flip()</h2>
-<p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치 비교 (90도회전)</p>
-<div id="85047c21-a17e-4570-88aa-8bb4e011dfdf" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="789">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="789">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">level_1</th>
-<th data-quarto-table-cell-role="th">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>Overall</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Japan</td>
-<td>Age</td>
-<td>26.084507</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Korea Republic</td>
-<td>Overall</td>
-<td>65.457627</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Korea Republic</td>
-<td>Age</td>
-<td>27.158192</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="401aaa7a-63d8-4a2a-9516-e7ee5b7824a3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="790">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="op">+</span>coord_flip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="geom_col-facet_wrapvar" class="level2">
-<h2 class="anchored" data-anchor-id="geom_col-facet_wrapvar">geom_col + facet_wrap(var)</h2>
-<p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치 비교 (면분할)</p>
-<div id="8efc20bb-3bd2-41ec-94e7-c698267dcb2d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="791">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb13-3"><a href="#cb13-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="791">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">level_1</th>
-<th data-quarto-table-cell-role="th">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>Overall</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Japan</td>
-<td>Age</td>
-<td>26.084507</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Korea Republic</td>
-<td>Overall</td>
-<td>65.457627</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Korea Republic</td>
-<td>Age</td>
-<td>27.158192</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="0491c361-bb5f-4804-bf8f-ef1d89259418" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="795">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="op">+</span>facet_wrap(<span class="st">'level_1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 예시2: 한국과 일본의 평균연령+평균능력치 비교 (면분할)</p>
-<div id="33ff9053-6326-4b05-9357-f25424692c87" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="796">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb15-3"><a href="#cb15-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="796">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">level_1</th>
-<th data-quarto-table-cell-role="th">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>Overall</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Japan</td>
-<td>Age</td>
-<td>26.084507</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Korea Republic</td>
-<td>Overall</td>
-<td>65.457627</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Korea Republic</td>
-<td>Age</td>
-<td>27.158192</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="2b268e64-00ca-4561-bf3e-5f6d725078ec" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="797">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="op">+</span>facet_wrap(<span class="st">'Nationality'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="geom_col-facet_gridvar_y-var_x" class="level2">
-<h2 class="anchored" data-anchor-id="geom_col-facet_gridvar_y-var_x">geom_col + facet_grid(‘var_y ~ var_x’)</h2>
-<p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치+최대능력치 비교 (면분할)</p>
-<div id="b4a0e90b-0919-4bb3-ae2e-c334bfdf4ebb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="808">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:[np.mean,np.<span class="bu">max</span>],<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>.melt(ignore_index<span class="op">=</span><span class="va">False</span>).reset_index()</span>
-<span id="cb17-3"><a href="#cb17-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="808">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">variable_0</th>
-<th data-quarto-table-cell-role="th">variable_1</th>
-<th data-quarto-table-cell-role="th">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>Overall</td>
-<td>mean</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>Overall</td>
-<td>mean</td>
-<td>65.457627</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Japan</td>
-<td>Overall</td>
-<td>amax</td>
-<td>79.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Korea Republic</td>
-<td>Overall</td>
-<td>amax</td>
-<td>89.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Japan</td>
-<td>Age</td>
-<td>mean</td>
-<td>26.084507</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Korea Republic</td>
-<td>Age</td>
-<td>mean</td>
-<td>27.158192</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="d897e32e-1396-4494-a1f3-14782da4aa08" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="811">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(fill<span class="op">=</span><span class="st">'Nationality'</span>,x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="op">+</span>facet_grid(<span class="st">'variable_1~variable_0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="geom_bar-vs-geom_col" class="level2">
-<h2 class="anchored" data-anchor-id="geom_bar-vs-geom_col">geom_bar vs geom_col</h2>
-<p><code>-</code> 예시1: 한국과 일본의 단순 선수 숫자 비교 (with goem_col)</p>
-<div id="1097be74-e1eb-4f11-a253-d825ae6078a6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="820">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Age'</span>:<span class="st">'count'</span>}).reset_index().rename({<span class="st">'Age'</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb19-2"><a href="#cb19-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="820">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>284</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>177</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="051b412b-6c85-494b-97e4-d8ce96a74fc1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="821">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'count'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 예시2: 한국과 일본의 단순 선수 숫자 비교 (with goem_bar)</p>
-<div id="2df3d619-d3b6-450c-a218-9430078e0bf0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="823">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 <ul>
-<li>특징1: 원래 데이터프레임 그대로 하는게 아니라 뭔가 변형된 값이 출력 (정확하게는 groupby + count가 변형요소)</li>
-<li>특징2: y는 당연히 count이므로 y를 명시할 필요가 없음. (잘 생각해보면 명시하고 싶어도 명시할 수 없음, y는 groupby + count 에 의해서 계산된 값이고 df자체에는 존재하지 않음)</li>
+<li>진짜로 선형관계가 약해졌다..</li>
 </ul>
-<p><code>-</code> 이렇게 약속된 변형은 <code>stat='count'</code> 옵션 때문에 가능함</p>
-<ul>
-<li>stat=’count’는 그룹바이이후에 count를 하라는 의미</li>
-</ul>
-<div id="329541f6-6217-4829-8c79-9e4a4fc3a472" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="836">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> <code>stat='identity'</code> 로 옵션을 바꾸면 약속된 변환이 수행되지 않음</p>
-<ul>
-<li>stat=’identity’는 아무 변환도 하지말라는 의미</li>
-</ul>
-<div id="d5cbb1e3-25b0-4a57-81da-12a2fc164aa1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="837">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'identity'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>KeyError: 'y'</code></pre>
-</div>
-</div>
-<ul>
-<li>에러가난다.</li>
-</ul>
-<p>(참고) 사실 아래의 3개의 코드가 모두 같다. &lt;– 수업시간에 설명 X</p>
-<div id="999d756d-ea7b-4b45-a34d-926975b8ae88" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="839">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'..count..'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'count'</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'count'</span>) <span class="co"># y='..count..' 생략,</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>)) <span class="co"># y='..count..' 생략, stat='count' 생략</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="geom_bar의-불편한점" class="level2">
-<h2 class="anchored" data-anchor-id="geom_bar의-불편한점">geom_bar()의 불편한점</h2>
-<p><code>-</code> 사실 편하라고 만든것 같은데, 그닥 편하지 않음.</p>
-<ul>
-<li>편하라고 만든 점1: groupby를 자동으로 해줘서 groupby를 못하는 유저들이 사용하기 편리하게 함 -&gt; 그런데 우리는 groupby 잘함</li>
-<li>편하라고 만든 점2: groupby이후 count연산을 알아서 해줌 -&gt; 그런데 count연산만 알아서해주고 그 이외의 연산은 잘 지원안됨</li>
-</ul>
-<p><code>-</code> 결론: groupby + count 조합에서만 편리하고 나머지는 편하지 않다.</p>
-<p><code>-</code> 불편한 예시: 나라별 overall의 평균을 geom_bar()로 플랏해보라.</p>
-<div id="0a1e3721-b37b-44ef-a840-36c288d226ea" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="827">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>data<span class="op">=</span> df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()</span>
-<span id="cb26-2"><a href="#cb26-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="827">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Overall</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>65.457627</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="573c1bb9-20e0-4396-b638-ccc37fefa814" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="833">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>ggplot(data)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'identity'</span>)</span>
-<span id="cb27-2"><a href="#cb27-2"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 </section>
 </section>
-<section id="심슨의-역설" class="level1">
-<h1>심슨의 역설</h1>
-<p><code>-</code> 버클리대학교의 입학데이터</p>
-<ul>
-<li><a href="https://github.com/guebin/DV2022/blob/master/_notebooks/ds.pdf" class="uri">https://github.com/guebin/DV2022/blob/master/_notebooks/ds.pdf</a></li>
-</ul>
-<p><code>-</code> 주장: 버클리대학에 gender bias가 존재한다.</p>
-<ul>
-<li>1973년 가을학기의 입학통계에 따르면 지원하는 남성이 여성보다 훨씬 많이 합격했고, 그 차이가 너무 커서 우연의 일치라 보기 어렵다.</li>
-</ul>
-<div id="fe2654b3-0bad-479e-ad65-f441f87c3bd4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>,header<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])<span class="op">\</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>.stack().stack().reset_index()<span class="op">\</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a>.rename({<span class="st">'level_0'</span>:<span class="st">'department'</span>,<span class="st">'level_1'</span>:<span class="st">'result'</span>,<span class="st">'level_2'</span>:<span class="st">'gender'</span>,<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb28-4"><a href="#cb28-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="아이스크림을-많이-먹으면-걸리는-병-2" class="level1">
+<h1>아이스크림을 많이 먹으면 걸리는 병 (2)</h1>
+<section id="자료생성-좀-더-그럴듯한-자료-만들기" class="level2">
+<h2 class="anchored" data-anchor-id="자료생성-좀-더-그럴듯한-자료-만들기">자료생성: 좀 더 그럴듯한 자료 (만들기)</h2>
+<p><code>-</code> 지난 시간의 toy example은 데이터가 너무 작아서 억지스러움 <span class="math inline">\(\to\)</span> <a href="https://data.kma.go.kr/cmmn/main.do">기상자료개방포털</a>, 회원가입해야 자료받을 수 있음.</p>
+<div id="6331f68b-1b5e-493f-b105-36dedd93ea2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>_df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/temp.csv'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -1014,1024 +458,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">result</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">지점번호</th>
+<th data-quarto-table-cell-role="th">지점명</th>
+<th data-quarto-table-cell-role="th">일시</th>
+<th data-quarto-table-cell-role="th">평균기온(℃)</th>
+<th data-quarto-table-cell-role="th">최고기온(℃)</th>
+<th data-quarto-table-cell-role="th">최고기온시각</th>
+<th data-quarto-table-cell-role="th">최저기온(℃)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>fail</td>
-<td>female</td>
-<td>19</td>
+<td>146</td>
+<td>전주</td>
+<td>2020-01-01</td>
+<td>-0.5</td>
+<td>4.3</td>
+<td>15:09</td>
+<td>-6.4</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>fail</td>
-<td>male</td>
-<td>314</td>
+<td>146</td>
+<td>전주</td>
+<td>2020-01-02</td>
+<td>1.4</td>
+<td>6.5</td>
+<td>14:12</td>
+<td>-3.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>A</td>
-<td>pass</td>
-<td>female</td>
-<td>89</td>
+<td>146</td>
+<td>전주</td>
+<td>2020-01-03</td>
+<td>2.6</td>
+<td>7.6</td>
+<td>13:32</td>
+<td>-0.5</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>A</td>
-<td>pass</td>
-<td>male</td>
-<td>511</td>
+<td>146</td>
+<td>전주</td>
+<td>2020-01-04</td>
+<td>2.0</td>
+<td>7.7</td>
+<td>13:51</td>
+<td>-2.6</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>B</td>
-<td>fail</td>
-<td>female</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>B</td>
-<td>fail</td>
-<td>male</td>
-<td>208</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>B</td>
-<td>pass</td>
-<td>female</td>
-<td>18</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>B</td>
-<td>pass</td>
-<td>male</td>
-<td>352</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>C</td>
-<td>fail</td>
-<td>female</td>
-<td>391</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>C</td>
-<td>fail</td>
-<td>male</td>
-<td>204</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>C</td>
-<td>pass</td>
-<td>female</td>
-<td>202</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>C</td>
-<td>pass</td>
-<td>male</td>
-<td>121</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>D</td>
-<td>fail</td>
-<td>female</td>
-<td>244</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>D</td>
-<td>fail</td>
-<td>male</td>
-<td>279</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>D</td>
-<td>pass</td>
-<td>female</td>
-<td>131</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>D</td>
-<td>pass</td>
-<td>male</td>
-<td>138</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>E</td>
-<td>fail</td>
-<td>female</td>
-<td>299</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">17</td>
-<td>E</td>
-<td>fail</td>
-<td>male</td>
-<td>137</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">18</td>
-<td>E</td>
-<td>pass</td>
-<td>female</td>
-<td>94</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">19</td>
-<td>E</td>
-<td>pass</td>
-<td>male</td>
-<td>54</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">20</td>
-<td>F</td>
-<td>fail</td>
-<td>female</td>
-<td>103</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">21</td>
-<td>F</td>
-<td>fail</td>
-<td>male</td>
-<td>149</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">22</td>
-<td>F</td>
-<td>pass</td>
-<td>female</td>
-<td>238</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">23</td>
-<td>F</td>
-<td>pass</td>
-<td>male</td>
-<td>224</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<section id="시각화1-전체합격률" class="level2">
-<h2 class="anchored" data-anchor-id="시각화1-전체합격률">시각화1: 전체합격률</h2>
-<p><code>-</code> df1</p>
-<div id="25745d96-9e78-4c9d-816b-56b3d94f2d4b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">result</th>
-<th data-quarto-table-cell-role="th">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>female</td>
-<td>fail</td>
-<td>1063</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>female</td>
-<td>pass</td>
-<td>772</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>male</td>
-<td>fail</td>
-<td>1291</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>male</td>
-<td>pass</td>
-<td>1400</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> df2</p>
-<div id="74dfa00b-744d-4322-a667-a6f6bd7b52c7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>female</td>
-<td>1835</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>male</td>
-<td>2691</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> merge: 두개의 데이터프레임을 합친다</p>
-<div id="5220da8c-f12a-4bf7-9b12-dffbe5ab3a89" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">result</th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">count2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>female</td>
-<td>fail</td>
-<td>1063</td>
-<td>1835</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>female</td>
-<td>pass</td>
-<td>772</td>
-<td>1835</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>male</td>
-<td>fail</td>
-<td>1291</td>
-<td>2691</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>male</td>
-<td>pass</td>
-<td>1400</td>
-<td>2691</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 비율계산</p>
-<div id="600c3d40-462e-4066-b78e-f9610a21634f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">result</th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">count2</th>
-<th data-quarto-table-cell-role="th">rate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>female</td>
-<td>fail</td>
-<td>1063</td>
-<td>1835</td>
-<td>0.579292</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>female</td>
-<td>pass</td>
-<td>772</td>
-<td>1835</td>
-<td>0.420708</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>male</td>
-<td>fail</td>
-<td>1291</td>
-<td>2691</td>
-<td>0.479747</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>male</td>
-<td>pass</td>
-<td>1400</td>
-<td>2691</td>
-<td>0.520253</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 시각화</p>
-<div id="41daa713-18b7-42e9-b837-f4985f9ddd26" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>data1<span class="op">=</span> df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
-<span id="cb33-4"><a href="#cb33-4"></a>ggplot(data1.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 결론: 남자의 합격률이 더 높다. <span class="math inline">\(\to\)</span> 성차별이 있어보인다(?)</p>
-</section>
-<section id="시각화2-학과별-합격률" class="level2">
-<h2 class="anchored" data-anchor-id="시각화2-학과별-합격률">시각화2: 학과별 합격률</h2>
-<p><code>-</code> df2</p>
-<div id="c22158c9-d88e-4243-9c27-1060ee2ac5b3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>female</td>
-<td>108</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>male</td>
-<td>825</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>B</td>
-<td>female</td>
-<td>25</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>B</td>
-<td>male</td>
-<td>560</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>C</td>
-<td>female</td>
-<td>593</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>C</td>
-<td>male</td>
-<td>325</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>D</td>
-<td>female</td>
-<td>375</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>D</td>
-<td>male</td>
-<td>417</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>E</td>
-<td>female</td>
-<td>393</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>E</td>
-<td>male</td>
-<td>191</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>F</td>
-<td>female</td>
-<td>341</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>F</td>
-<td>male</td>
-<td>373</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> merge</p>
-<div id="77aff4b4-3a76-4d42-9aae-4e1372f12ef9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">result</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">count2</th>
-<th data-quarto-table-cell-role="th">rate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>fail</td>
-<td>female</td>
-<td>19</td>
-<td>108</td>
-<td>0.175926</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>pass</td>
-<td>female</td>
-<td>89</td>
-<td>108</td>
-<td>0.824074</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>A</td>
-<td>fail</td>
-<td>male</td>
-<td>314</td>
-<td>825</td>
-<td>0.380606</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>A</td>
-<td>pass</td>
-<td>male</td>
-<td>511</td>
-<td>825</td>
-<td>0.619394</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>B</td>
-<td>fail</td>
-<td>female</td>
-<td>7</td>
-<td>25</td>
-<td>0.280000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>B</td>
-<td>pass</td>
-<td>female</td>
-<td>18</td>
-<td>25</td>
-<td>0.720000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>B</td>
-<td>fail</td>
-<td>male</td>
-<td>208</td>
-<td>560</td>
-<td>0.371429</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>B</td>
-<td>pass</td>
-<td>male</td>
-<td>352</td>
-<td>560</td>
-<td>0.628571</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>C</td>
-<td>fail</td>
-<td>female</td>
-<td>391</td>
-<td>593</td>
-<td>0.659359</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>C</td>
-<td>pass</td>
-<td>female</td>
-<td>202</td>
-<td>593</td>
-<td>0.340641</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>C</td>
-<td>fail</td>
-<td>male</td>
-<td>204</td>
-<td>325</td>
-<td>0.627692</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>C</td>
-<td>pass</td>
-<td>male</td>
-<td>121</td>
-<td>325</td>
-<td>0.372308</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>D</td>
-<td>fail</td>
-<td>female</td>
-<td>244</td>
-<td>375</td>
-<td>0.650667</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>D</td>
-<td>pass</td>
-<td>female</td>
-<td>131</td>
-<td>375</td>
-<td>0.349333</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>D</td>
-<td>fail</td>
-<td>male</td>
-<td>279</td>
-<td>417</td>
-<td>0.669065</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>D</td>
-<td>pass</td>
-<td>male</td>
-<td>138</td>
-<td>417</td>
-<td>0.330935</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>E</td>
-<td>fail</td>
-<td>female</td>
-<td>299</td>
-<td>393</td>
-<td>0.760814</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">17</td>
-<td>E</td>
-<td>pass</td>
-<td>female</td>
-<td>94</td>
-<td>393</td>
-<td>0.239186</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">18</td>
-<td>E</td>
-<td>fail</td>
-<td>male</td>
-<td>137</td>
-<td>191</td>
-<td>0.717277</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">19</td>
-<td>E</td>
-<td>pass</td>
-<td>male</td>
-<td>54</td>
-<td>191</td>
-<td>0.282723</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">20</td>
-<td>F</td>
-<td>fail</td>
-<td>female</td>
-<td>103</td>
-<td>341</td>
-<td>0.302053</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">21</td>
-<td>F</td>
-<td>pass</td>
-<td>female</td>
-<td>238</td>
-<td>341</td>
-<td>0.697947</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">22</td>
-<td>F</td>
-<td>fail</td>
-<td>male</td>
-<td>149</td>
-<td>373</td>
-<td>0.399464</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">23</td>
-<td>F</td>
-<td>pass</td>
-<td>male</td>
-<td>224</td>
-<td>373</td>
-<td>0.600536</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 시각화</p>
-<div id="2afb855c-2430-4ecc-9c9e-08c0435d307e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>data2<span class="op">=</span>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
-<span id="cb36-3"><a href="#cb36-3"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))<span class="op">\</span></span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="op">+</span>facet_wrap(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>학과별로 살펴보니 오히려 A,B,F,D의 경우 여성의 합격률이 높다.</li>
-</ul>
-<p><code>-</code> 교재에서 설명한 이유: 여성이 합격률이 낮은 학과에만 많이 지원하였기 때문</p>
-<div id="c1eec845-0d17-4061-a1d3-eb696edd5e2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'department'</span>,y<span class="op">=</span><span class="st">'count2'</span>,fill<span class="op">=</span><span class="st">'gender'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>살펴보니 합격률이 높은 A,B학과의 경우 상대적으로 남성이 많이 지원하였음. 합격률이 낮은 C,D학과는 상대적으로 여성이 많이 지원함. D,F의 지원수는 비슷</li>
-</ul>
-</section>
-</section>
-<section id="hw" class="level1">
-<h1>HW</h1>
-<div id="9255b47f-7249-4747-a80e-ced5d6aa7cc2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson2.csv"</span>)</span>
-<span id="cb38-2"><a href="#cb38-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">result</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>fail</td>
-<td>female</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>fail</td>
-<td>male</td>
-<td>100</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>A</td>
-<td>pass</td>
-<td>female</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>A</td>
-<td>pass</td>
-<td>male</td>
-<td>900</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>B</td>
-<td>fail</td>
-<td>female</td>
-<td>400</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>B</td>
-<td>fail</td>
-<td>male</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>B</td>
-<td>pass</td>
-<td>female</td>
-<td>600</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>B</td>
-<td>pass</td>
-<td>male</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><code>-</code> 시각화1: 남녀합격률시각화</p>
-<div id="d07f9702-0d4e-45a8-a9b1-ce78e814a8c3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 시각화2: 학과별 남녀합격률 시각화</p>
-<div id="e8aa7c48-36c7-44ff-a90d-28b8f379a3b8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="330">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>A학과: 쓰면 거의 붙는 학과</li>
-<li>B학과: 쓰면 반정도 붙는 학과</li>
-</ul>
-<p><code>-</code> 시각화3: 학과별 지원자 수 시각화</p>
-<div id="0205927b-acbb-44ca-b723-7623ab73a447" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="332">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>여학생은 쓰면 붙는 A학과에는 거의 지원안함, 대신에 쓰면 반정도 붙는 B학과에 대부분 지원함</li>
-</ul>
-</section>
-<section id="hw-1" class="level1">
-<h1>HW</h1>
-<div id="48381a24-95f8-4e91-a30a-4f8eefc53147" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/HRDataset_v14.csv'</span>)</span>
-<span id="cb42-2"><a href="#cb42-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Employee_Name</th>
-<th data-quarto-table-cell-role="th">EmpID</th>
-<th data-quarto-table-cell-role="th">MarriedID</th>
-<th data-quarto-table-cell-role="th">MaritalStatusID</th>
-<th data-quarto-table-cell-role="th">GenderID</th>
-<th data-quarto-table-cell-role="th">EmpStatusID</th>
-<th data-quarto-table-cell-role="th">DeptID</th>
-<th data-quarto-table-cell-role="th">PerfScoreID</th>
-<th data-quarto-table-cell-role="th">FromDiversityJobFairID</th>
-<th data-quarto-table-cell-role="th">Salary</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">ManagerName</th>
-<th data-quarto-table-cell-role="th">ManagerID</th>
-<th data-quarto-table-cell-role="th">RecruitmentSource</th>
-<th data-quarto-table-cell-role="th">PerformanceScore</th>
-<th data-quarto-table-cell-role="th">EngagementSurvey</th>
-<th data-quarto-table-cell-role="th">EmpSatisfaction</th>
-<th data-quarto-table-cell-role="th">SpecialProjectsCount</th>
-<th data-quarto-table-cell-role="th">LastPerformanceReview_Date</th>
-<th data-quarto-table-cell-role="th">DaysLateLast30</th>
-<th data-quarto-table-cell-role="th">Absences</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Adinolfi, Wilson K</td>
-<td>10026</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>5</td>
-<td>4</td>
-<td>0</td>
-<td>62506</td>
-<td>...</td>
-<td>Michael Albert</td>
-<td>22.0</td>
-<td>LinkedIn</td>
-<td>Exceeds</td>
-<td>4.60</td>
-<td>5</td>
-<td>0</td>
-<td>1/17/2019</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Ait Sidi, Karthikeyan</td>
-<td>10084</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>5</td>
-<td>3</td>
-<td>3</td>
-<td>0</td>
-<td>104437</td>
-<td>...</td>
-<td>Simon Roup</td>
-<td>4.0</td>
-<td>Indeed</td>
-<td>Fully Meets</td>
-<td>4.96</td>
-<td>3</td>
-<td>6</td>
-<td>2/24/2016</td>
-<td>0</td>
-<td>17</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Akinkuolie, Sarah</td>
-<td>10196</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>5</td>
-<td>5</td>
-<td>3</td>
-<td>0</td>
-<td>64955</td>
-<td>...</td>
-<td>Kissy Sullivan</td>
-<td>20.0</td>
-<td>LinkedIn</td>
-<td>Fully Meets</td>
-<td>3.02</td>
-<td>3</td>
-<td>0</td>
-<td>5/15/2012</td>
-<td>0</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Alagbe,Trina</td>
-<td>10088</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>5</td>
-<td>3</td>
-<td>0</td>
-<td>64991</td>
-<td>...</td>
-<td>Elijiah Gray</td>
-<td>16.0</td>
-<td>Indeed</td>
-<td>Fully Meets</td>
-<td>4.84</td>
-<td>5</td>
-<td>0</td>
-<td>1/3/2019</td>
-<td>0</td>
-<td>15</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Anderson, Carol</td>
-<td>10069</td>
-<td>0</td>
-<td>2</td>
-<td>0</td>
-<td>5</td>
-<td>5</td>
-<td>3</td>
-<td>0</td>
-<td>50825</td>
-<td>...</td>
-<td>Webster Butler</td>
-<td>39.0</td>
-<td>Google Search</td>
-<td>Fully Meets</td>
-<td>5.00</td>
-<td>4</td>
-<td>0</td>
-<td>2/1/2016</td>
-<td>0</td>
-<td>2</td>
+<td>146</td>
+<td>전주</td>
+<td>2020-01-05</td>
+<td>2.5</td>
+<td>8.6</td>
+<td>14:05</td>
+<td>-3.2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">...</td>
@@ -2042,179 +527,685 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>...</td>
 <td>...</td>
 <td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">306</td>
-<td>Woodson, Jason</td>
-<td>10135</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>5</td>
-<td>3</td>
-<td>0</td>
-<td>65893</td>
-<td>...</td>
-<td>Kissy Sullivan</td>
-<td>20.0</td>
-<td>LinkedIn</td>
-<td>Fully Meets</td>
-<td>4.07</td>
-<td>4</td>
-<td>0</td>
-<td>2/28/2019</td>
-<td>0</td>
-<td>13</td>
+<td data-quarto-table-cell-role="th">651</td>
+<td>146</td>
+<td>전주</td>
+<td>2021-10-13</td>
+<td>19.9</td>
+<td>25.5</td>
+<td>14:29</td>
+<td>15.6</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">307</td>
-<td>Ybarra, Catherine</td>
-<td>10301</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>5</td>
-<td>5</td>
-<td>1</td>
-<td>0</td>
-<td>48513</td>
-<td>...</td>
-<td>Brannon Miller</td>
-<td>12.0</td>
-<td>Google Search</td>
-<td>PIP</td>
-<td>3.20</td>
-<td>2</td>
-<td>0</td>
-<td>9/2/2015</td>
-<td>5</td>
-<td>4</td>
+<td data-quarto-table-cell-role="th">652</td>
+<td>146</td>
+<td>전주</td>
+<td>2021-10-14</td>
+<td>20.4</td>
+<td>25.5</td>
+<td>13:36</td>
+<td>17.0</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">308</td>
-<td>Zamora, Jennifer</td>
-<td>10010</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>3</td>
-<td>4</td>
-<td>0</td>
-<td>220450</td>
-<td>...</td>
-<td>Janet King</td>
-<td>2.0</td>
-<td>Employee Referral</td>
-<td>Exceeds</td>
-<td>4.60</td>
-<td>5</td>
-<td>6</td>
-<td>2/21/2019</td>
-<td>0</td>
-<td>16</td>
+<td data-quarto-table-cell-role="th">653</td>
+<td>146</td>
+<td>전주</td>
+<td>2021-10-15</td>
+<td>18.3</td>
+<td>22.0</td>
+<td>13:47</td>
+<td>15.7</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">309</td>
-<td>Zhou, Julia</td>
-<td>10043</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>3</td>
-<td>3</td>
-<td>0</td>
-<td>89292</td>
-<td>...</td>
-<td>Simon Roup</td>
-<td>4.0</td>
-<td>Employee Referral</td>
-<td>Fully Meets</td>
-<td>5.00</td>
-<td>3</td>
-<td>5</td>
-<td>2/1/2019</td>
-<td>0</td>
-<td>11</td>
+<td data-quarto-table-cell-role="th">654</td>
+<td>146</td>
+<td>전주</td>
+<td>2021-10-16</td>
+<td>12.8</td>
+<td>17.4</td>
+<td>0:01</td>
+<td>6.5</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">310</td>
-<td>Zima, Colleen</td>
-<td>10271</td>
-<td>0</td>
-<td>4</td>
-<td>0</td>
-<td>1</td>
-<td>5</td>
-<td>3</td>
-<td>0</td>
-<td>45046</td>
-<td>...</td>
-<td>David Stanley</td>
-<td>14.0</td>
-<td>LinkedIn</td>
-<td>Fully Meets</td>
-<td>4.50</td>
-<td>5</td>
-<td>0</td>
-<td>1/30/2019</td>
-<td>0</td>
-<td>2</td>
+<td data-quarto-table-cell-role="th">655</td>
+<td>146</td>
+<td>전주</td>
+<td>2021-10-17</td>
+<td>6.7</td>
+<td>12.4</td>
+<td>15:18</td>
+<td>2.2</td>
 </tr>
 </tbody>
 </table>
 
-<p>311 rows × 36 columns</p>
+<p>656 rows × 7 columns</p>
 </div>
 </div>
 </div>
-<ol type="1">
-<li>성별(Sex) 평균급여(Salary)를 구하고 아래의 지침에 따라 시각화 하라.</li>
-</ol>
-<ul>
-<li>barplot으로 시각화</li>
-<li>성별을 색깔과 x축으로 구분</li>
-<li>평균급여는 y축으로 구분</li>
-</ul>
-<div id="d7ef2d02-b920-4c3f-a78a-e01952bc75f3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="849">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 평균기온만 선택</p>
+<div id="d62ea173-2905-45ed-a5f9-dbee209307ca" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>pd.Series(_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>0       지점번호
+1        지점명
+2         일시
+3    평균기온(℃)
+4    최고기온(℃)
+5     최고기온시각
+6    최저기온(℃)
+dtype: object</code></pre>
+</div>
+</div>
+<div id="41d53ee3-5675-4d85-907b-84ed04e3c214" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>temp <span class="op">=</span> np.array(_df.iloc[:,<span class="dv">3</span>])</span>
+<span id="cb12-2"><a href="#cb12-2"></a>temp[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>array([-0.5,  1.4,  2.6,  2. ,  2.5])</code></pre>
+</div>
+</div>
+<section id="숨은진짜상황1-온도-to-아이스크림-판매량" class="level3">
+<h3 class="anchored" data-anchor-id="숨은진짜상황1-온도-to-아이스크림-판매량"><code>#</code> 숨은진짜상황1: 온도 <span class="math inline">\(\to\)</span> 아이스크림 판매량</h3>
+<p><code>-</code> 아래와 같은 관계가 있다고 하자.</p>
+<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \epsilon\]</span></p>
+<div id="83ed06fc-2367-470b-abce-b752b61e4acb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>np.random.seed(<span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>eps <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp), scale<span class="op">=</span><span class="dv">10</span>) </span>
+<span id="cb14-3"><a href="#cb14-3"></a>icecream <span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>temp <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="5d1faf19-6fce-4839-bfea-0fd1cf0d83ea" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.plot(temp,icecream,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>plt.xlabel(<span class="st">"temp"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>plt.ylabel(<span class="st">"icecream"</span>,size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>Text(0, 0.5, 'icecream')</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-43-output-1.png" class="img-fluid"></p>
+<p><img src="ls19_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<ol start="2" type="1">
-<li>성별(Sex)/인종별(RaceDesc) 평균급여(Salary)를 구하고 아래의 지침에 따라 시각화 하라.</li>
-</ol>
-<ul>
-<li>barplot으로 시각화</li>
-<li>인종은 면분할로 구분</li>
-<li>성별은 x축과 색깔로 구분</li>
-<li>평균급여는 y축으로 구분</li>
-</ul>
-<div id="54bd13b3-5897-4e5c-bc77-c4e799f56e5c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="885">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="숨은진짜상황2-온도-to-소아마비-반응수치" class="level3">
+<h3 class="anchored" data-anchor-id="숨은진짜상황2-온도-to-소아마비-반응수치"><code>#</code> 숨은진짜상황2: 온도 <span class="math inline">\(\to\)</span> 소아마비 반응수치</h3>
+<p><code>-</code> 아래와 같은 관계가 있다고 하자.</p>
+<p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.5 \times \text{온도} + \epsilon\]</span></p>
+<div id="40e64f29-d45e-4f91-acce-0cde4dfa236a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>np.random.seed(<span class="dv">2</span>) </span>
+<span id="cb17-2"><a href="#cb17-2"></a>eps<span class="op">=</span>np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>disease<span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4602ea22-cde9-40b0-b34e-5183b3f284b8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>plt.plot(temp,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>plt.xlabel(<span class="st">"temp"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>plt.ylabel(<span class="st">"disease"</span>,size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>Text(0, 0.5, 'disease')</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="ls19_files/figure-html/cell-44-output-1.png" class="img-fluid"></p>
+<p><img src="ls19_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="우리가-관측한-상황-온도는-은닉되어있음" class="level3">
+<h3 class="anchored" data-anchor-id="우리가-관측한-상황-온도는-은닉되어있음"><code>#</code> 우리가 관측한 상황 (온도는 은닉되어있음)</h3>
+<div id="5ae145fa-afe7-4f95-aa86-69354159276a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>plt.plot(icecream,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a>plt.xlabel(<span class="st">"icecream"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>plt.ylabel(<span class="st">"disease"</span>,size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>Text(0, 0.5, 'disease')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="4a307733-f812-46c3-8ada-1ecc67b254b9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>np.corrcoef(icecream,disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>array([[1.        , 0.86298975],
+       [0.86298975, 1.        ]])</code></pre>
+</div>
+</div>
+<ul>
+<li>0.86정도..</li>
+</ul>
+</section>
+</section>
+<section id="직관-여름만-뽑아서-plot-해보자." class="level2">
+<h2 class="anchored" data-anchor-id="직관-여름만-뽑아서-plot-해보자.">직관: 여름만 뽑아서 plot 해보자.</h2>
+<p><code>-</code> temp&gt;25 (여름으로 간주) 인 관측치만 플랏</p>
+<div id="b6b8e8b4-c157-4450-bbcf-dfffe668f733" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>plt.plot(icecream[temp<span class="op">&gt;</span><span class="dv">25</span>],disease[temp<span class="op">&gt;</span><span class="dv">25</span>], <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C1'</span>) <span class="co">## 평균기온이 25도가 넘어가면 여름이라 생각 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 전체적인 산점도</p>
+<div id="6d225cd8-f00f-43fa-906d-46351324c46a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>fig , ((ax1,ax2), (ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>)) </span>
+<span id="cb25-2"><a href="#cb25-2"></a>ax1.plot(temp,icecream,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">;</span> ax1.set_xlabel(<span class="st">'temp'</span>)<span class="op">;</span> ax1.set_ylabel(<span class="st">'icecream'</span>)<span class="op">;</span> ax1.set_title(<span class="st">"hidden1"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>ax2.plot(temp,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">;</span> ax2.set_xlabel(<span class="st">'temp'</span>)<span class="op">;</span> ax2.set_ylabel(<span class="st">'disease'</span>)<span class="op">;</span> ax2.set_title(<span class="st">"hidden2"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4"></a>ax3.plot(icecream,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">;</span> ax3.set_xlabel(<span class="st">'icecream'</span>)<span class="op">;</span> ax3.set_ylabel(<span class="st">'disease'</span>)<span class="op">;</span> ax3.set_title(<span class="st">"observed"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5"></a>ax4.plot(icecream,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">;</span> ax4.set_xlabel(<span class="st">'icecream'</span>)<span class="op">;</span> ax4.set_ylabel(<span class="st">'disease'</span>)<span class="op">;</span> ax4.set_title(<span class="st">"observed"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6"></a>ax4.plot(icecream[temp<span class="op">&gt;</span><span class="dv">25</span>],disease[temp<span class="op">&gt;</span><span class="dv">25</span>],<span class="st">'o'</span>,label<span class="op">=</span><span class="st">'temp&gt;25'</span>)</span>
+<span id="cb25-7"><a href="#cb25-7"></a>ax4.legend()</span>
+<span id="cb25-8"><a href="#cb25-8"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="ggplot-온도구간을-세분화-하여-시각화" class="level2">
+<h2 class="anchored" data-anchor-id="ggplot-온도구간을-세분화-하여-시각화">ggplot: 온도구간을 세분화 하여 시각화</h2>
+<p><code>-</code> 목표: 모든 온도구간에 대하여 각각 색을 다르게 하여 그려보자.</p>
+<ul>
+<li>사실 지금 변수는 온도, 아이스크림판매량, 소아마비</li>
+<li>온도가 유사한 지역을 색으로 묶으면 3차원 플랏이 가능함</li>
+</ul>
+<section id="df로-자료정리" class="level4">
+<h4 class="anchored" data-anchor-id="df로-자료정리"><code>#</code> df로 자료정리</h4>
+<p><code>-</code> 일단 데이터 프레임을 정리하자.</p>
+<div id="0da18b23-5cc2-4fd4-8952-686df2dbf7f9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'icecream'</span>:icecream,<span class="st">'disease'</span>:disease})</span>
+<span id="cb26-2"><a href="#cb26-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">icecream</th>
+<th data-quarto-table-cell-role="th">disease</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>-0.5</td>
+<td>35.243454</td>
+<td>29.333242</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.4</td>
+<td>16.682436</td>
+<td>30.643733</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2.6</td>
+<td>19.918282</td>
+<td>29.163804</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2.0</td>
+<td>13.270314</td>
+<td>32.640271</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2.5</td>
+<td>33.654076</td>
+<td>29.456564</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">651</td>
+<td>19.9</td>
+<td>68.839992</td>
+<td>39.633906</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">652</td>
+<td>20.4</td>
+<td>76.554679</td>
+<td>38.920443</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">653</td>
+<td>18.3</td>
+<td>68.666079</td>
+<td>39.882650</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">654</td>
+<td>12.8</td>
+<td>42.771364</td>
+<td>36.613159</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">655</td>
+<td>6.7</td>
+<td>30.736731</td>
+<td>34.902513</td>
+</tr>
+</tbody>
+</table>
+
+<p>656 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="구간세분화" class="level3">
+<h3 class="anchored" data-anchor-id="구간세분화"><code>#</code> 구간세분화</h3>
+<p><code>-</code> 온도를 카테고리화 하자 <span class="math inline">\(\to\)</span> 적당한 구긴을 설정하기 위해서 히스토그램을 그려보자.</p>
+<div id="527bc617-a747-4ba4-bb68-4c8880b06480" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.temp.hist() <span class="co"># ? 이거 14주차쯤 배우는데 미리 스포합니다.. 엄청 편해요 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-22-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="f9fdb322-37d2-482f-b90e-96ece889ce88" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>plt.hist(df.temp) <span class="co"># 원래는 이걸 배웠죠</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>(array([  3.,   9.,  29.,  60.,  92.,  86.,  65.,  93., 139.,  80.]),
+ array([-12.4 ,  -8.16,  -3.92,   0.32,   4.56,   8.8 ,  13.04,  17.28,
+         21.52,  25.76,  30.  ]),
+ &lt;BarContainer object of 10 artists&gt;)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 구간은 5정도로 하면 적당할 것 같다.</p>
+<div id="7b23ef2d-efd0-4db1-bb91-30adfe2fbd3a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> cut(x): <span class="co"># 이거보다 더 좋은 방법이 있을 것 같긴 한데요..</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>    <span class="cf">if</span> x<span class="op">&lt;</span><span class="dv">0</span>: </span>
+<span id="cb31-3"><a href="#cb31-3"></a>        y<span class="op">=</span><span class="st">'Temp: &lt;0'</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="dv">5</span>: </span>
+<span id="cb31-5"><a href="#cb31-5"></a>        y<span class="op">=</span><span class="st">'Temp: 0~5'</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="dv">10</span>: </span>
+<span id="cb31-7"><a href="#cb31-7"></a>        y<span class="op">=</span><span class="st">'Temp: 5~10'</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="dv">15</span>: </span>
+<span id="cb31-9"><a href="#cb31-9"></a>        y<span class="op">=</span><span class="st">'Temp: 10~15'</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="dv">20</span>:</span>
+<span id="cb31-11"><a href="#cb31-11"></a>        y<span class="op">=</span><span class="st">'Temp: 15~20'</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a>    <span class="cf">elif</span> x<span class="op">&lt;</span><span class="dv">25</span>: </span>
+<span id="cb31-13"><a href="#cb31-13"></a>        y<span class="op">=</span><span class="st">'Temp: 20~25'</span></span>
+<span id="cb31-14"><a href="#cb31-14"></a>    <span class="cf">else</span>: </span>
+<span id="cb31-15"><a href="#cb31-15"></a>        y<span class="op">=</span><span class="st">'Temp: &gt;30'</span></span>
+<span id="cb31-16"><a href="#cb31-16"></a>    <span class="cf">return</span> y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="ed3f4fff-615c-45ad-82e3-76cc6abb9cd7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df.assign(temp2 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(cut,df.temp)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">icecream</th>
+<th data-quarto-table-cell-role="th">disease</th>
+<th data-quarto-table-cell-role="th">temp2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>-0.5</td>
+<td>35.243454</td>
+<td>29.333242</td>
+<td>Temp: &lt;0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.4</td>
+<td>16.682436</td>
+<td>30.643733</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2.6</td>
+<td>19.918282</td>
+<td>29.163804</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2.0</td>
+<td>13.270314</td>
+<td>32.640271</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2.5</td>
+<td>33.654076</td>
+<td>29.456564</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">651</td>
+<td>19.9</td>
+<td>68.839992</td>
+<td>39.633906</td>
+<td>Temp: 15~20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">652</td>
+<td>20.4</td>
+<td>76.554679</td>
+<td>38.920443</td>
+<td>Temp: 20~25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">653</td>
+<td>18.3</td>
+<td>68.666079</td>
+<td>39.882650</td>
+<td>Temp: 15~20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">654</td>
+<td>12.8</td>
+<td>42.771364</td>
+<td>36.613159</td>
+<td>Temp: 10~15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">655</td>
+<td>6.7</td>
+<td>30.736731</td>
+<td>34.902513</td>
+<td>Temp: 5~10</td>
+</tr>
+</tbody>
+</table>
+
+<p>656 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ggplot" class="level3">
+<h3 class="anchored" data-anchor-id="ggplot"><code>#</code> ggplot</h3>
+<p><code>-</code> 온도를 색으로 구분하면</p>
+<div id="25fcf5ce-5fe9-474b-896a-4904d5fd65da" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>fig <span class="op">=</span> ggplot(data<span class="op">=</span>df.assign(temp2 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(cut,df.temp))))</span>
+<span id="cb33-2"><a href="#cb33-2"></a>p1 <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>),alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb33-3"><a href="#cb33-3"></a>fig <span class="op">+</span> p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 추세선을 추가하면</p>
+<div id="6e2311af-279d-4cea-bfb9-fb1797e8c015" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>l1 <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e8732ff4-ac9d-41a9-8e8d-7648b3e6be5a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>fig<span class="op">+</span>p1<span class="op">+</span>l1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>각 온도별로 추세선은 거의 기울기가 0이다. <span class="math inline">\(\to\)</span> 온도가 비슷한 구간별로 묶어서 보니까 상관관계가 없다는 거!</li>
+<li>아이스크림 판매량과 소아마비의 corr은 유의미해보이지만, 온도를 통제하였을 경우 아이스크림 판매량과 소아마비의 partial corr은 유의미해보이지 않음.</li>
+</ul>
+</section>
+<section id="해석" class="level3">
+<h3 class="anchored" data-anchor-id="해석"><code>#</code> 해석</h3>
+<p><code>-</code> 해피앤딩: 온도를 통제하니까 아이스크림과 질병은 관련이 없어보인다. <span class="math inline">\(\to\)</span> 아이스크림을 먹으면 소아마비를 유발한다는 이상한 결론이 나올뻔 했지만 우리는 온도라는 흑막을 잘 찾았고 결과적으로 “온도-&gt;아이스크림판매량,소아마비” 이라는 합리적인 진리를 얻을 수 있었다.</p>
+<ul>
+<li>온도와 같은 변수를 은닉변수라고 한다.</li>
+</ul>
+<p><code>-</code> 또 다른 흑막? 고려할 흑막이 온도뿐이라는 보장이 어디있지? 사실 흑막2, 흑막3이 있어서 그런 흑막들을 고려하다보니까 아이스크림과 소아마비사이의 상관관계가 다시 보이면 어떡하지?</p>
+<ul>
+<li>이러한 이유 때문에 상관계수로 인과성을 유추하는건 사실상 불가능.</li>
+<li>그런데 이론적으로는 “세상의 모든 은닉변수를 통제하였을 경우에도 corr(X,Y)의 값이 1에 가깝다면 그때는 인과성이 있다고 봐도 무방함, (물론 이 경우에도 무엇이 원인인지는 통계적으로 따지는것이 불가)” 이라고 주장할 수 있다. 즉 모든 흑막을 제거한다면 “상관성=인과성”이다.</li>
+</ul>
+<p><code>-</code> 실험계획법, 인과추론: 세상의 모든 흑막을 제거하는건 상식적으로 불가능</p>
+<ul>
+<li>피셔의주장(실험계획법): 그런데 실험계획을 잘하면 흑막을 제거한 효과가 있음 (무작위로 사람뽑아서 담배를 피우게 한다든가)</li>
+<li>인과추론: 실험계획이 사실상 불가능한 경우가 있음 <span class="math inline">\(\to\)</span> 모인 데이터에서 최대한 흑막2,3,4,.. 등이 비슷한 그룹끼리 “매칭”을 시킨다!</li>
+</ul>
+</section>
+</section>
+<section id="그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면" class="level2">
+<h2 class="anchored" data-anchor-id="그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면">그냥 궁금해서: 진짜 만약에 아이스크림과 소아마비가 관련있는 경우라면?</h2>
+<p><code>-</code> 온도는 아이스크림 판매에 여전히 영향을 주지만</p>
+<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \epsilon\]</span></p>
+<div id="ba15a39a-4f42-4c74-ae24-4e8cfeee3f6b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>np.random.seed(<span class="dv">1</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a>eps<span class="op">=</span>np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp), scale<span class="op">=</span><span class="dv">10</span>) </span>
+<span id="cb37-3"><a href="#cb37-3"></a>icecream <span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> temp <span class="op">+</span> eps </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 수영장이 원인이 아니라 진짜 아이스크림을 먹고 소아마비에 걸린상황이라면?</p>
+<p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0 \times \text{온도} + 0.15 \times \text{아이스크림 판매량} + \epsilon\]</span></p>
+<div id="98933d2b-59eb-4b6a-a167-8639e2ebc1e1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>np.random.seed(<span class="dv">2</span>) </span>
+<span id="cb38-2"><a href="#cb38-2"></a>eps <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb38-3"><a href="#cb38-3"></a>disease<span class="op">=</span> <span class="dv">30</span><span class="op">+</span> <span class="dv">0</span><span class="op">*</span>temp <span class="op">+</span> <span class="fl">0.15</span><span class="op">*</span>icecream <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="058d3f95-8835-486f-8da0-375447152cf9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>df2<span class="op">=</span>pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'icecream'</span>:icecream,<span class="st">'disease'</span>:disease})</span>
+<span id="cb39-2"><a href="#cb39-2"></a>df2.assign(temp2<span class="op">=</span><span class="bu">list</span>(<span class="bu">map</span>(cut,df2.temp)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">icecream</th>
+<th data-quarto-table-cell-role="th">disease</th>
+<th data-quarto-table-cell-role="th">temp2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>-0.5</td>
+<td>35.243454</td>
+<td>34.453002</td>
+<td>Temp: &lt;0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.4</td>
+<td>16.682436</td>
+<td>32.389832</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2.6</td>
+<td>19.918282</td>
+<td>28.715350</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2.0</td>
+<td>13.270314</td>
+<td>35.271089</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2.5</td>
+<td>33.654076</td>
+<td>31.461240</td>
+<td>Temp: 0~5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">651</td>
+<td>19.9</td>
+<td>68.839992</td>
+<td>39.693811</td>
+<td>Temp: 15~20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">652</td>
+<td>20.4</td>
+<td>76.554679</td>
+<td>38.924088</td>
+<td>Temp: 20~25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">653</td>
+<td>18.3</td>
+<td>68.666079</td>
+<td>41.765212</td>
+<td>Temp: 15~20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">654</td>
+<td>12.8</td>
+<td>42.771364</td>
+<td>36.842022</td>
+<td>Temp: 10~15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">655</td>
+<td>6.7</td>
+<td>30.736731</td>
+<td>37.715537</td>
+<td>Temp: 5~10</td>
+</tr>
+</tbody>
+</table>
+
+<p>656 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<div id="028fa96d-8e1f-4763-89fb-5cccf05e801a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>ggplot(data<span class="op">=</span>df2.assign(temp2<span class="op">=</span><span class="bu">list</span>(<span class="bu">map</span>(cut,df2.temp))))<span class="op">+\</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>geom_point(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">+\</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a>geom_smooth(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ls19_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>이번엔 partial corr도 유의미하게 나옴</li>
+</ul>
+<p><code>-</code> 단순 corr을 봐서는 “온도-&gt;아이스크림,소아마비” 인지, “온도-&gt;아이스크림-&gt;소아마비” 인지 알기 어렵다.</p>
+<div id="e9bcf204-dec1-4000-847a-d2e99c27613c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>df.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">icecream</th>
+<th data-quarto-table-cell-role="th">disease</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">temp</td>
+<td>1.000000</td>
+<td>0.884366</td>
+<td>0.975609</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">icecream</td>
+<td>0.884366</td>
+<td>1.000000</td>
+<td>0.862990</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">disease</td>
+<td>0.975609</td>
+<td>0.862990</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="b02bbaa8-fbcc-4fdc-99ee-80c6823da8db" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>df2.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">icecream</th>
+<th data-quarto-table-cell-role="th">disease</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">temp</td>
+<td>1.000000</td>
+<td>0.884366</td>
+<td>0.725505</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">icecream</td>
+<td>0.884366</td>
+<td>1.000000</td>
+<td>0.830539</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">disease</td>
+<td>0.725505</td>
+<td>0.830539</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
