@@ -1,60 +1,12 @@
 [
   {
     "listing": "/2_1.html",
-    "items": [
-      "/posts/Day2/05_Modules/ls9.html"
-    ]
+    "items": []
   },
   {
     "listing": "/3_1.html",
     "items": [
-      "/posts/Day3/07_DataWrangling/ls13.html",
       "/posts/Day3/07_DataWrangling/ls14.html"
-    ]
-  },
-  {
-    "listing": "/1_3.html",
-    "items": [
-      "/posts/Day1/03_Pandas/ls7.html"
-    ]
-  },
-  {
-    "listing": "/2_2.html",
-    "items": [
-      "/posts/Day2/06_Functions, ControlFlow/ls10.html",
-      "/posts/Day2/06_Functions, ControlFlow/ls11.html",
-      "/posts/Day2/06_Functions, ControlFlow/ls12.html"
-    ]
-  },
-  {
-    "listing": "/3_3.html",
-    "items": [
-      "/posts/Day3/09_PandasBackend/ls19.html",
-      "/posts/Day3/09_PandasBackend/ls20.html",
-      "/posts/Day3/09_PandasBackend/ls21.html"
-    ]
-  },
-  {
-    "listing": "/1_1.html",
-    "items": [
-      "/posts/Day1/01_PythonBasicSyntax/ls1.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls2.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls3.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls4.html"
-    ]
-  },
-  {
-    "listing": "/1_4.html",
-    "items": [
-      "/posts/Day1/04_DataManipulation/ls8_prob.html",
-      "/posts/Day1/04_DataManipulation/ls8_sol.html"
-    ]
-  },
-  {
-    "listing": "/1_2.html",
-    "items": [
-      "/posts/Day1/02_Numpy/ls5.html",
-      "/posts/Day1/02_Numpy/ls6.html"
     ]
   },
   {
@@ -67,22 +19,61 @@
     ]
   },
   {
+    "listing": "/2_2.html",
+    "items": []
+  },
+  {
+    "listing": "/3_3.html",
+    "items": [
+      "/posts/Day3/09_PandasBackend/ls19.html",
+      "/posts/Day3/09_PandasBackend/ls20.html",
+      "/posts/Day3/09_PandasBackend/ls21.html"
+    ]
+  },
+  {
+    "listing": "/1_1.html",
+    "items": [
+      "/posts/Day1/01_PythonBasicSyntax/ls01.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls02.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls03.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls04.html"
+    ]
+  },
+  {
+    "listing": "/1_4.html",
+    "items": []
+  },
+  {
+    "listing": "/1_2.html",
+    "items": [
+      "/posts/Day1/02_Numpy/ls05.html",
+      "/posts/Day1/02_Numpy/ls06.html"
+    ]
+  },
+  {
+    "listing": "/1_3.html",
+    "items": [
+      "/posts/Day1/03_Pandas/ls07.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
-      "/posts/Day1/01_PythonBasicSyntax/ls1.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls2.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls3.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls4.html",
-      "/posts/Day1/02_Numpy/ls5.html",
-      "/posts/Day1/02_Numpy/ls6.html",
-      "/posts/Day1/03_Pandas/ls7.html",
-      "/posts/Day1/04_DataManipulation/ls8_prob.html",
-      "/posts/Day1/04_DataManipulation/ls8_sol.html",
-      "/posts/Day2/05_Modules/ls9.html",
-      "/posts/Day2/06_Functions, ControlFlow/ls10.html",
-      "/posts/Day2/06_Functions, ControlFlow/ls11.html",
-      "/posts/Day2/06_Functions, ControlFlow/ls12.html",
-      "/posts/Day3/07_DataWrangling/ls13.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls01.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls02.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls03.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls04.html",
+      "/posts/Day1/02_Numpy/ls05.html",
+      "/posts/Day1/02_Numpy/ls06.html",
+      "/posts/Day1/03_Pandas/ls07.html",
+      "/posts/Day2/05_Functions/ls08.html",
+      "/posts/Day2/05_Functions/ls09.html",
+      "/posts/Day2/06_Iterations/ls10.html",
+      "/posts/Day2/06_Iterations/ls11.html",
+      "/posts/Day2/06_Iterations/ls12.html",
+      "/posts/Day2/07_Modules/ls13.html",
+      "/posts/Day2/07_Modules/ls14.html",
+      "/posts/Day2/07_Modules/ls15.html",
       "/posts/Day3/07_DataWrangling/ls14.html",
       "/posts/Day3/08_ggplot2/ls15.html",
       "/posts/Day3/08_ggplot2/ls16.html",
