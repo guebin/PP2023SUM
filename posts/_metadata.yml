@@ -21,5 +21,3 @@ bibliography: ref.bib
 format: 
   html: default
   ipynb: default
-
-format-links: [ipynb]  
