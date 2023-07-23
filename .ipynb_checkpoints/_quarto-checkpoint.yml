@@ -1,13 +1,16 @@
 project:
   type: website
 
+execute:
+  freeze: auto
+
 website:
   title: "2023년도 하계 WORKSHOP"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/guebin
+        href: https://github.com/guebin/PP2023SUM
       - icon: youtube
         href: https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg
   sidebar:
