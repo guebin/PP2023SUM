@@ -1,26 +1,51 @@
 [
   {
     "listing": "/2_1.html",
-    "items": []
-  },
-  {
-    "listing": "/3_1.html",
     "items": [
-      "/posts/Day3/07_DataWrangling/ls14.html"
+      "/posts/Day2/05_Function/ls08.html",
+      "/posts/Day2/05_Function/ls09.html"
     ]
   },
   {
-    "listing": "/3_2.html",
+    "listing": "/index.html",
     "items": [
+      "/posts/Day1/01_PythonBasicSyntax/ls01.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls02.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls03.html",
+      "/posts/Day1/01_PythonBasicSyntax/ls04.html",
+      "/posts/Day1/02_Numpy/ls05.html",
+      "/posts/Day1/02_Numpy/ls06.html",
+      "/posts/Day1/03_Pandas/ls07.html",
+      "/posts/Day2/05_Function/ls08.html",
+      "/posts/Day2/05_Function/ls09.html",
+      "/posts/Day2/06_Iteration/ls10.html",
+      "/posts/Day2/06_Iteration/ls11.html",
+      "/posts/Day2/06_Iteration/ls12.html",
+      "/posts/Day2/07_Modules/ls13.html",
+      "/posts/Day2/07_Modules/ls14.html",
+      "/posts/Day2/07_Modules/ls15.html",
+      "/posts/Day3/07_DataWrangling/ls14.html",
       "/posts/Day3/08_ggplot2/ls15.html",
       "/posts/Day3/08_ggplot2/ls16.html",
       "/posts/Day3/08_ggplot2/ls17.html",
-      "/posts/Day3/08_ggplot2/ls18.html"
+      "/posts/Day3/08_ggplot2/ls18.html",
+      "/posts/Day3/09_PandasBackend/ls19.html",
+      "/posts/Day3/09_PandasBackend/ls20.html",
+      "/posts/Day3/09_PandasBackend/ls21.html"
     ]
   },
   {
-    "listing": "/2_2.html",
-    "items": []
+    "listing": "/1_3.html",
+    "items": [
+      "/posts/Day1/03_Pandas/ls07.html"
+    ]
+  },
+  {
+    "listing": "/1_2.html",
+    "items": [
+      "/posts/Day1/02_Numpy/ls05.html",
+      "/posts/Day1/02_Numpy/ls06.html"
+    ]
   },
   {
     "listing": "/3_3.html",
@@ -40,48 +65,26 @@
     ]
   },
   {
-    "listing": "/1_4.html",
+    "listing": "/2_2.html",
     "items": []
   },
   {
-    "listing": "/1_2.html",
+    "listing": "/3_2.html",
     "items": [
-      "/posts/Day1/02_Numpy/ls05.html",
-      "/posts/Day1/02_Numpy/ls06.html"
-    ]
-  },
-  {
-    "listing": "/1_3.html",
-    "items": [
-      "/posts/Day1/03_Pandas/ls07.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/Day1/01_PythonBasicSyntax/ls01.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls02.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls03.html",
-      "/posts/Day1/01_PythonBasicSyntax/ls04.html",
-      "/posts/Day1/02_Numpy/ls05.html",
-      "/posts/Day1/02_Numpy/ls06.html",
-      "/posts/Day1/03_Pandas/ls07.html",
-      "/posts/Day2/05_Functions/ls08.html",
-      "/posts/Day2/05_Functions/ls09.html",
-      "/posts/Day2/06_Iterations/ls10.html",
-      "/posts/Day2/06_Iterations/ls11.html",
-      "/posts/Day2/06_Iterations/ls12.html",
-      "/posts/Day2/07_Modules/ls13.html",
-      "/posts/Day2/07_Modules/ls14.html",
-      "/posts/Day2/07_Modules/ls15.html",
-      "/posts/Day3/07_DataWrangling/ls14.html",
       "/posts/Day3/08_ggplot2/ls15.html",
       "/posts/Day3/08_ggplot2/ls16.html",
       "/posts/Day3/08_ggplot2/ls17.html",
-      "/posts/Day3/08_ggplot2/ls18.html",
-      "/posts/Day3/09_PandasBackend/ls19.html",
-      "/posts/Day3/09_PandasBackend/ls20.html",
-      "/posts/Day3/09_PandasBackend/ls21.html"
+      "/posts/Day3/08_ggplot2/ls18.html"
     ]
+  },
+  {
+    "listing": "/3_1.html",
+    "items": [
+      "/posts/Day3/07_DataWrangling/ls14.html"
+    ]
+  },
+  {
+    "listing": "/2_3.html",
+    "items": []
   }
 ]
