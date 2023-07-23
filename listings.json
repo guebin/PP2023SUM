@@ -28,7 +28,6 @@
       "/posts/Day3/07_ggplot2/ls17.html",
       "/posts/Day3/07_ggplot2/ls18.html",
       "/posts/Day3/07_ggplot2/ls19.html",
-      "/posts/Day3/08_PandasBackend/ls19.html",
       "/posts/Day3/08_PandasBackend/ls20.html",
       "/posts/Day3/08_PandasBackend/ls21.html"
     ]
@@ -41,10 +40,10 @@
     ]
   },
   {
-    "listing": "/2_2.html",
+    "listing": "/1_2.html",
     "items": [
-      "/posts/Day2/05_Iteration/ls12.html",
-      "/posts/Day2/05_Iteration/ls11.html"
+      "/posts/Day1/02_Numpy/ls05.html",
+      "/posts/Day1/02_Numpy/ls06.html"
     ]
   },
   {
@@ -57,16 +56,15 @@
     ]
   },
   {
-    "listing": "/1_2.html",
+    "listing": "/2_2.html",
     "items": [
-      "/posts/Day1/02_Numpy/ls05.html",
-      "/posts/Day1/02_Numpy/ls06.html"
+      "/posts/Day2/05_Iteration/ls12.html",
+      "/posts/Day2/05_Iteration/ls11.html"
     ]
   },
   {
     "listing": "/3_2.html",
     "items": [
-      "/posts/Day3/08_PandasBackend/ls19.html",
       "/posts/Day3/08_PandasBackend/ls20.html",
       "/posts/Day3/08_PandasBackend/ls21.html"
     ]
