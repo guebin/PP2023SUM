@@ -1,7 +1,7 @@
 ---
-title: "Chap 6. 함수, 제어, 반복"
+title: "Chap 5. Iteration"
 listing:
-  contents: posts/Day2/06_Functions, ControlFlow
+  contents: posts/Day2/05_Iteration
   sort: "title"
   type: table
   categories: false

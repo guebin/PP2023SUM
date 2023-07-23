@@ -1,7 +1,7 @@
 ---
-title: "Chap 4. 간단한 데이터 조작"
+title: "Chap 5. Iteration"
 listing:
-  contents: posts/Day1/04_DataManipulation
+  contents: posts/Day2/05_Iteration
   sort: "title"
   type: table
   categories: false
