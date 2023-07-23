@@ -16,6 +16,7 @@
       "/posts/Day1/02_Numpy/ls05.html",
       "/posts/Day1/02_Numpy/ls06.html",
       "/posts/Day1/03_Pandas/ls07.html",
+      "/posts/Day1/03_Pandas/ls08.html",
       "/posts/Day2/04_Function/ls09.html",
       "/posts/Day2/04_Function/ls10.html",
       "/posts/Day2/05_Iteration/ls12.html",
@@ -35,14 +36,15 @@
   {
     "listing": "/1_3.html",
     "items": [
-      "/posts/Day1/03_Pandas/ls07.html"
+      "/posts/Day1/03_Pandas/ls07.html",
+      "/posts/Day1/03_Pandas/ls08.html"
     ]
   },
   {
-    "listing": "/1_2.html",
+    "listing": "/2_2.html",
     "items": [
-      "/posts/Day1/02_Numpy/ls05.html",
-      "/posts/Day1/02_Numpy/ls06.html"
+      "/posts/Day2/05_Iteration/ls12.html",
+      "/posts/Day2/05_Iteration/ls11.html"
     ]
   },
   {
@@ -55,10 +57,10 @@
     ]
   },
   {
-    "listing": "/2_2.html",
+    "listing": "/1_2.html",
     "items": [
-      "/posts/Day2/05_Iteration/ls12.html",
-      "/posts/Day2/05_Iteration/ls11.html"
+      "/posts/Day1/02_Numpy/ls05.html",
+      "/posts/Day1/02_Numpy/ls06.html"
     ]
   },
   {
