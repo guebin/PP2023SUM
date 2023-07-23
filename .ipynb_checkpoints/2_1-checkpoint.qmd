@@ -1,7 +1,7 @@
 ---
 title: "Chap 4. Function"
 listing:
-  contents: posts/Day2/05_Function
+  contents: posts/Day2/04_Function
   sort: "title"
   type: table
   categories: false

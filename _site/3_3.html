@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2023년도 하계 WORKSHOP - Chap 9. 판다스 백엔드</title>
+<title>2023년도 하계 WORKSHOP - Chap 8. 판다스 백엔드</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_1.html">Day 3: 데이터 시각화</a></li><li class="breadcrumb-item"><a href="./3_3.html">Chap 9. 판다스 백엔드</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Day 3: 데이터 시각화</li><li class="breadcrumb-item"><a href="./3_3.html">Chap 8. 판다스 백엔드</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -191,9 +191,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Chap 3. Pandas</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
- <span class="menu-text">1_4.qmd</span>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -208,13 +205,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 5. 모듈</span></a>
+ <span class="menu-text">Chap 4. Function</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 6. 함수, 제어, 반복</span></a>
+ <span class="menu-text">Chap 5. Iteration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 6. Modules</span></a>
   </div>
 </li>
       </ul>
@@ -229,21 +232,18 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 7. Data Wrangling</span></a>
-  </div>
-</li>
+ <span class="menu-text">3_1.qmd</span>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./3_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 8. 고차원 자료 시각화</span></a>
+ <span class="menu-text">Chap 7. 고차원 자료 시각화</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./3_3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Chap 9. 판다스 백엔드</span></a>
+ <span class="menu-text">Chap 8. 판다스 백엔드</span></a>
   </div>
 </li>
       </ul>
@@ -259,9 +259,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_1.html">Day 3: 데이터 시각화</a></li><li class="breadcrumb-item"><a href="./3_3.html">Chap 9. 판다스 백엔드</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Day 3: 데이터 시각화</li><li class="breadcrumb-item"><a href="./3_3.html">Chap 8. 판다스 백엔드</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Chap 9. 판다스 백엔드</h1>
+<h1 class="title">Chap 8. 판다스 백엔드</h1>
 </div>
 
 
@@ -301,7 +301,7 @@ Author
 <span class="listing-date">Jul 26, 2023</span>
 </td>
 <td>
-<a href="./posts/Day3/09_PandasBackend/ls19.html" class="title listing-title">Lesson 20: 핸드폰점유율, 팁, 인사자료 분석 (깨끗한 데이터)</a>
+<a href="./posts/Day3/08_PandasBackend/ls19.html" class="title listing-title">Lesson 20: 핸드폰점유율, 팁, 인사자료 분석 (깨끗한 데이터)</a>
 </td>
 <td>
 <span class="listing-author">최규빈 </span>
@@ -312,7 +312,7 @@ Author
 <span class="listing-date">Jul 26, 2023</span>
 </td>
 <td>
-<a href="./posts/Day3/09_PandasBackend/ls20.html" class="title listing-title">Lesson 21: 저출산 자료 시각화 (지저분한 데이터)</a>
+<a href="./posts/Day3/08_PandasBackend/ls20.html" class="title listing-title">Lesson 21: 저출산 자료 시각화 (지저분한 데이터)</a>
 </td>
 <td>
 <span class="listing-author">최규빈 </span>
@@ -323,7 +323,7 @@ Author
 <span class="listing-date">Jul 26, 2023</span>
 </td>
 <td>
-<a href="./posts/Day3/09_PandasBackend/ls21.html" class="title listing-title">Lesson 22: 버블차트 애니메이션</a>
+<a href="./posts/Day3/08_PandasBackend/ls21.html" class="title listing-title">Lesson 22: 버블차트 애니메이션</a>
 </td>
 <td>
 <span class="listing-author">최규빈 </span>
