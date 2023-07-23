@@ -2,8 +2,8 @@
   {
     "listing": "/2_1.html",
     "items": [
-      "/posts/Day2/05_Function/ls08.html",
-      "/posts/Day2/05_Function/ls09.html"
+      "/posts/Day2/04_Function/ls09.html",
+      "/posts/Day2/04_Function/ls10.html"
     ]
   },
   {
@@ -16,22 +16,20 @@
       "/posts/Day1/02_Numpy/ls05.html",
       "/posts/Day1/02_Numpy/ls06.html",
       "/posts/Day1/03_Pandas/ls07.html",
-      "/posts/Day2/05_Function/ls08.html",
-      "/posts/Day2/05_Function/ls09.html",
-      "/posts/Day2/06_Iteration/ls10.html",
-      "/posts/Day2/06_Iteration/ls11.html",
-      "/posts/Day2/06_Iteration/ls12.html",
-      "/posts/Day2/07_Modules/ls13.html",
-      "/posts/Day2/07_Modules/ls14.html",
-      "/posts/Day2/07_Modules/ls15.html",
-      "/posts/Day3/07_DataWrangling/ls14.html",
-      "/posts/Day3/08_ggplot2/ls15.html",
-      "/posts/Day3/08_ggplot2/ls16.html",
-      "/posts/Day3/08_ggplot2/ls17.html",
-      "/posts/Day3/08_ggplot2/ls18.html",
-      "/posts/Day3/09_PandasBackend/ls19.html",
-      "/posts/Day3/09_PandasBackend/ls20.html",
-      "/posts/Day3/09_PandasBackend/ls21.html"
+      "/posts/Day2/04_Function/ls09.html",
+      "/posts/Day2/04_Function/ls10.html",
+      "/posts/Day2/05_Iteration/ls12.html",
+      "/posts/Day2/05_Iteration/ls11.html",
+      "/posts/Day2/06_Modules/ls13.html",
+      "/posts/Day2/06_Modules/ls14.html",
+      "/posts/Day2/06_Modules/ls15.html",
+      "/posts/Day3/07_ggplot2/ls16.html",
+      "/posts/Day3/07_ggplot2/ls17.html",
+      "/posts/Day3/07_ggplot2/ls18.html",
+      "/posts/Day3/07_ggplot2/ls19.html",
+      "/posts/Day3/08_PandasBackend/ls19.html",
+      "/posts/Day3/08_PandasBackend/ls20.html",
+      "/posts/Day3/08_PandasBackend/ls21.html"
     ]
   },
   {
@@ -48,14 +46,6 @@
     ]
   },
   {
-    "listing": "/3_3.html",
-    "items": [
-      "/posts/Day3/09_PandasBackend/ls19.html",
-      "/posts/Day3/09_PandasBackend/ls20.html",
-      "/posts/Day3/09_PandasBackend/ls21.html"
-    ]
-  },
-  {
     "listing": "/1_1.html",
     "items": [
       "/posts/Day1/01_PythonBasicSyntax/ls01.html",
@@ -66,25 +56,34 @@
   },
   {
     "listing": "/2_2.html",
-    "items": []
+    "items": [
+      "/posts/Day2/05_Iteration/ls12.html",
+      "/posts/Day2/05_Iteration/ls11.html"
+    ]
   },
   {
     "listing": "/3_2.html",
     "items": [
-      "/posts/Day3/08_ggplot2/ls15.html",
-      "/posts/Day3/08_ggplot2/ls16.html",
-      "/posts/Day3/08_ggplot2/ls17.html",
-      "/posts/Day3/08_ggplot2/ls18.html"
+      "/posts/Day3/08_PandasBackend/ls19.html",
+      "/posts/Day3/08_PandasBackend/ls20.html",
+      "/posts/Day3/08_PandasBackend/ls21.html"
     ]
   },
   {
     "listing": "/3_1.html",
     "items": [
-      "/posts/Day3/07_DataWrangling/ls14.html"
+      "/posts/Day3/07_ggplot2/ls16.html",
+      "/posts/Day3/07_ggplot2/ls17.html",
+      "/posts/Day3/07_ggplot2/ls18.html",
+      "/posts/Day3/07_ggplot2/ls19.html"
     ]
   },
   {
     "listing": "/2_3.html",
-    "items": []
+    "items": [
+      "/posts/Day2/06_Modules/ls13.html",
+      "/posts/Day2/06_Modules/ls14.html",
+      "/posts/Day2/06_Modules/ls15.html"
+    ]
   }
 ]

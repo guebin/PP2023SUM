@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2023년도 하계 WORKSHOP - Chap 7. Data Wrangling</title>
+<title>2023년도 하계 WORKSHOP - Chap 7. 고차원 자료 시각화</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_1.html">Day 3: 데이터 시각화</a></li><li class="breadcrumb-item"><a href="./3_1.html">Chap 7. Data Wrangling</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_1.html">Day 3: 데이터 시각화</a></li><li class="breadcrumb-item"><a href="./3_1.html">Chap 7. 고차원 자료 시각화</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -191,9 +191,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Chap 3. Pandas</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
- <span class="menu-text">1_4.qmd</span>
-  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -208,13 +205,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 5. 모듈</span></a>
+ <span class="menu-text">Chap 4. Function</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./2_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 6. 함수, 제어, 반복</span></a>
+ <span class="menu-text">Chap 5. Iteration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chap 6. Modules</span></a>
   </div>
 </li>
       </ul>
@@ -231,19 +234,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./3_1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Chap 7. Data Wrangling</span></a>
+ <span class="menu-text">Chap 7. 고차원 자료 시각화</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./3_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 8. 고차원 자료 시각화</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./3_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chap 9. 판다스 백엔드</span></a>
+ <span class="menu-text">Chap 7. 고차원 자료 시각화</span></a>
   </div>
 </li>
       </ul>
@@ -259,9 +256,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_1.html">Day 3: 데이터 시각화</a></li><li class="breadcrumb-item"><a href="./3_1.html">Chap 7. Data Wrangling</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./3_1.html">Day 3: 데이터 시각화</a></li><li class="breadcrumb-item"><a href="./3_1.html">Chap 7. 고차원 자료 시각화</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Chap 7. Data Wrangling</h1>
+<h1 class="title">Chap 7. 고차원 자료 시각화</h1>
 </div>
 
 
@@ -296,12 +293,45 @@ Author
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1690297200000" data-listing-file-modified-sort="1690090021506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Lesson 15: tidydata" data-listing-filename-sort="ls14.ipynb">
+<tr data-index="0" data-listing-date-sort="1690297200000" data-listing-file-modified-sort="1690091868815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="Lesson 16: 고차원 자료의 시각화 (with plotnine)" data-listing-filename-sort="ls16.ipynb">
 <td>
 <span class="listing-date">Jul 26, 2023</span>
 </td>
 <td>
-<a href="./posts/Day3/07_DataWrangling/ls14.html" class="title listing-title">Lesson 15: tidydata</a>
+<a href="./posts/Day3/07_ggplot2/ls16.html" class="title listing-title">Lesson 16: 고차원 자료의 시각화 (with plotnine)</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1690297200000" data-listing-file-modified-sort="1690089586311" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Lesson 17: 아이스크림을 많이 먹으면 걸리는 병" data-listing-filename-sort="ls17.ipynb">
+<td>
+<span class="listing-date">Jul 26, 2023</span>
+</td>
+<td>
+<a href="./posts/Day3/07_ggplot2/ls17.html" class="title listing-title">Lesson 17: 아이스크림을 많이 먹으면 걸리는 병</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1690297200000" data-listing-file-modified-sort="1690089585443" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Lesson 18: FIFA23 자료분석" data-listing-filename-sort="ls18.ipynb">
+<td>
+<span class="listing-date">Jul 26, 2023</span>
+</td>
+<td>
+<a href="./posts/Day3/07_ggplot2/ls18.html" class="title listing-title">Lesson 18: FIFA23 자료분석</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
+<tr data-index="3" data-listing-date-sort="1690297200000" data-listing-file-modified-sort="1690089584679" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Lesson 19: 심슨의 역설" data-listing-filename-sort="ls19.ipynb">
+<td>
+<span class="listing-date">Jul 26, 2023</span>
+</td>
+<td>
+<a href="./posts/Day3/07_ggplot2/ls19.html" class="title listing-title">Lesson 19: 심슨의 역설</a>
 </td>
 <td>
 <span class="listing-author">최규빈 </span>
