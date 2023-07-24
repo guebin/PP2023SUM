@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-07-25">
 
-<title>2023년도 하계 WORKSHOP - Lesson 10: functools</title>
+<title>2023년도 하계 WORKSHOP - Lesson 10: 함수관련 표준모듈 – functools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lesson 10: functools</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lesson 10: 함수관련 표준모듈 – functools</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -258,11 +258,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cmp_to_key" id="toc-cmp_to_key" class="nav-link active" data-scroll-target="#cmp_to_key"><code>cmp_to_key</code></a></li>
-  <li><a href="#lru_cache" id="toc-lru_cache" class="nav-link" data-scroll-target="#lru_cache"><code>lru_cache</code></a></li>
-  <li><a href="#partial" id="toc-partial" class="nav-link" data-scroll-target="#partial"><code>partial</code></a></li>
-  <li><a href="#reduce" id="toc-reduce" class="nav-link" data-scroll-target="#reduce"><code>reduce</code></a></li>
-  <li><a href="#wraps" id="toc-wraps" class="nav-link" data-scroll-target="#wraps"><code>wraps</code></a></li>
+  <li><a href="#cmp_to_key" id="toc-cmp_to_key" class="nav-link active" data-scroll-target="#cmp_to_key">cmp_to_key</a></li>
+  <li><a href="#lru_cache" id="toc-lru_cache" class="nav-link" data-scroll-target="#lru_cache">lru_cache</a></li>
+  <li><a href="#partial" id="toc-partial" class="nav-link" data-scroll-target="#partial">partial</a></li>
+  <li><a href="#reduce" id="toc-reduce" class="nav-link" data-scroll-target="#reduce">reduce</a></li>
+  <li><a href="#wraps" id="toc-wraps" class="nav-link" data-scroll-target="#wraps">wraps</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ls10.out.ipynb" download="ls10.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lesson 10: functools</h1>
+<h1 class="title">Lesson 10: 함수관련 표준모듈 – functools</h1>
 </div>
 
 
@@ -299,28 +299,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <section id="cmp_to_key" class="level1">
-<h1><code>cmp_to_key</code></h1>
+<h1>cmp_to_key</h1>
 <blockquote class="blockquote">
 <p><code>cmp_to_key</code>는 comparison to key의 약자이다.</p>
 </blockquote>
 <p><code>-</code> 나만의 기준으로 정렬하고 싶다면?</p>
-<div id="3a6b1497-4ea5-4f40-b307-f394798602b7" class="cell" data-execution_count="15">
+<div id="3a6b1497-4ea5-4f40-b307-f394798602b7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> functools</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8655f58a-cb73-41fc-bb88-cf85161d411c" class="cell" data-execution_count="21">
+<div id="8655f58a-cb73-41fc-bb88-cf85161d411c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> key_func(a, b):</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">return</span> <span class="bu">len</span>(a) <span class="op">-</span> <span class="bu">len</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2361580e-f114-479e-adac-79b47f80fe75" class="cell" data-execution_count="22">
+<div id="2361580e-f114-479e-adac-79b47f80fe75" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">sorted</span>([<span class="st">'abc'</span>,<span class="st">'abcd'</span>,<span class="st">'cd'</span>,<span class="st">'a'</span>], key<span class="op">=</span>functools.cmp_to_key(key_func))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>['a', 'cd', 'abc', 'abcd']</code></pre>
 </div>
 </div>
 </section>
 <section id="lru_cache" class="level1">
-<h1><code>lru_cache</code></h1>
-<div id="3c58dffb-31ea-446f-92ab-dfa364af906c" class="cell" data-execution_count="23">
+<h1>lru_cache</h1>
+<div id="3c58dffb-31ea-446f-92ab-dfa364af906c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="at">@functools.lru_cache</span>(maxsize<span class="op">=</span><span class="dv">3</span>)  <span class="co"># 캐시 크기를 3으로 설정</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="kw">def</span> fibonacci(n):</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
@@ -346,8 +346,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="partial" class="level1">
-<h1><code>partial</code></h1>
-<div id="e9e6aa79-c884-42af-b7a6-dae060186e3a" class="cell">
+<h1>partial</h1>
+<div id="e9e6aa79-c884-42af-b7a6-dae060186e3a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> functools</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co"># 원본 함수</span></span>
@@ -363,51 +363,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-13"><a href="#cb7-13"></a></span>
 <span id="cb7-14"><a href="#cb7-14"></a><span class="bu">print</span>(result1)  <span class="co"># 출력 결과: 6</span></span>
 <span id="cb7-15"><a href="#cb7-15"></a><span class="bu">print</span>(result2)  <span class="co"># 출력 결과: 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6
+10</code></pre>
+</div>
 </div>
 </section>
 <section id="reduce" class="level1">
-<h1><code>reduce</code></h1>
+<h1>reduce</h1>
 <div id="8f961dbb-09ed-4870-b62d-450abc6465ce" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> functools</span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a>data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb8-4"><a href="#cb8-4"></a>result <span class="op">=</span> functools.<span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="op">+</span> y, data)</span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="bu">print</span>(result)  <span class="co"># 15 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="im">import</span> functools</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>data <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb9-4"><a href="#cb9-4"></a>result <span class="op">=</span> functools.<span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="op">+</span> y, data)</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(result)  <span class="co"># 15 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>15</code></pre>
 </div>
 </div>
 <div id="e8e8fb1a-7126-421a-bb59-2cc16107d72a" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>num_list <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">7</span>]</span>
-<span id="cb10-2"><a href="#cb10-2"></a>max_num <span class="op">=</span> functools.<span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="cf">if</span> x <span class="op">&gt;</span> y <span class="cf">else</span> y, num_list)</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(max_num)  <span class="co"># 8 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>num_list <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">7</span>]</span>
+<span id="cb11-2"><a href="#cb11-2"></a>max_num <span class="op">=</span> functools.<span class="bu">reduce</span>(<span class="kw">lambda</span> x, y: x <span class="cf">if</span> x <span class="op">&gt;</span> y <span class="cf">else</span> y, num_list)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(max_num)  <span class="co"># 8 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
 </div>
 </div>
 </section>
 <section id="wraps" class="level1">
-<h1><code>wraps</code></h1>
+<h1>wraps</h1>
 <div id="2d5b64fe-2235-4be0-9756-aae55fad596a" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> functools</span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># 데코레이터 함수</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="kw">def</span> my_decorator(func):</span>
-<span id="cb12-5"><a href="#cb12-5"></a>    <span class="at">@functools.wraps</span>(func)</span>
-<span id="cb12-6"><a href="#cb12-6"></a>    <span class="kw">def</span> wrapper(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
-<span id="cb12-7"><a href="#cb12-7"></a>        <span class="bu">print</span>(<span class="st">"Calling the decorated function"</span>)</span>
-<span id="cb12-8"><a href="#cb12-8"></a>        <span class="cf">return</span> func(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
-<span id="cb12-9"><a href="#cb12-9"></a>    <span class="cf">return</span> wrapper</span>
-<span id="cb12-10"><a href="#cb12-10"></a></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="at">@my_decorator</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="kw">def</span> say_hello(name):</span>
-<span id="cb12-13"><a href="#cb12-13"></a>    <span class="co">"""Greet someone by their name."""</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a>    <span class="bu">print</span>(<span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15"></a></span>
-<span id="cb12-16"><a href="#cb12-16"></a><span class="co"># 데코레이터를 사용하여 함수 호출</span></span>
-<span id="cb12-17"><a href="#cb12-17"></a>say_hello(<span class="st">"Alice"</span>)</span>
-<span id="cb12-18"><a href="#cb12-18"></a><span class="bu">print</span>(say_hello.<span class="va">__name__</span>)  <span class="co"># 출력 결과: "say_hello"</span></span>
-<span id="cb12-19"><a href="#cb12-19"></a><span class="bu">print</span>(say_hello.__doc__)   <span class="co"># 출력 결과: "Greet someone by their name."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> functools</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co"># 데코레이터 함수</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="kw">def</span> my_decorator(func):</span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="at">@functools.wraps</span>(func)</span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="kw">def</span> wrapper(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb13-7"><a href="#cb13-7"></a>        <span class="bu">print</span>(<span class="st">"Calling the decorated function"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8"></a>        <span class="cf">return</span> func(<span class="op">*</span>args, <span class="op">**</span>kwargs)</span>
+<span id="cb13-9"><a href="#cb13-9"></a>    <span class="cf">return</span> wrapper</span>
+<span id="cb13-10"><a href="#cb13-10"></a></span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="at">@my_decorator</span></span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="kw">def</span> say_hello(name):</span>
+<span id="cb13-13"><a href="#cb13-13"></a>    <span class="co">"""Greet someone by their name."""</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a>    <span class="bu">print</span>(<span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
+<span id="cb13-15"><a href="#cb13-15"></a></span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="co"># 데코레이터를 사용하여 함수 호출</span></span>
+<span id="cb13-17"><a href="#cb13-17"></a>say_hello(<span class="st">"Alice"</span>)</span>
+<span id="cb13-18"><a href="#cb13-18"></a><span class="bu">print</span>(say_hello.<span class="va">__name__</span>)  <span class="co"># 출력 결과: "say_hello"</span></span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="bu">print</span>(say_hello.__doc__)   <span class="co"># 출력 결과: "Greet someone by their name."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Calling the decorated function
 Hello, Alice!

@@ -76,9 +76,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: [{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -281,51 +281,9 @@ ul.task-list li input[type="checkbox"] {
 <table class="quarto-listing-table table">
 <thead>
 <tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1690210800000" data-listing-file-modified-sort="1690091276269" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Lesson 13: 데이터 입출력" data-listing-filename-sort="ls13.ipynb">
-<td>
-<span class="listing-date">Jul 25, 2023</span>
-</td>
-<td>
-<a href="./posts/Day2/06_Modules/ls13.html" class="title listing-title">Lesson 13: 데이터 입출력</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1690210800000" data-listing-file-modified-sort="1690090701395" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Lesson 14: re, datatime, heapq, bisect" data-listing-filename-sort="ls14.ipynb">
-<td>
-<span class="listing-date">Jul 25, 2023</span>
-</td>
-<td>
-<a href="./posts/Day2/06_Modules/ls14.html" class="title listing-title">Lesson 14: re, datatime, heapq, bisect</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1690210800000" data-listing-file-modified-sort="1690092069655" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Lesson 15: collect" data-listing-filename-sort="ls15.ipynb">
-<td>
-<span class="listing-date">Jul 25, 2023</span>
-</td>
-<td>
-<a href="./posts/Day2/06_Modules/ls15.html" class="title listing-title">Lesson 15: collect</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
