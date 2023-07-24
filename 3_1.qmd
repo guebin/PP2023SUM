@@ -1,5 +1,5 @@
 ---
-title: "Chap 7. 고차원 자료 시각화"
+title: "Chap 6. 고차원 자료 시각화"
 listing:
   contents: posts/Day3/07_ggplot2
   sort: "title"

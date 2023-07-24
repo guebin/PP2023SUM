@@ -1,9 +1,6 @@
 project:
   type: website
 
-execute:
-  freeze: auto
-
 website:
   title: "2023년도 하계 WORKSHOP"
   navbar:
@@ -21,7 +18,6 @@ website:
           contents:
             - 1_1.qmd
             - 1_2.qmd
-            - 1_3.qmd
         - section: "Day 2: 파이썬 프로그래밍"
           contents:
             - 2_1.qmd
