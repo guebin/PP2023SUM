@@ -76,9 +76,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -275,9 +275,29 @@ ul.task-list li input[type="checkbox"] {
 <table class="quarto-listing-table table">
 <thead>
 <tr>
+<th>
+Date
+</th>
+<th>
+Title
+</th>
+<th>
+Author
+</th>
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1690210800000" data-listing-file-modified-sort="1690255284331" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Lesson 12: 소스코드 관리, 모듈, 라이브러리" data-listing-filename-sort="ls12.ipynb">
+<td>
+<span class="listing-date">Jul 25, 2023</span>
+</td>
+<td>
+<a href="./posts/Day2/05_Modules/ls12.html" class="title listing-title">Lesson 12: 소스코드 관리, 모듈, 라이브러리</a>
+</td>
+<td>
+<span class="listing-author">최규빈 </span>
+</td>
+</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
