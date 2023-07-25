@@ -295,19 +295,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day2/04_Function, Iteration/ls11.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<div id="38fb6f53-1e47-444b-8d0c-22e4e91e8cc3" class="cell" data-execution_count="22">
+<div id="38fb6f53-1e47-444b-8d0c-22e4e91e8cc3" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="df.groupby" class="level1 page-columns page-full">
 <h1>df.groupby</h1>
 <p><code>-</code> 예제1: 아래의 예제에서 그룹별 평균을 구하여라.</p>
-<div id="24d9842d-daf0-41db-a660-012f12276e68" class="cell" data-execution_count="2">
+<div id="24d9842d-daf0-41db-a660-012f12276e68" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>_category <span class="op">=</span> [<span class="st">'A'</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">5</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>_value <span class="op">=</span> np.concatenate([np.random.randn(<span class="dv">5</span>), np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">10</span>])</span>
 <span id="cb2-3"><a href="#cb2-3"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'category'</span>:_category, <span class="st">'value'</span>:_value})</span>
 <span id="cb2-4"><a href="#cb2-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 
 
@@ -323,52 +323,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>A</td>
-<td>0.049012</td>
+<td>-1.115880</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>A</td>
-<td>0.176682</td>
+<td>1.109800</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>A</td>
-<td>-0.457746</td>
+<td>0.364589</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>A</td>
-<td>-0.155609</td>
+<td>0.518465</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>A</td>
-<td>-1.494266</td>
+<td>1.571603</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>B</td>
-<td>8.712637</td>
+<td>8.883637</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>B</td>
-<td>8.988570</td>
+<td>12.943322</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>B</td>
-<td>9.305210</td>
+<td>8.463850</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>B</td>
-<td>8.856655</td>
+<td>10.164719</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
 <td>B</td>
-<td>10.574260</td>
+<td>10.685973</td>
 </tr>
 </tbody>
 </table>
@@ -377,8 +377,260 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 방법1: groupby를 이용하지 않는 방법들</p>
+<div id="75e94ada-751d-44f8-94ad-98fa985b4ace" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># 이렇게 해도 되고 </span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>df[df.category <span class="op">==</span> <span class="st">'A'</span>].value.mean(), df[df.category <span class="op">==</span> <span class="st">'B'</span>].value.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>(0.4897153568753304, 10.228300113047595)</code></pre>
+</div>
+</div>
+<div id="55765c4c-7e4f-4854-9663-64a9587b9d9e" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># 이것도 가능</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>{s:df[df.category <span class="op">==</span> s].value.mean() <span class="cf">for</span> s <span class="kw">in</span> <span class="bu">set</span>(df.category)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>{'A': 0.4897153568753304, 'B': 10.228300113047595}</code></pre>
+</div>
+</div>
 <p><code>-</code> 방법2: groupby만 사용</p>
+<div id="ce3607e0-d567-46c2-9305-c6a7d41ad465" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>grouped_list <span class="op">=</span> <span class="bu">list</span>(df.groupby(<span class="st">'category'</span>))</span>
+<span id="cb7-2"><a href="#cb7-2"></a>grouped_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>[('A',
+    category     value
+  0        A -1.115880
+  1        A  1.109800
+  2        A  0.364589
+  3        A  0.518465
+  4        A  1.571603),
+ ('B',
+    category      value
+  5        B   8.883637
+  6        B  12.943322
+  7        B   8.463850
+  8        B  10.164719
+  9        B  10.685973)]</code></pre>
+</div>
+</div>
+<div id="b2bc80b3-7d5a-4d76-8062-7819291c1109" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>bundle1, bundle2 <span class="op">=</span> grouped_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="5a632ba7-9229-4bb1-8591-7c55e3e4a98f" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>group_name1, sub_df1 <span class="op">=</span> bundle1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="51b7dbff-fa54-4c13-a34f-77716b434fba" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>display(sub_df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>A</td>
+<td>-1.115880</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A</td>
+<td>1.109800</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>A</td>
+<td>0.364589</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>A</td>
+<td>0.518465</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>A</td>
+<td>1.571603</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="8d6e1c23-ce2b-4e46-b645-18e1c2e9cc2d" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">for</span> group_name, sub_df <span class="kw">in</span> df.groupby(<span class="st">'category'</span>):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="bu">print</span>(group_name)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    display(sub_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A
+B</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>A</td>
+<td>-1.115880</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A</td>
+<td>1.109800</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>A</td>
+<td>0.364589</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>A</td>
+<td>0.518465</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>A</td>
+<td>1.571603</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>B</td>
+<td>8.883637</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>B</td>
+<td>12.943322</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>B</td>
+<td>8.463850</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8</td>
+<td>B</td>
+<td>10.164719</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>B</td>
+<td>10.685973</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="22be16d3-3251-4b49-91c9-e21dda0a5fc1" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>{group_name:sub_df.value.mean() <span class="cf">for</span> group_name, sub_df <span class="kw">in</span> df.groupby(<span class="st">'category'</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>{'A': 0.4897153568753304, 'B': 10.228300113047595}</code></pre>
+</div>
+</div>
 <p><code>-</code> 방법3: groupby().aggregate()</p>
+<div id="e0e23e46-fc72-49fd-ab8f-199128eb75a2" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>grouped <span class="op">=</span> df.groupby(<span class="st">'category'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>grouped.aggregate(np.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">value</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">A</td>
+<td>0.489715</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">B</td>
+<td>10.228300</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="ce591e43-eb30-4b9f-b569-d69bcb89dbbb" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>df.groupby([<span class="st">'category'</span>]).aggregate(np.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">value</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">A</td>
+<td>0.489715</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">B</td>
+<td>10.228300</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p><strong><em>groupby(?)에서 올 수 있는 구조</em></strong></p>
 <ul>
 <li>열의이름</li>
@@ -391,34 +643,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>딕셔너리1: {열의이름:함수}</li>
 <li>딕셔너리2: {열의이름:[함수,함수]}</li>
 </ul>
-<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;np.mean,sum</p></li><li id="fn2"><p><sup>2</sup>&nbsp;‘size’, ‘count’, ‘sum’, ‘mean’, ‘median’, ‘min’, ‘max’, ‘std’, ‘var’</p></li></div></section>
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;np.mean,sum</p></li><li id="fn2"><p><sup>2</sup>&nbsp;‘size’, ‘count’, ‘sum’, ‘mean’, ‘median’, ‘min’, ‘max’, ‘std’, ‘var’</p></li></div><div id="9ff010f9-0122-4416-97c9-d27a0bb8d322" class="cell" data-execution_count="122">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>df.groupby([<span class="st">'category'</span>]).aggregate({<span class="st">'value'</span>:[np.mean,<span class="st">'size'</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="122">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">value</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">size</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">category</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">A</td>
+<td>0.489715</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">B</td>
+<td>10.228300</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
 <section id="pd.cut-df.groupby" class="level1">
 <h1>pd.cut + df.groupby</h1>
 <p><code>-</code> 구간별 count</p>
-<div id="e8dc8d6a-ea82-4fe8-8405-10b492002148" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>arr <span class="op">=</span> np.random.rand(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e8dc8d6a-ea82-4fe8-8405-10b492002148" class="cell" data-execution_count="123">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>arr <span class="op">=</span> np.random.rand(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>-</code> [0,0.2,0.5,0.9,1] 구간에 몇개의 숫자들이 있는지 알고 싶다.</p>
-<div id="0c2099f5-40df-40c8-96fe-732fea512b0b" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>pd_cutted <span class="op">=</span> pd.cut(arr,bins<span class="op">=</span>[<span class="dv">0</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9586603e-b18a-4cea-ae1e-1c0d062d39ef" class="cell" data-execution_count="126">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>_bin <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="dv">1</span>]</span>
+<span id="cb20-2"><a href="#cb20-2"></a>_bin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="126">
+<pre><code>[0, 0.2, 0.5, 0.9, 1]</code></pre>
 </div>
-<div id="387c8983-01d9-4ed1-9336-ebad7972cae2" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>pd.DataFrame({<span class="st">'bin'</span>:pd_cutted}).groupby(<span class="st">'bin'</span>).agg(<span class="st">'size'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>bin
-(0.0, 0.2]    176
-(0.2, 0.5]    328
-(0.5, 0.9]    398
-(0.9, 1.0]     98
-dtype: int64</code></pre>
+</div>
+<p><code>-</code> [0,0.2,0.5,0.9,1] 구간에 몇개의 숫자들이 있는지 알고 싶고, 구간별 평균도 알고싶다.</p>
+<div id="cc59f1de-9698-4165-9d3d-010a9c3d8ea8" class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>pd.DataFrame({<span class="st">'cat'</span>:pd.cut(arr,_bin), <span class="st">'arr'</span>:arr}).groupby(<span class="st">'cat'</span>).aggregate({<span class="st">'arr'</span>:[<span class="st">'size'</span>,np.mean]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="140">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">arr</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">size</th>
+<th data-quarto-table-cell-role="th">mean</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">cat</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">(0.0, 0.2]</td>
+<td>189</td>
+<td>0.099927</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">(0.2, 0.5]</td>
+<td>309</td>
+<td>0.356922</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">(0.5, 0.9]</td>
+<td>407</td>
+<td>0.702618</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">(0.9, 1.0]</td>
+<td>95</td>
+<td>0.949145</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 </section>
 <section id="flights-data" class="level1">
 <h1>flights data</h1>
 <div id="c7c1864a-b6ee-4256-9c7c-876e43334c9c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/flights.csv'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/flights.csv'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 58492 entries, 0 to 58491
@@ -449,7 +784,7 @@ memory usage: 6.2+ MB</code></pre>
 <p><code>-</code> 예제4: 비행취소율이 가장 높은 두개의 항공사(AIRLINE)를 선택하라. 그 두 항공사에 대하여 요일별(WEEKDAY) 비행취소율(CANCELLED)을 조사하라.</p>
 <p><code>-</code> 예제5: 아래는 운행거리의 요약통계량이다.</p>
 <div id="fbee8cc5-6bfc-4155-a000-88c22ab91830" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df.DIST.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df.DIST.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>count    58492.000000
 mean       872.900072
@@ -468,8 +803,8 @@ Name: DIST, dtype: float64</code></pre>
 <h1>Quiz: HRDataset_v14 자료분석</h1>
 <p>아래의 코드를 활용하여 Kaggle의 <a href="https://www.kaggle.com/datasets/rhuebner/human-resources-data-set">HRdataset</a>을 불러오라.</p>
 <div id="9c904ab1-95d4-4fae-ac52-464de2f638a5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/HRDataset_v14.csv'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/HRDataset_v14.csv'</span>)</span>
+<span id="cb27-2"><a href="#cb27-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
