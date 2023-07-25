@@ -295,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day2/04_Function, Iteration/ls11.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<div id="38fb6f53-1e47-444b-8d0c-22e4e91e8cc3" class="cell" data-execution_count="50">
+<div id="38fb6f53-1e47-444b-8d0c-22e4e91e8cc3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> itertools</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -303,12 +303,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="df.groupby" class="level1 page-columns page-full">
 <h1>df.groupby</h1>
 <p><code>-</code> 예제1: 아래의 예제에서 그룹별 평균을 구하여라.</p>
-<div id="24d9842d-daf0-41db-a660-012f12276e68" class="cell" data-execution_count="105">
+<div id="24d9842d-daf0-41db-a660-012f12276e68" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>_category <span class="op">=</span> [<span class="st">'A'</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">5</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>_value <span class="op">=</span> np.concatenate([np.random.randn(<span class="dv">5</span>), np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">10</span>])</span>
 <span id="cb2-3"><a href="#cb2-3"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'category'</span>:_category, <span class="st">'value'</span>:_value})</span>
 <span id="cb2-4"><a href="#cb2-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="105">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -324,52 +324,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>A</td>
-<td>0.255897</td>
+<td>0.049012</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>A</td>
-<td>1.633728</td>
+<td>0.176682</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>A</td>
-<td>-0.362963</td>
+<td>-0.457746</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>A</td>
-<td>-1.216216</td>
+<td>-0.155609</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>A</td>
-<td>-0.747245</td>
+<td>-1.494266</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>B</td>
-<td>9.460467</td>
+<td>8.712637</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>B</td>
-<td>10.320092</td>
+<td>8.988570</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>B</td>
-<td>10.051525</td>
+<td>9.305210</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>B</td>
-<td>12.402084</td>
+<td>8.856655</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
 <td>B</td>
-<td>10.005007</td>
+<td>10.574260</td>
 </tr>
 </tbody>
 </table>
@@ -396,20 +396,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pd.cut-df.groupby" class="level1">
 <h1>pd.cut + df.groupby</h1>
 <p><code>-</code> 구간별 count</p>
-<div id="e8dc8d6a-ea82-4fe8-8405-10b492002148" class="cell" data-execution_count="166">
+<div id="e8dc8d6a-ea82-4fe8-8405-10b492002148" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>arr <span class="op">=</span> np.random.rand(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> [0,0.2,0.5,0.9,1] 구간에 몇개의 숫자들이 있는지 알고 싶다.</p>
-<div id="0c2099f5-40df-40c8-96fe-732fea512b0b" class="cell" data-execution_count="176">
+<div id="0c2099f5-40df-40c8-96fe-732fea512b0b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>pd_cutted <span class="op">=</span> pd.cut(arr,bins<span class="op">=</span>[<span class="dv">0</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="387c8983-01d9-4ed1-9336-ebad7972cae2" class="cell" data-execution_count="179">
+<div id="387c8983-01d9-4ed1-9336-ebad7972cae2" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>pd.DataFrame({<span class="st">'bin'</span>:pd_cutted}).groupby(<span class="st">'bin'</span>).agg(<span class="st">'size'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="179">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>bin
-(0.0, 0.2]    189
-(0.2, 0.5]    307
-(0.5, 0.9]    406
+(0.0, 0.2]    176
+(0.2, 0.5]    328
+(0.5, 0.9]    398
 (0.9, 1.0]     98
 dtype: int64</code></pre>
 </div>
@@ -417,7 +417,7 @@ dtype: int64</code></pre>
 </section>
 <section id="flights-data" class="level1">
 <h1>flights data</h1>
-<div id="c7c1864a-b6ee-4256-9c7c-876e43334c9c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="181">
+<div id="c7c1864a-b6ee-4256-9c7c-876e43334c9c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/flights.csv'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -449,9 +449,9 @@ memory usage: 6.2+ MB</code></pre>
 <p><code>-</code> 예제3: 항공사(AIRLINE)별로 비행취소율(CANCELLED)을 구하라. 비행취소율이 가장 높은 두개의 항공사는 어디인가?</p>
 <p><code>-</code> 예제4: 비행취소율이 가장 높은 두개의 항공사(AIRLINE)를 선택하라. 그 두 항공사에 대하여 요일별(WEEKDAY) 비행취소율(CANCELLED)을 조사하라.</p>
 <p><code>-</code> 예제5: 아래는 운행거리의 요약통계량이다.</p>
-<div id="fbee8cc5-6bfc-4155-a000-88c22ab91830" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="211">
+<div id="fbee8cc5-6bfc-4155-a000-88c22ab91830" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df.DIST.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="211">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>count    58492.000000
 mean       872.900072
 std        624.996805
@@ -468,10 +468,10 @@ Name: DIST, dtype: float64</code></pre>
 <section id="quiz-hrdataset_v14-자료분석" class="level1">
 <h1>Quiz: HRDataset_v14 자료분석</h1>
 <p>아래의 코드를 활용하여 Kaggle의 <a href="https://www.kaggle.com/datasets/rhuebner/human-resources-data-set">HRdataset</a>을 불러오라.</p>
-<div id="9c904ab1-95d4-4fae-ac52-464de2f638a5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="50">
+<div id="9c904ab1-95d4-4fae-ac52-464de2f638a5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/HRDataset_v14.csv'</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="50">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -774,19 +774,15 @@ Name: DIST, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="0a08ba3a-7cb6-43c9-8814-3b750f10545c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df.groupby(<span class="st">'RaceDesc'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="53">
-<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f268209c890&gt;</code></pre>
-</div>
-</div>
-<p><code>1</code>. 데이터를 조사하고 올바르게 분석한 사람을 모두 고르라. (모두 맞칠경우만 정답으로 인정)</p>
-<ul>
-<li>소윤: 근무인원수가 가장 많은 인종(RaceDesc)은 ’White’이며 이는 ’Asian’인종과 ’Black or African American’의 합보다 많다.</li>
-<li>다호: ’RaceDesc==White’의 성별(Sex)임금차이는 2000이상이다.</li>
-<li>하니: 퇴직한사람(Termd==1)은 모두 104명이며 백인여성의 퇴직자수가 가장 많다.</li>
-<li>도한: 퇴직한사람중 아시아인의 비율은 10%가 넘지 않는다.</li>
-</ul>
+<p>다음을 읽고 참 거짓을 판단하여라.</p>
+<p><code>1</code>. 근무인원수가 가장 많은 인종(RaceDesc)은 ’White’이며 이는 ’Asian’인종과 ’Black or African American’의 합보다 많다.</p>
+<p><code>2</code>. ’RaceDesc==White’의 성별(Sex)임금차이는 2000이상이다.</p>
+<p><code>3</code>. 퇴직한사람(Termd==1)은 모두 104명이며 백인여성의 퇴직자수가 가장 많다.</p>
+<p><code>4</code>. 퇴직한사람중 아시아인의 비율은 10%가 넘지 않는다.</p>
+<p>아래를 조사하라.</p>
+<p><code>5</code>. [성별(Sex), 결혼유무(MarriedID)] 별 연봉(Salary)의 평균을 조사하라. 어떠한 그룹이 가장 평균연봉이 적은가?</p>
+<p><code>6</code>. [성별(Sex), 인종별(RaceDesc)] 별 연봉(Salary)의 중앙값(‘median’)을 조사하라. 연봉의 중앙값이 가장 높은 그룹은 무엇인가?</p>
+<p><code>7</code>. [성별(Sex), 인종별(RaceDesc)] 별 연봉(Salary)의 중앙값(‘median’)과 근무인원수를 함께 조사하라. 연봉의 중앙값이 가장 높은 그룹이 혜택을 받는 그룹이라고 느껴지는가?</p>
 
 
 </section>

@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
   <li><a href="#lambda" id="toc-lambda" class="nav-link" data-scroll-target="#lambda">lambda</a></li>
-  <li><a href="#map-star" id="toc-map-star" class="nav-link" data-scroll-target="#map-star">map (<span class="math inline">\(\star\)</span>)</a></li>
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">map</a></li>
   <li><a href="#df.apply집계함수axis" id="toc-df.apply집계함수axis" class="nav-link" data-scroll-target="#df.apply집계함수axis"><code>df.apply(집계함수,axis=?)</code></a></li>
   <li><a href="#s.apply변환함수" id="toc-s.apply변환함수" class="nav-link" data-scroll-target="#s.apply변환함수"><code>s.apply(변환함수)</code></a></li>
   <li><a href="#df.applymap변환함수" id="toc-df.applymap변환함수" class="nav-link" data-scroll-target="#df.applymap변환함수"><code>df.applymap(변환함수)</code></a></li>
@@ -302,92 +302,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day2/04_Function, Iteration/ls10.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div id="53384e68-a2e4-42d2-9b33-03b9f0b98919" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="53384e68-a2e4-42d2-9b33-03b9f0b98919" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="lambda" class="level1">
 <h1>lambda</h1>
 <p><code>-</code> 예제1: 람다표현식(lambda expression)자체가 하나의 오브젝트임</p>
-<div id="6e447590-252a-4a83-950c-128991cdc854" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="37">
+<div id="6e447590-252a-4a83-950c-128991cdc854" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span> <span class="co">### lambda x: (x-2)**2 가 실행되는 순간 메모리상에 함수 오브젝트가 저장됨 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>&lt;function __main__.&lt;lambda&gt;(x)&gt;</code></pre>
 </div>
 </div>
-<ul>
-<li>“lambda x: (x-2)**2” 는 <span class="math inline">\(lambda(x)=(x-2)^2\)</span>의 느낌으로 기억하면 쉬움</li>
-</ul>
 <p><strong>(사용방법)</strong></p>
-<div id="5a157c3b-4df6-4744-898d-2101d8261ea4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="38">
+<div id="5a157c3b-4df6-4744-898d-2101d8261ea4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>(<span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span>)(<span class="dv">2</span>) <span class="co"># 입력2 -&gt; 출력 (2-2)^2 =0 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>0</code></pre>
 </div>
 </div>
-<div id="48e29f60-baeb-49b3-a75d-49d968715cfe" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="39">
+<div id="48e29f60-baeb-49b3-a75d-49d968715cfe" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>(<span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span>)(<span class="dv">5</span>) <span class="co"># 입력5 -&gt; 출력 (5-2)^2 =9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="cab5f80d-7469-4658-9cf5-85718887d02a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="40">
+<div id="cab5f80d-7469-4658-9cf5-85718887d02a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>(<span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span>)(<span class="dv">6</span>) <span class="co"># 입력6 -&gt; 출력 (6-2)^2 =16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>16</code></pre>
 </div>
 </div>
-<div id="f70ae45b-8be4-4b1a-88a0-47668d26b6e2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="41">
+<div id="f70ae45b-8be4-4b1a-88a0-47668d26b6e2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>(<span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span>)(<span class="op">-</span><span class="dv">2</span>) <span class="co"># 입력-2 -&gt; 출력 (-2-2)^2 =16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>16</code></pre>
 </div>
 </div>
-<p><strong>Quiz</strong></p>
+<p><strong>quiz</strong></p>
 <p><span class="math inline">\(f(x)=\sqrt{x}\)</span> 를 수행하는 함수를 lambda를 이용하여 구성하라.</p>
 <p><code>-</code> 예제2: 람다표현식에 이름을 줄 수 있음.</p>
-<div id="aba0cbaa-68d7-4992-9af5-d0a141564d37" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="42">
+<div id="aba0cbaa-68d7-4992-9af5-d0a141564d37" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9433c9a1-0852-459d-978f-2ce4ac6507cb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="43">
+<div id="9433c9a1-0852-459d-978f-2ce4ac6507cb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>f(<span class="dv">2</span>),f(<span class="dv">4</span>),f(<span class="dv">6</span>),f(<span class="op">-</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>(0, 4, 16, 16)</code></pre>
 </div>
 </div>
 <p>위의 코드는 아래와 같다.</p>
-<div id="661bafbb-9490-48f4-9d17-c466e259c1f5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="44">
+<div id="661bafbb-9490-48f4-9d17-c466e259c1f5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    <span class="cf">return</span> (x<span class="op">-</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a>f(<span class="dv">2</span>),f(<span class="dv">4</span>),f(<span class="dv">6</span>),f(<span class="op">-</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>(0, 4, 16, 16)</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제3: 조건부 출력</p>
-<div id="09eaa929-5cf4-4a71-aa45-89e4793c91dd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="45">
+<div id="09eaa929-5cf4-4a71-aa45-89e4793c91dd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x,y: x <span class="cf">if</span> x<span class="op">&gt;</span>y <span class="cf">else</span> y <span class="co"># x,y가 입력 -&gt; x&gt;y 일때만 x를 리턴하고 그렇지않으면 y를 리턴 = 큰값을 리턴하라는 소리임 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="386143ec-8ab7-45f4-b2cf-eed41815c973" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="46">
+<div id="386143ec-8ab7-45f4-b2cf-eed41815c973" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>f(<span class="dv">1</span>,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>20</code></pre>
 </div>
 </div>
-<p><strong>Quiz</strong></p>
+<p><strong>quiz</strong></p>
 <p>임의의 알파벳 문자열을 입력으로 하고, 알파벳이 대문자이면 “대문자 입니다”를 출력하고 소문자이면 “소문자 입니다”를 출력하는 함수를 구성하라.</p>
 <p>(힌트) 아래코드 이용</p>
-<div id="4b62961f-2d31-4912-a018-ac319f5cbae0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="47">
+<div id="4b62961f-2d31-4912-a018-ac319f5cbae0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">'a'</span>.isupper()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="47">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>False</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제4: 람다표현식들의 리스트</p>
-<div id="0a7d5549-3b75-44ad-9977-235d88cd3a88" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="48">
+<div id="0a7d5549-3b75-44ad-9977-235d88cd3a88" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>fl <span class="op">=</span> [<span class="kw">lambda</span> x: x, <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>, <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="57d70fb1-9e85-4576-af4b-58d31ef5b35d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="49">
+<div id="57d70fb1-9e85-4576-af4b-58d31ef5b35d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="cf">for</span> f <span class="kw">in</span> fl: </span>
 <span id="cb23-2"><a href="#cb23-2"></a>    <span class="bu">print</span>(f(<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -396,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8</code></pre>
 </div>
 </div>
-<div id="b30f6478-713a-40e2-a3ac-f6a1a75d7a2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="50">
+<div id="b30f6478-713a-40e2-a3ac-f6a1a75d7a2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="cf">for</span> f <span class="kw">in</span> fl:</span>
 <span id="cb25-3"><a href="#cb25-3"></a>    plt.plot(x,f(x),<span class="st">'--'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -405,16 +404,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 예제5: 람다표현식들의 딕셔너리</p>
-<div id="b3f6156f-9e86-475c-b55a-4b3c02d9c2d3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="51">
+<div id="b3f6156f-9e86-475c-b55a-4b3c02d9c2d3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>fd <span class="op">=</span> {<span class="st">'f1'</span>:<span class="kw">lambda</span> x: x, <span class="st">'f2'</span>:<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>, <span class="st">'f3'</span>:<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">3</span>}</span>
 <span id="cb26-2"><a href="#cb26-2"></a>fd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>{'f1': &lt;function __main__.&lt;lambda&gt;(x)&gt;,
  'f2': &lt;function __main__.&lt;lambda&gt;(x)&gt;,
  'f3': &lt;function __main__.&lt;lambda&gt;(x)&gt;}</code></pre>
 </div>
 </div>
-<div id="e18ab47e-9c32-4b4f-87fd-b9332abc1ca1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="52">
+<div id="e18ab47e-9c32-4b4f-87fd-b9332abc1ca1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="cf">for</span> k <span class="kw">in</span> fd:</span>
 <span id="cb28-2"><a href="#cb28-2"></a>    plt.plot(x,fd[k](x),<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -423,272 +422,236 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>-</code> 예제6: 람다표현식을 리턴하는 함수 (함수를 리턴하는 함수)</p>
 <p>(예비학습) 함수 <span class="math inline">\(g(x)\)</span>가 정의되어 있을때 <span class="math inline">\(\frac{d}{dx}g(x)\)</span>의 값을 계산해보기</p>
-<div id="3725ecc5-4a9b-42f5-b8b5-48753bec0fb6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="53">
+<div id="3725ecc5-4a9b-42f5-b8b5-48753bec0fb6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>g <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0c146d8c-a502-4e47-917f-806a61b8444e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="54">
+<div id="0c146d8c-a502-4e47-917f-806a61b8444e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>gg <span class="op">=</span> <span class="kw">lambda</span> x : (g(x<span class="op">+</span><span class="fl">0.001</span>)<span class="op">-</span>g(x))<span class="op">/</span><span class="fl">0.001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5e25abf2-cd16-42a9-b2d8-44af9a09ae8a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="55">
+<div id="5e25abf2-cd16-42a9-b2d8-44af9a09ae8a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>gg(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>8.0010000000037</code></pre>
 </div>
 </div>
 <p>(목표) 도함수를 구해주는 <code>derivate</code> 함수를 정의하자. 이 함수는 임의의 함수 g를 입력으로 받으면, g의 도함수(gg)가 리턴되는 기능을 가진다.</p>
-<div id="6bedae08-269d-4f71-8d17-8f29c94a7504" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="56">
+<div id="6bedae08-269d-4f71-8d17-8f29c94a7504" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">def</span> derivate(g):</span>
 <span id="cb33-2"><a href="#cb33-2"></a>    <span class="cf">return</span> <span class="kw">lambda</span> x : (g(x<span class="op">+</span><span class="fl">0.001</span>)<span class="op">-</span>g(x))<span class="op">/</span><span class="fl">0.001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(사용1)</p>
-<div id="b91d8f40-27ab-400d-9f52-fd986d7aad41" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="57">
+<div id="b91d8f40-27ab-400d-9f52-fd986d7aad41" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>gg <span class="op">=</span> derivate(g) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ead162ab-31ae-49c3-8170-f190a52b33d8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="58">
+<div id="ead162ab-31ae-49c3-8170-f190a52b33d8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="fl">6.28</span>,<span class="dv">1000</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2ea2629f-f82f-4142-bf76-54de569c211b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="59">
+<div id="2ea2629f-f82f-4142-bf76-54de569c211b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>plt.plot(x,g(x),label<span class="op">=</span><span class="vs">r'$g(x)=sin(x)$'</span>)</span>
 <span id="cb36-2"><a href="#cb36-2"></a>plt.plot(x,gg(x),label<span class="op">=</span><span class="vs">r'$\frac</span><span class="sc">{d}{dx}</span><span class="vs">g(x)=cos(x)$'</span>)</span>
 <span id="cb36-3"><a href="#cb36-3"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="59">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fb48a8620b0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f43b4c25ab0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls10_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>(사용2)</p>
-<div id="1a77c458-2f7f-4deb-b71f-2cacbff42d57" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="60">
+<div id="1a77c458-2f7f-4deb-b71f-2cacbff42d57" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>g0 <span class="op">=</span> <span class="kw">lambda</span> x: (<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>x<span class="op">**</span><span class="dv">3</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>g1 <span class="op">=</span> derivate(g0) <span class="co"># (1/2)x^2 </span></span>
 <span id="cb38-3"><a href="#cb38-3"></a>g2 <span class="op">=</span> derivate(g1) <span class="co"># x </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2e4a91cd-544e-4ea6-80f5-d28002c4726f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="61">
+<div id="2e4a91cd-544e-4ea6-80f5-d28002c4726f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
 <span id="cb39-2"><a href="#cb39-2"></a>plt.plot(x,g0(x),<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$g_0(x)=\frac</span><span class="sc">{1}{6}</span><span class="vs">x^3$'</span>)</span>
 <span id="cb39-3"><a href="#cb39-3"></a>plt.plot(x,g1(x),<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$g_1(x)=\frac</span><span class="sc">{1}{2}</span><span class="vs">x^2$'</span>)</span>
 <span id="cb39-4"><a href="#cb39-4"></a>plt.plot(x,g2(x),<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$g_2(x)=x$'</span>)</span>
 <span id="cb39-5"><a href="#cb39-5"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fb48a7bae30&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f43b2c052d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls10_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예제7: 예제6의 다른표현</p>
-<div id="a82a07ef-4ac7-4d0a-9901-67e46602cb27" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="62">
+<div id="a82a07ef-4ac7-4d0a-9901-67e46602cb27" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>derivate <span class="op">=</span> <span class="kw">lambda</span> g: <span class="kw">lambda</span> x : (g(x<span class="op">+</span><span class="fl">0.001</span>)<span class="op">-</span>g(x))<span class="op">/</span><span class="fl">0.001</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(사용1)</p>
-<div id="880d825d-b215-4cc7-b105-304bdc9b9a92" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="63">
+<div id="880d825d-b215-4cc7-b105-304bdc9b9a92" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>g <span class="op">=</span> <span class="kw">lambda</span> x: np.sin(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4f78e6a7-6359-4bfd-b0ed-0642abd0e6a2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="64">
+<div id="4f78e6a7-6359-4bfd-b0ed-0642abd0e6a2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>gg <span class="op">=</span> derivate(g) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d22534c7-fddc-4053-beec-a2ce5edd4f2a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="65">
+<div id="d22534c7-fddc-4053-beec-a2ce5edd4f2a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="fl">6.28</span>,<span class="dv">1000</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="be1ccbe9-2530-40a0-920a-a64a23f49a5c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="66">
+<div id="be1ccbe9-2530-40a0-920a-a64a23f49a5c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>plt.plot(x,g(x),label<span class="op">=</span><span class="vs">r'$f(x)=sin(x)$'</span>)</span>
 <span id="cb45-2"><a href="#cb45-2"></a>plt.plot(x,gg(x),label<span class="op">=</span><span class="vs">r'$\frac</span><span class="sc">{d}{dx}</span><span class="vs">f(x)=cos(x)$'</span>)</span>
 <span id="cb45-3"><a href="#cb45-3"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="66">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fb48a6a3df0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="62">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f43b2a72b60&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls10_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>(사용2)</p>
-<div id="fc2f6c43-3c41-4ab6-aa5a-91235998a33f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="67">
+<div id="fc2f6c43-3c41-4ab6-aa5a-91235998a33f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>g0 <span class="op">=</span> <span class="kw">lambda</span> x: (<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>)<span class="op">*</span>x<span class="op">**</span><span class="dv">3</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>g1 <span class="op">=</span> derivate(g0) <span class="co"># (1/2)x^2 </span></span>
 <span id="cb47-3"><a href="#cb47-3"></a>g2 <span class="op">=</span> derivate(g1) <span class="co"># x </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c94284a8-4d1e-4484-8d76-3b619e46df64" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="68">
+<div id="c94284a8-4d1e-4484-8d76-3b619e46df64" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
 <span id="cb48-2"><a href="#cb48-2"></a>plt.plot(x,g0(x),<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$g_0(x)=\frac</span><span class="sc">{1}{6}</span><span class="vs">x^3$'</span>)</span>
 <span id="cb48-3"><a href="#cb48-3"></a>plt.plot(x,g1(x),<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$g_1(x)=\frac</span><span class="sc">{1}{2}</span><span class="vs">x^2$'</span>)</span>
 <span id="cb48-4"><a href="#cb48-4"></a>plt.plot(x,g2(x),<span class="st">'--'</span>,label<span class="op">=</span><span class="vs">r'$g_2(x)=x$'</span>)</span>
 <span id="cb48-5"><a href="#cb48-5"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="68">
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fb48a552620&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f43b2cf4580&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls10_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="map-star" class="level1">
-<h1>map (<span class="math inline">\(\star\)</span>)</h1>
+<section id="map" class="level1">
+<h1>map</h1>
 <p><code>-</code> 개념: $(f,[x_1,x_2,,x_n] )=$</p>
 <p><code>-</code> 예제1:</p>
-<div id="7762312f-bb8d-478e-9794-253deb439dad" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="2">
+<div id="7762312f-bb8d-478e-9794-253deb439dad" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
 <span id="cb50-2"><a href="#cb50-2"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span> </span>
 <span id="cb50-3"><a href="#cb50-3"></a>y <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(f,x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(다른구현1)</p>
-<div id="75f88de7-fcf3-406a-b437-7ac482580d46" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="75f88de7-fcf3-406a-b437-7ac482580d46" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">list</span>(<span class="bu">map</span>(f,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="71">
 <pre><code>[2, 3, 4]</code></pre>
 </div>
 </div>
 <p>(다른구현2)</p>
-<div id="a180206e-4b0a-4b12-80cb-ce28d58039b3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span> </span>
-<span id="cb53-2"><a href="#cb53-2"></a>[f(xi) <span class="cf">for</span> xi <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="a180206e-4b0a-4b12-80cb-ce28d58039b3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>[f(xi) <span class="cf">for</span> xi <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>[2, 3, 4]</code></pre>
 </div>
 </div>
-<p>(다른구현3)</p>
-<div id="41d84e3e-2f69-4888-b173-e2ed29366675" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>[(<span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>)(xi) <span class="cf">for</span> xi <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>[2, 3, 4]</code></pre>
-</div>
-</div>
-<p>(다른구현4)–최악</p>
-<div id="5e56c1b6-1cae-4881-8c6b-48cfeb9bd907" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>y <span class="op">=</span> [] </span>
-<span id="cb57-2"><a href="#cb57-2"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
-<span id="cb57-3"><a href="#cb57-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span> </span>
-<span id="cb57-4"><a href="#cb57-4"></a><span class="cf">for</span> xi <span class="kw">in</span> x:</span>
-<span id="cb57-5"><a href="#cb57-5"></a>    y.append(f(xi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="2c942317-19a7-476d-bd00-fcf5c4e1460e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>[2, 3, 4]</code></pre>
-</div>
-</div>
-<p>(다른구현5)–더 최악</p>
-<div id="182f9cd8-a07c-4137-894c-f875d852c2af" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>y <span class="op">=</span> [] </span>
-<span id="cb60-2"><a href="#cb60-2"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
-<span id="cb60-3"><a href="#cb60-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span> </span>
-<span id="cb60-4"><a href="#cb60-4"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(x)):</span>
-<span id="cb60-5"><a href="#cb60-5"></a>    y.append(f(x[i]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="f5dccf30-8265-477e-b50d-63926eae7d72" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>[2, 3, 4]</code></pre>
-</div>
-</div>
-<p><strong>Quiz</strong></p>
+<p><strong>quiz</strong></p>
 <p><span class="math inline">\(x=[1,2,3,4,5]\)</span>에 대하여 <span class="math inline">\(x^2\)</span>을 수행하는 함수를 구현하라.</p>
 <p><code>-</code> 예제2: 문자열을 입력으로 받고 대문자이면 True, 소문자이면 False</p>
 <pre><code>입력: A,B,C,a,b,c
 출력: T,T,T,F,F,F</code></pre>
-<div id="e217fc65-f908-4749-b479-ee9fc4556683" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>x<span class="op">=</span> <span class="bu">list</span>(<span class="st">'ABCabc'</span>)</span>
-<span id="cb64-2"><a href="#cb64-2"></a><span class="co"># x = ['A','B','C','a','b','c']</span></span>
-<span id="cb64-3"><a href="#cb64-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> s: s.isupper()</span>
-<span id="cb64-4"><a href="#cb64-4"></a>y <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(f,x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e217fc65-f908-4749-b479-ee9fc4556683" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>x<span class="op">=</span> <span class="bu">list</span>(<span class="st">'ABCabc'</span>)</span>
+<span id="cb56-2"><a href="#cb56-2"></a><span class="co"># x = ['A','B','C','a','b','c']</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> s: s.isupper()</span>
+<span id="cb56-4"><a href="#cb56-4"></a>y <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(f,x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="46db6bc8-7637-4089-8c82-14701f6097d2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="46db6bc8-7637-4089-8c82-14701f6097d2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
 <pre><code>(['A', 'B', 'C', 'a', 'b', 'c'], [True, True, True, False, False, False])</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제3: 두개의 입력을 받는 함수 (map을 이용하는 것이 리스트 컴프리헨션보다 조금 편한것 같다)</p>
-<div id="0799f23e-6346-465c-b8d6-f928cd34cdf3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x,y: x<span class="op">+</span>y, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div id="0799f23e-6346-465c-b8d6-f928cd34cdf3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x,y: x<span class="op">+</span>y, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
 <pre><code>[0, 0, 0]</code></pre>
 </div>
 </div>
 <p>(다른구현)– 리스트컴프리헨션</p>
-<div id="9e3909d0-f204-4b05-b559-43544e15fee1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x,y: x<span class="op">+</span>y </span>
-<span id="cb69-2"><a href="#cb69-2"></a>[f(x,y) <span class="cf">for</span> x,y <span class="kw">in</span> <span class="bu">zip</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>])] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="9e3909d0-f204-4b05-b559-43544e15fee1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x,y: x<span class="op">+</span>y </span>
+<span id="cb61-2"><a href="#cb61-2"></a>[f(x,y) <span class="cf">for</span> x,y <span class="kw">in</span> <span class="bu">zip</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>])] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
 <pre><code>[0, 0, 0]</code></pre>
 </div>
 </div>
 <p><strong>quiz</strong></p>
-<div id="80443261-01cd-4428-af63-89f6abed1ef3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>t<span class="op">=</span>np.linspace(<span class="op">-</span><span class="fl">3.14</span>,<span class="fl">3.14</span>,<span class="dv">100</span>)</span>
-<span id="cb71-2"><a href="#cb71-2"></a>x<span class="op">=</span>np.sin(t)</span>
-<span id="cb71-3"><a href="#cb71-3"></a>y<span class="op">=</span>np.cos(t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="80443261-01cd-4428-af63-89f6abed1ef3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>t<span class="op">=</span>np.linspace(<span class="op">-</span><span class="fl">3.14</span>,<span class="fl">3.14</span>,<span class="dv">100</span>)</span>
+<span id="cb63-2"><a href="#cb63-2"></a>x<span class="op">=</span>np.sin(t)</span>
+<span id="cb63-3"><a href="#cb63-3"></a>y<span class="op">=</span>np.cos(t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a4227b0e-e0af-427e-a3ff-33a1c1216fd5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>plt.plot(t,x)</span>
-<span id="cb72-2"><a href="#cb72-2"></a>plt.plot(t,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a4227b0e-e0af-427e-a3ff-33a1c1216fd5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>plt.plot(t,x)</span>
+<span id="cb64-2"><a href="#cb64-2"></a>plt.plot(t,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls10_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
+<p><img src="ls10_files/figure-html/cell-43-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><span class="math inline">\(f(x,y) = \max(x,y)\)</span> 를 구현하여 <span class="math inline">\({\bf x}\)</span>,<span class="math inline">\({\bf y}\)</span> 각 원소에 적용하고 결과를 시각화 하라.</p>
-<div id="852070ce-2fcc-4e34-890e-a62a8a3d913d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>f <span class="op">=</span> (<span class="kw">lambda</span> x,y: <span class="bu">max</span>(x,y))</span>
-<span id="cb73-2"><a href="#cb73-2"></a>f(<span class="dv">3</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div id="852070ce-2fcc-4e34-890e-a62a8a3d913d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>f <span class="op">=</span> (<span class="kw">lambda</span> x,y: <span class="bu">max</span>(x,y))</span>
+<span id="cb65-2"><a href="#cb65-2"></a>f(<span class="dv">3</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="79">
 <pre><code>4</code></pre>
 </div>
 </div>
-<div id="4df4d552-4d4e-4601-8fca-f8805cfcc2ad" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>z<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(f,x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4df4d552-4d4e-4601-8fca-f8805cfcc2ad" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>z<span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(f,x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="16339bf4-cc65-4b6e-8ee5-4b64bd2fce07" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>plt.plot(t,z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="16339bf4-cc65-4b6e-8ee5-4b64bd2fce07" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>plt.plot(t,z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls10_files/figure-html/cell-51-output-1.png" class="img-fluid"></p>
+<p><img src="ls10_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예제4: map은 “하나의 함수에 다양한 입력”을 적용하는 경우에만 사용가능, 리스트컴프리헨션은 “다양한 함수에 다양한 입력” 지원</p>
-<div id="df1e691c-a144-4e32-98a3-258d6a516afa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>flst <span class="op">=</span> [<span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>, <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">2</span>, <span class="kw">lambda</span> x:x<span class="op">+</span><span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="df1e691c-a144-4e32-98a3-258d6a516afa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>flst <span class="op">=</span> [<span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">1</span>, <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">2</span>, <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>map으로 구현시도 <span class="math inline">\(\to\)</span> 실패</p>
-<div id="a378dd60-e9d9-41cd-88e6-d0a126c3346f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a><span class="bu">list</span>(<span class="bu">map</span>(flst,[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>])) <span class="co"># 결과가 0,0,0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a378dd60-e9d9-41cd-88e6-d0a126c3346f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a><span class="bu">list</span>(<span class="bu">map</span>(flst,[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>])) <span class="co"># 결과가 0,0,0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>TypeError: 'list' object is not callable</code></pre>
 </div>
 </div>
 <p>리스트컴프리헨션으로 구현시도 <span class="math inline">\(\to\)</span> 성공</p>
-<div id="603071c5-e838-4128-aa33-b35508649b66" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>[f(x) <span class="cf">for</span> f,x <span class="kw">in</span> <span class="bu">zip</span>(flst,[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>])]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div id="603071c5-e838-4128-aa33-b35508649b66" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>[f(x) <span class="cf">for</span> f,x <span class="kw">in</span> <span class="bu">zip</span>(flst,[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>])]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
 <pre><code>[0, 0, 0]</code></pre>
 </div>
 </div>
 <p><code>-</code> 종합: map과 리스트컴프리헨션과 비교</p>
 <ul>
 <li>map은 for문을 위한 <span class="math inline">\(i\)</span>등의 인덱스를 쓰지 않지만 리스트컴프리헨션은 필요함</li>
-<li>map은 좀더 리스트컴프리헨션보다 제약적으로 사용할 수 밖에 없음.</li>
+<li>map은 좀 더 리스트컴프리헨션보다 제약적으로 사용할 수 밖에 없음.</li>
 </ul>
 </section>
 <section id="df.apply집계함수axis" class="level1">
 <h1><code>df.apply(집계함수,axis=?)</code></h1>
 <p><strong>예비학습: 함수의 종류</strong></p>
 <p><code>-</code> 집계함수: 벡터입력 -&gt; 스칼라출력</p>
-<div id="ff2c9409-8410-4e51-91f7-3f5c2f420e0b" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a><span class="bu">input</span> <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
-<span id="cb82-2"><a href="#cb82-2"></a>output <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">input</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ff2c9409-8410-4e51-91f7-3f5c2f420e0b" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a><span class="bu">input</span> <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
+<span id="cb74-2"><a href="#cb74-2"></a>output <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">input</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 변환함수: 벡터입력 -&gt; 벡터출력</p>
-<div id="d8ce023b-46af-4eb2-bd85-b7d907c62799" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a><span class="bu">input</span> <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
-<span id="cb83-2"><a href="#cb83-2"></a>output <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>, <span class="bu">input</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d8ce023b-46af-4eb2-bd85-b7d907c62799" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="bu">input</span> <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] </span>
+<span id="cb75-2"><a href="#cb75-2"></a>output <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>, <span class="bu">input</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
-<div id="a1d1b5db-5ff8-4b17-b68e-b6be3f7ab680" class="cell" data-execution_count="90">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb84-2"><a href="#cb84-2"></a>    <span class="st">'A'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
-<span id="cb84-3"><a href="#cb84-3"></a>    <span class="st">'B'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>],</span>
-<span id="cb84-4"><a href="#cb84-4"></a>    <span class="st">'C'</span>: [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
-<span id="cb84-5"><a href="#cb84-5"></a>})</span>
-<span id="cb84-6"><a href="#cb84-6"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="90">
+<div id="a1d1b5db-5ff8-4b17-b68e-b6be3f7ab680" class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb76-2"><a href="#cb76-2"></a>    <span class="st">'A'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb76-3"><a href="#cb76-3"></a>    <span class="st">'B'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>],</span>
+<span id="cb76-4"><a href="#cb76-4"></a>    <span class="st">'C'</span>: [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb76-5"><a href="#cb76-5"></a>})</span>
+<span id="cb76-6"><a href="#cb76-6"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
 <div>
 
 
@@ -733,8 +696,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 예제1: column-wise sum을 구하라.</p>
-<div id="98cc164b-55d5-4e95-86e6-504648daaccf" class="cell" data-execution_count="91">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>df.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="98cc164b-55d5-4e95-86e6-504648daaccf" class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>df.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<pre><code>A    10
+B    22
+C    34
+dtype: int64</code></pre>
+</div>
+</div>
+<div id="54625ee3-fef8-4ec7-b759-8812959830dc" class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>A    10
 B    22
@@ -742,8 +714,8 @@ C    34
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="54625ee3-fef8-4ec7-b759-8812959830dc" class="cell" data-execution_count="92">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4645c4ed-b089-462a-b020-1c004c11fc31" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>df.<span class="bu">apply</span>(<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="92">
 <pre><code>A    10
 B    22
@@ -751,19 +723,10 @@ C    34
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="4645c4ed-b089-462a-b020-1c004c11fc31" class="cell" data-execution_count="93">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>df.<span class="bu">apply</span>(<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="93">
-<pre><code>A    10
-B    22
-C    34
-dtype: int64</code></pre>
-</div>
-</div>
 <p><code>-</code> 예제2: row-wise sum을 구하라.</p>
-<div id="ab255dab-fa7a-4010-a9be-1c6c328ef918" class="cell" data-execution_count="94">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="94">
+<div id="ab255dab-fa7a-4010-a9be-1c6c328ef918" class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="93">
 <pre><code>0    12
 1    15
 2    18
@@ -771,9 +734,9 @@ dtype: int64</code></pre>
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="e32be9d8-e82a-4525-a1ec-1edd769d0571" class="cell" data-execution_count="95">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>df.<span class="bu">apply</span>(<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="95">
+<div id="e32be9d8-e82a-4525-a1ec-1edd769d0571" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>df.<span class="bu">apply</span>(<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="94">
 <pre><code>0    12
 1    15
 2    18
@@ -786,14 +749,14 @@ dtype: int64</code></pre>
 </section>
 <section id="s.apply변환함수" class="level1">
 <h1><code>s.apply(변환함수)</code></h1>
-<div id="79749268-da1e-42f2-b78d-be8bbc60d3ee" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb95-2"><a href="#cb95-2"></a>    <span class="st">'A'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
-<span id="cb95-3"><a href="#cb95-3"></a>    <span class="st">'B'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>],</span>
-<span id="cb95-4"><a href="#cb95-4"></a>    <span class="st">'C'</span>: [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
-<span id="cb95-5"><a href="#cb95-5"></a>})</span>
-<span id="cb95-6"><a href="#cb95-6"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div id="79749268-da1e-42f2-b78d-be8bbc60d3ee" class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb87-2"><a href="#cb87-2"></a>    <span class="st">'A'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb87-3"><a href="#cb87-3"></a>    <span class="st">'B'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>],</span>
+<span id="cb87-4"><a href="#cb87-4"></a>    <span class="st">'C'</span>: [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb87-5"><a href="#cb87-5"></a>})</span>
+<span id="cb87-6"><a href="#cb87-6"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="95">
 <div>
 
 
@@ -838,31 +801,31 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제1: df.A 열에서 2보다 크면 True, 그렇지 않으면 False를 리턴하는 변환함수를 적용하라.</p>
-<div id="4bcb9d18-a88a-425d-9bcb-ec84a35628e9" class="cell" data-execution_count="79">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># 방법1: 컴프리헨션을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4bcb9d18-a88a-425d-9bcb-ec84a35628e9" class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># 방법1: 컴프리헨션을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a68ebaaf-b207-430a-a921-340f617809ca" class="cell" data-execution_count="78">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># 방법2: lambda + map 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a68ebaaf-b207-430a-a921-340f617809ca" class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># 방법2: lambda + map 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="981b2e07-0b7a-4016-a962-90832e3ac028" class="cell" data-execution_count="80">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># 방법3: s.apply 를 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="981b2e07-0b7a-4016-a962-90832e3ac028" class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># 방법3: s.apply 를 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 예제2: df.A 열에서 2보다 크면 ‘H’, 그렇지 않으면 ’L’을 리턴하는 변환함수를 적용하라.</p>
-<div id="74531801-28c0-49fa-823b-b55a22f1d98e" class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># 방법1: 컴프리헨션을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="74531801-28c0-49fa-823b-b55a22f1d98e" class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># 방법1: 컴프리헨션을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="67bfc635-5cf7-4b08-84a3-ab86a5523aea" class="cell" data-execution_count="83">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1"></a><span class="co"># 방법2: lambda + map 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="67bfc635-5cf7-4b08-84a3-ab86a5523aea" class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># 방법2: lambda + map 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cc75e239-6254-4f88-a77a-3065505f36d9" class="cell" data-execution_count="84">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># 방법3: s.apply 를 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cc75e239-6254-4f88-a77a-3065505f36d9" class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># 방법3: s.apply 를 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 예제3: 아래와 같은 pd.Series 를 고려하자.</p>
-<div id="07d48473-c872-447e-a279-f66395c1edba" class="cell" data-execution_count="133">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>)</span>
-<span id="cb102-2"><a href="#cb102-2"></a>s <span class="op">=</span> df.Height</span>
-<span id="cb102-3"><a href="#cb102-3"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="133">
+<div id="07d48473-c872-447e-a279-f66395c1edba" class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>)</span>
+<span id="cb94-2"><a href="#cb94-2"></a>s <span class="op">=</span> df.Height</span>
+<span id="cb94-3"><a href="#cb94-3"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
 <pre><code>0        189cm
 1        179cm
 2        172cm
@@ -878,30 +841,30 @@ Name: Height, Length: 17660, dtype: object</code></pre>
 </div>
 </div>
 <p>각각 원소를 int형으로 바꾸는 변환함수를 적용하라.</p>
-<div id="aa4a2501-d254-4ce2-a6b4-19e292296068" class="cell" data-execution_count="77">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a><span class="co"># 방법1: s.str.replace().astype() 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aa4a2501-d254-4ce2-a6b4-19e292296068" class="cell" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># 방법1: s.str.replace().astype() 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b6b151c0-d174-4bf9-96d6-66522546bf79" class="cell" data-execution_count="85">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a><span class="co"># 방법2: 컴프리헨션을 이용 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b6b151c0-d174-4bf9-96d6-66522546bf79" class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># 방법2: 컴프리헨션을 이용 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fed42aab-2d5c-4f47-8c7e-3b4c629d6e16" class="cell" data-execution_count="86">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># 방법3: lambda + map 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fed42aab-2d5c-4f47-8c7e-3b4c629d6e16" class="cell" data-execution_count="105">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># 방법3: lambda + map 을 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6ed1ae4b-eefa-4106-88a6-5fd8e571db47" class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># 방법4: s.apply(변환함수)를 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6ed1ae4b-eefa-4106-88a6-5fd8e571db47" class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># 방법4: s.apply(변환함수)를 이용</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="df.applymap변환함수" class="level1">
 <h1><code>df.applymap(변환함수)</code></h1>
 <p><code>-</code> 예제1: 아래의 데이터 프레임을 고려하자.</p>
-<div id="11781db8-b1f2-49f2-a4a4-ff9b2f5c9af7" class="cell" data-execution_count="100">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb108-2"><a href="#cb108-2"></a>    <span class="st">'A'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
-<span id="cb108-3"><a href="#cb108-3"></a>    <span class="st">'B'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>],</span>
-<span id="cb108-4"><a href="#cb108-4"></a>    <span class="st">'C'</span>: [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
-<span id="cb108-5"><a href="#cb108-5"></a>})</span>
-<span id="cb108-6"><a href="#cb108-6"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="100">
+<div id="11781db8-b1f2-49f2-a4a4-ff9b2f5c9af7" class="cell" data-execution_count="107">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb100-2"><a href="#cb100-2"></a>    <span class="st">'A'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb100-3"><a href="#cb100-3"></a>    <span class="st">'B'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>],</span>
+<span id="cb100-4"><a href="#cb100-4"></a>    <span class="st">'C'</span>: [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb100-5"><a href="#cb100-5"></a>})</span>
+<span id="cb100-6"><a href="#cb100-6"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="107">
 <div>
 
 
@@ -946,9 +909,9 @@ Name: Height, Length: 17660, dtype: object</code></pre>
 </div>
 </div>
 <p>각 원소의 값을 판단하여 5보다 크면 ‘H’, 그렇지 않으면 ’L’를 리턴하는 함수를 구현하라.</p>
-<div id="5f59a78b-0507-4621-acce-8032133677d2" class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a>df.applymap(<span class="kw">lambda</span> x: <span class="st">'H'</span> <span class="cf">if</span> x<span class="op">&gt;</span><span class="dv">5</span> <span class="cf">else</span> <span class="st">'L'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="103">
+<div id="5f59a78b-0507-4621-acce-8032133677d2" class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>df.applymap(<span class="kw">lambda</span> x: <span class="st">'H'</span> <span class="cf">if</span> x<span class="op">&gt;</span><span class="dv">5</span> <span class="cf">else</span> <span class="st">'L'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
 <div>
 
 
@@ -993,10 +956,10 @@ Name: Height, Length: 17660, dtype: object</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제2: 아래의 데이터프레임을 고려하자.</p>
-<div id="1013b609-66d7-46b4-b98d-1a636709fa61" class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>)</span>
-<span id="cb110-2"><a href="#cb110-2"></a>df.head(n<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="104">
+<div id="1013b609-66d7-46b4-b98d-1a636709fa61" class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>)</span>
+<span id="cb102-2"><a href="#cb102-2"></a>df.head(n<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="109">
 <div>
 
 
@@ -1111,10 +1074,10 @@ Name: Height, Length: 17660, dtype: object</code></pre>
 </section>
 <section id="quiz" class="level1">
 <h1>Quiz</h1>
-<div id="b5ba24bf-4737-48cc-86ce-94e8be788ca9" class="cell" data-execution_count="171">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>)</span>
-<span id="cb111-2"><a href="#cb111-2"></a>df.head(n<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="171">
+<div id="b5ba24bf-4737-48cc-86ce-94e8be788ca9" class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv'</span>)</span>
+<span id="cb103-2"><a href="#cb103-2"></a>df.head(n<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="110">
 <div>
 
 
@@ -1229,14 +1192,14 @@ Name: Height, Length: 17660, dtype: object</code></pre>
 <p><code>2</code>. Position Column의 결측치를 제거하라.</p>
 <p><code>3</code>. 아래의 dict를 이용하여 포지션을 좀 더 알기쉽게 정리하는 변환을 수행하라.</p>
 <div id="c1329b2d-0004-4009-ab03-624da98d4ec4" class="cell" data-execution_count="178">
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1"></a>position_dict <span class="op">=</span> {</span>
-<span id="cb112-2"><a href="#cb112-2"></a>    <span class="st">'GOALKEEPER'</span>:[<span class="st">'GK'</span>],</span>
-<span id="cb112-3"><a href="#cb112-3"></a>    <span class="st">'DEFENDER'</span>:[<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>],</span>
-<span id="cb112-4"><a href="#cb112-4"></a>    <span class="st">'MIDFIELDER'</span>:[<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>],</span>
-<span id="cb112-5"><a href="#cb112-5"></a>    <span class="st">'FORWARD'</span>:[<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>],</span>
-<span id="cb112-6"><a href="#cb112-6"></a>    <span class="st">'SUB'</span>:[<span class="st">'SUB'</span>],</span>
-<span id="cb112-7"><a href="#cb112-7"></a>    <span class="st">'RES'</span>:[<span class="st">'RES'</span>]</span>
-<span id="cb112-8"><a href="#cb112-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>position_dict <span class="op">=</span> {</span>
+<span id="cb104-2"><a href="#cb104-2"></a>    <span class="st">'GOALKEEPER'</span>:[<span class="st">'GK'</span>],</span>
+<span id="cb104-3"><a href="#cb104-3"></a>    <span class="st">'DEFENDER'</span>:[<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>],</span>
+<span id="cb104-4"><a href="#cb104-4"></a>    <span class="st">'MIDFIELDER'</span>:[<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>],</span>
+<span id="cb104-5"><a href="#cb104-5"></a>    <span class="st">'FORWARD'</span>:[<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>],</span>
+<span id="cb104-6"><a href="#cb104-6"></a>    <span class="st">'SUB'</span>:[<span class="st">'SUB'</span>],</span>
+<span id="cb104-7"><a href="#cb104-7"></a>    <span class="st">'RES'</span>:[<span class="st">'RES'</span>]</span>
+<span id="cb104-8"><a href="#cb104-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>예를들면 아래와 같이 변환이 수행되어야 한다.</p>
 <pre><code>변환전: '&lt;span class="pos pos15"&gt;LCM' 
