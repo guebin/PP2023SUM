@@ -255,7 +255,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#df.groupby" id="toc-df.groupby" class="nav-link active" data-scroll-target="#df.groupby">df.groupby</a></li>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#df.groupby" id="toc-df.groupby" class="nav-link" data-scroll-target="#df.groupby">df.groupby</a></li>
   <li><a href="#pd.cut-df.groupby" id="toc-pd.cut-df.groupby" class="nav-link" data-scroll-target="#pd.cut-df.groupby">pd.cut + df.groupby</a></li>
   <li><a href="#flights-data" id="toc-flights-data" class="nav-link" data-scroll-target="#flights-data">flights data</a></li>
   <li><a href="#quiz-hrdataset_v14-자료분석" id="toc-quiz-hrdataset_v14-자료분석" class="nav-link" data-scroll-target="#quiz-hrdataset_v14-자료분석">Quiz: HRDataset_v14 자료분석</a></li>
@@ -295,10 +297,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day2/04_Function, Iteration/ls11.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<section id="강의영상" class="level1">
+<h1>강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/XlwSIZPcBpM?list=PLQqh36zP38-y8RXbbZBO1POaMqaZPTPCI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="imports" class="level1">
+<h1>imports</h1>
 <div id="38fb6f53-1e47-444b-8d0c-22e4e91e8cc3" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="df.groupby" class="level1 page-columns page-full">
 <h1>df.groupby</h1>
 <p><code>-</code> 예제1: 아래의 예제에서 그룹별 평균을 구하여라.</p>
@@ -1490,6 +1499,75 @@ Name: DIST, dtype: float64</code></pre>
 <p><code>5</code>. [성별(Sex), 결혼유무(MarriedID)] 별 연봉(Salary)의 평균을 조사하라. 어떠한 그룹이 가장 평균연봉이 적은가?</p>
 <p><code>6</code>. [성별(Sex), 인종별(RaceDesc)] 별 연봉(Salary)의 중앙값(‘median’)을 조사하라. 연봉의 중앙값이 가장 높은 그룹은 무엇인가?</p>
 <p><code>7</code>. [성별(Sex), 인종별(RaceDesc)] 별 연봉(Salary)의 중앙값(‘median’)과 근무인원수를 함께 조사하라. 연봉의 중앙값이 가장 높은 그룹이 혜택을 받는 그룹이라고 느껴지는가?</p>
+<div id="1da2e675-1df3-43f0-af50-68560bb5e4c8" class="cell" data-execution_count="184">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="op">!</span>git add . </span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="op">!</span>git commit <span class="op">-</span>m .</span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="op">!</span>git push</span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="op">!</span>quarto publish <span class="op">--</span>no<span class="op">-</span>browser <span class="op">--</span>no<span class="op">-</span>prompt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[main 7780095] .
+ 2 files changed, 1186 insertions(+), 6 deletions(-)
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 2.07 KiB | 2.07 MiB/s, done.
+Total 7 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/guebin/PP2023SUM.git
+   a8c13c7..7780095  main -&gt; main
+From https://github.com/guebin/PP2023SUM
+ * branch            gh-pages   -&gt; FETCH_HEAD
+Rendering for publish:
+
+[ 1/27] 1_1.qmd
+[ 2/27] about.qmd
+[ 3/27] 1_2.qmd
+[ 4/27] 2_2.qmd
+[ 5/27] posts/Day3/08_PandasBackend/ls21.ipynb
+[ 6/27] posts/Day3/08_PandasBackend/ls20.ipynb
+[ 7/27] posts/Day3/07_ggplot2/ls16.ipynb
+[ 8/27] posts/Day3/07_ggplot2/ls19.ipynb
+[ 9/27] posts/Day3/07_ggplot2/ls18.ipynb
+[10/27] posts/Day3/07_ggplot2/ls17.ipynb
+[11/27] posts/Day2/03_Pandas/ls07.ipynb
+[12/27] posts/Day2/03_Pandas/ls08.ipynb
+[13/27] posts/Day2/03_Pandas/ls09.ipynb
+[14/27] posts/Day2/04_Function, Iteration/ls10.ipynb
+[15/27] posts/Day2/04_Function, Iteration/ls11.ipynb
+[16/27] posts/Day2/05_Modulesls12.ipynb
+[17/27] posts/Day1/01_PythonBasicSyntax/ls02.ipynb
+[18/27] posts/Day1/01_PythonBasicSyntax/ls04.ipynb
+[19/27] posts/Day1/01_PythonBasicSyntax/ls01.ipynb
+[20/27] posts/Day1/01_PythonBasicSyntax/ls03.ipynb
+[21/27] posts/Day1/02_Numpy/ls05.ipynb
+[22/27] posts/Day1/02_Numpy/ls06.ipynb
+[23/27] 3_2.qmd
+[24/27] 3_1.qmd
+[25/27] index.qmd
+[26/27] 2_3.qmd
+[27/27] 2_1.qmd
+
+Preparing worktree (resetting branch 'gh-pages'; was at e9a8acb)
+Branch 'gh-pages' set up to track remote branch 'gh-pages' from 'origin'.
+HEAD is now at e9a8acb Built site for gh-pages
+[gh-pages 6edb56e] Built site for gh-pages
+ 24 files changed, 1144 insertions(+), 687 deletions(-)
+origin  https://github.com/guebin/PP2023SUM.git (fetch)
+origin  https://github.com/guebin/PP2023SUM.git (push)
+To https://github.com/guebin/PP2023SUM.git
+   e9a8acb..6edb56e  HEAD -&gt; gh-pages
+
+NOTE: GitHub Pages sites use caching so you might need to click the refresh
+button within your web browser to see changes after deployment.
+
+[✓] Published to https://guebin.github.io/PP2023SUM/
+
+NOTE: GitHub Pages deployments normally take a few minutes (your site updates
+will be visible once the deploy completes)
+</code></pre>
+</div>
+</div>
 
 
 </section>
