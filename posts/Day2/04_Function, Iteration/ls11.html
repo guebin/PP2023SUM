@@ -751,7 +751,7 @@ B</code></pre>
 </section>
 <section id="flights-data" class="level1">
 <h1>flights data</h1>
-<div id="c7c1864a-b6ee-4256-9c7c-876e43334c9c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
+<div id="c7c1864a-b6ee-4256-9c7c-876e43334c9c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="148">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/flights.csv'</span>)</span>
 <span id="cb23-2"><a href="#cb23-2"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -779,13 +779,335 @@ memory usage: 6.2+ MB</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제1: 항공사(AIRLINE)별로 도착지연시간의(ARR_DELAY)의 평균을 구하라.</p>
+<div id="8a985c40-424e-4996-b5db-cecf278e005f" class="cell" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df.groupby(<span class="st">'AIRLINE'</span>).aggregate({<span class="st">'ARR_DELAY'</span>:<span class="st">'mean'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="156">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ARR_DELAY</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">AIRLINE</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AA</td>
+<td>5.542661</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AS</td>
+<td>-0.833333</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">B6</td>
+<td>8.692593</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DL</td>
+<td>0.339691</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">EV</td>
+<td>7.034580</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">F9</td>
+<td>13.630651</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HA</td>
+<td>4.972973</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MQ</td>
+<td>6.860591</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NK</td>
+<td>18.436070</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">OO</td>
+<td>7.593463</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">UA</td>
+<td>7.765755</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">US</td>
+<td>1.681105</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">VX</td>
+<td>5.348884</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">WN</td>
+<td>6.397353</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p><code>-</code> 예제2: 항공사(AIRLINE)별로 비행취소건수(CANCELLED)의 합계를 구하라. 취소건수가 가장 높은 두개의 항공사는 어디인가?</p>
+<div id="20215413-b28b-4c88-a7dc-da348cf6c0cf" class="cell" data-execution_count="159">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df.groupby(<span class="st">'AIRLINE'</span>).aggregate({<span class="st">'CANCELLED'</span>:<span class="st">'sum'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="159">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CANCELLED</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">AIRLINE</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AA</td>
+<td>154</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AS</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">B6</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DL</td>
+<td>38</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">EV</td>
+<td>146</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">F9</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HA</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MQ</td>
+<td>152</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NK</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">OO</td>
+<td>142</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">UA</td>
+<td>93</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">US</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">VX</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">WN</td>
+<td>93</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p><code>-</code> 예제3: 항공사(AIRLINE)별로 비행취소율(CANCELLED)을 구하라. 비행취소율이 가장 높은 두개의 항공사는 어디인가?</p>
+<div id="6d0b73d3-0fbb-4639-86f9-7757bb0dccf6" class="cell" data-execution_count="162">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.groupby(<span class="st">'AIRLINE'</span>).aggregate({<span class="st">'CANCELLED'</span>:<span class="st">'mean'</span>})</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="co"># df.groupby('AIRLINE').aggregate({'CANCELLED':lambda x : sum(x)/len(x)})</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="162">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CANCELLED</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">AIRLINE</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AA</td>
+<td>0.017303</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AS</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">B6</td>
+<td>0.001842</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DL</td>
+<td>0.003585</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">EV</td>
+<td>0.024923</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">F9</td>
+<td>0.007593</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HA</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MQ</td>
+<td>0.043791</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NK</td>
+<td>0.016491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">OO</td>
+<td>0.021554</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">UA</td>
+<td>0.011935</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">US</td>
+<td>0.013003</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">VX</td>
+<td>0.006042</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">WN</td>
+<td>0.011048</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p><code>-</code> 예제4: 비행취소율이 가장 높은 두개의 항공사(AIRLINE)를 선택하라. 그 두 항공사에 대하여 요일별(WEEKDAY) 비행취소율(CANCELLED)을 조사하라.</p>
+<div id="d93f632e-f0d1-400e-b066-003cf5a269c1" class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>df.groupby(<span class="st">'AIRLINE'</span>).aggregate({<span class="st">'CANCELLED'</span>:<span class="st">'mean'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="167">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CANCELLED</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">AIRLINE</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AA</td>
+<td>0.017303</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AS</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">B6</td>
+<td>0.001842</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DL</td>
+<td>0.003585</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">EV</td>
+<td>0.024923</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">F9</td>
+<td>0.007593</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HA</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MQ</td>
+<td>0.043791</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NK</td>
+<td>0.016491</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">OO</td>
+<td>0.021554</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">UA</td>
+<td>0.011935</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">US</td>
+<td>0.013003</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">VX</td>
+<td>0.006042</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">WN</td>
+<td>0.011048</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>MQ와 EV</p>
 <p><code>-</code> 예제5: 아래는 운행거리의 요약통계량이다.</p>
-<div id="fbee8cc5-6bfc-4155-a000-88c22ab91830" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>df.DIST.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="fbee8cc5-6bfc-4155-a000-88c22ab91830" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="172">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>df.DIST.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="172">
 <pre><code>count    58492.000000
 mean       872.900072
 std        624.996805
@@ -798,13 +1120,64 @@ Name: DIST, dtype: float64</code></pre>
 </div>
 </div>
 <p>운행거리를 구간별로 <code>[-np.inf,391,690,1199,np.inf]</code>와 같이 나눈뒤 비행취소건수와 취소율을 구하여라.</p>
+<div id="d3d63355-d638-4371-967b-b83b705b87bf" class="cell" data-execution_count="183">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>_bin <span class="op">=</span> [<span class="op">-</span>np.inf,<span class="dv">391</span>,<span class="dv">690</span>,<span class="dv">1199</span>,np.inf]</span>
+<span id="cb31-2"><a href="#cb31-2"></a>df.assign(DIST2 <span class="op">=</span> pd.cut(df.DIST,_bin)).groupby(<span class="st">'DIST2'</span>).aggregate({<span class="st">'CANCELLED'</span>:[<span class="st">'mean'</span>,<span class="st">'sum'</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="183">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">CANCELLED</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">sum</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">DIST2</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">(-inf, 391.0]</td>
+<td>0.022659</td>
+<td>334</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">(391.0, 690.0]</td>
+<td>0.013503</td>
+<td>196</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">(690.0, 1199.0]</td>
+<td>0.013637</td>
+<td>203</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">(1199.0, inf]</td>
+<td>0.010313</td>
+<td>148</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
 <section id="quiz-hrdataset_v14-자료분석" class="level1">
 <h1>Quiz: HRDataset_v14 자료분석</h1>
 <p>아래의 코드를 활용하여 Kaggle의 <a href="https://www.kaggle.com/datasets/rhuebner/human-resources-data-set">HRdataset</a>을 불러오라.</p>
 <div id="9c904ab1-95d4-4fae-ac52-464de2f638a5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/HRDataset_v14.csv'</span>)</span>
-<span id="cb27-2"><a href="#cb27-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/HRDataset_v14.csv'</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
