@@ -276,8 +276,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#geom_col-coord_flip" id="toc-geom_col-coord_flip" class="nav-link" data-scroll-target="#geom_col-coord_flip">geom_col + coord_flip()</a></li>
   <li><a href="#geom_col-facet_wrapvar" id="toc-geom_col-facet_wrapvar" class="nav-link" data-scroll-target="#geom_col-facet_wrapvar">geom_col + facet_wrap(var)</a></li>
   <li><a href="#geom_col-facet_gridvar_y-var_x" id="toc-geom_col-facet_gridvar_y-var_x" class="nav-link" data-scroll-target="#geom_col-facet_gridvar_y-var_x">geom_col + facet_grid(‘var_y ~ var_x’)</a></li>
-  <li><a href="#geom_bar-vs-geom_col" id="toc-geom_bar-vs-geom_col" class="nav-link" data-scroll-target="#geom_bar-vs-geom_col">geom_bar vs geom_col</a></li>
-  <li><a href="#geom_bar의-불편한점" id="toc-geom_bar의-불편한점" class="nav-link" data-scroll-target="#geom_bar의-불편한점">geom_bar()의 불편한점</a></li>
   </ul></li>
   <li><a href="#심슨의-역설" id="toc-심슨의-역설" class="nav-link" data-scroll-target="#심슨의-역설">심슨의 역설</a>
   <ul class="collapse">
@@ -334,10 +332,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="melt">melt</h3>
 <p><code>-</code> 설명:</p>
 <p><code>-</code> 데이터</p>
-<div id="0c27f5f2-f1b6-4610-b614-0a0ffc339e37" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
+<div id="0c27f5f2-f1b6-4610-b614-0a0ffc339e37" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/2021DV/master/_notebooks/phone.csv'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -632,9 +630,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 사용예시1: 기본사용</p>
-<div id="6e84711d-0f0c-444b-bddf-e979ca301f34" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
+<div id="6e84711d-0f0c-444b-bddf-e979ca301f34" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.melt()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -714,9 +712,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>value: column name에 대응하는 값들이 들어간다.</li>
 </ul>
 <p><code>-</code> 사용예시2: id_vars –&gt; tidy data</p>
-<div id="8c341b18-4d89-47c2-903c-60c86fb88fb6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="28">
+<div id="8c341b18-4d89-47c2-903c-60c86fb88fb6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df.melt(id_vars<span class="op">=</span><span class="st">'Date'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -804,9 +802,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 사용예시3:</p>
-<div id="e75a6211-1bb9-4d6d-944e-598192034ca5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
+<div id="e75a6211-1bb9-4d6d-944e-598192034ca5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.set_index(<span class="st">'Date'</span>).melt()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -882,9 +880,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 사용예시4: ignore_index=False</p>
-<div id="fafffa85-e4f7-409b-a7bb-ec75850dd555" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="37">
+<div id="fafffa85-e4f7-409b-a7bb-ec75850dd555" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df.melt(id_vars<span class="op">=</span><span class="st">'Date'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -971,9 +969,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="e47ef933-9b40-461c-9f1e-fc9c214c64c2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
+<div id="e47ef933-9b40-461c-9f1e-fc9c214c64c2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df.set_index(<span class="st">'Date'</span>).melt(ignore_index<span class="op">=</span><span class="va">False</span>).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -1064,11 +1062,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="stack" class="level2">
 <h2 class="anchored" data-anchor-id="stack">stack</h2>
 <p><code>-</code> 설명:</p>
-<div id="099dd3c4-cec3-4c48-88b4-ba15f07dba9a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="48">
+<div id="099dd3c4-cec3-4c48-88b4-ba15f07dba9a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/flights.csv'</span>)<span class="op">\</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>.groupby([<span class="st">"AIRLINE"</span>,<span class="st">"WEEKDAY"</span>]).agg({<span class="st">"CANCELLED"</span>:[np.mean,<span class="st">"count"</span>],<span class="st">"DIVERTED"</span>:[np.mean,<span class="st">"count"</span>]})</span>
 <span id="cb8-3"><a href="#cb8-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -1186,9 +1184,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 사용예시1</p>
-<div id="06bb4134-7f1f-4293-9c63-897861dd51dd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
+<div id="06bb4134-7f1f-4293-9c63-897861dd51dd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df.stack()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -1283,10 +1281,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 사용예시2</p>
-<div id="29719790-8474-4310-82f3-8bf1cd795cfa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="13">
+<div id="29719790-8474-4310-82f3-8bf1cd795cfa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>df.stack().stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="co">#df.stack().stack().reset_index().rename(columns={'level_2':'aggtype'})</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -1398,9 +1396,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 사용예시3 (unstack)</p>
-<div id="dd71febb-5dc0-4bcd-9d35-06f461abbff6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="65">
+<div id="dd71febb-5dc0-4bcd-9d35-06f461abbff6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df.stack().unstack()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -1601,10 +1599,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="예제1-wide-df" class="level2">
 <h2 class="anchored" data-anchor-id="예제1-wide-df">예제1: wide df</h2>
 <p><code>-</code> data</p>
-<div id="87e2d710-9942-4c7d-876e-24b35f4fe0d3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="740">
+<div id="87e2d710-9942-4c7d-876e-24b35f4fe0d3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/2021DV/master/_notebooks/phone.csv'</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="740">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -1904,9 +1902,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>직관적인 판단: 회사별로 색을 다르게 하여 x:‘Date’, y:’판매량’을 하고 싶다면?</li>
 </ul>
 <p><code>-</code> tidydata로 변환 (melt는 너무 쉬우니까 stack으로 해보자)</p>
-<div id="1d362030-e764-4fb9-abcf-e59d4e28e10e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="747">
+<div id="1d362030-e764-4fb9-abcf-e59d4e28e10e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>df.set_index(<span class="st">'Date'</span>).stack().reset_index().rename({<span class="st">'level_1'</span>:<span class="st">'Company'</span>,<span class="dv">0</span>:<span class="st">'Sales'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="747">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -1997,11 +1995,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="예제2-multi-indexed-data" class="level2">
 <h2 class="anchored" data-anchor-id="예제2-multi-indexed-data">예제2: multi-indexed data</h2>
 <p><code>-</code> 데이터</p>
-<div id="804424bf-34a6-4d98-828b-60eb2999ee8e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="748">
+<div id="804424bf-34a6-4d98-828b-60eb2999ee8e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/PacktPublishing/Pandas-Cookbook/master/data/flights.csv'</span>)<span class="op">\</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>.groupby([<span class="st">"AIRLINE"</span>,<span class="st">"WEEKDAY"</span>]).agg({<span class="st">"CANCELLED"</span>:[np.mean,<span class="st">"count"</span>],<span class="st">"DIVERTED"</span>:[np.mean,<span class="st">"count"</span>]})</span>
 <span id="cb14-3"><a href="#cb14-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="748">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -2124,9 +2122,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>직관적인 판단: WEEKDAY == 4 and mean(CANCELLED) &gt; 0.001 인 자료를 뽑고 싶다면?</li>
 </ul>
 <p><code>-</code> tidydata로 변환 (stack으로 풀면 너무 쉬우니까 melt로 해보자)</p>
-<div id="ece3d247-20c6-4257-937c-f4a58f160b20" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="753">
+<div id="ece3d247-20c6-4257-937c-f4a58f160b20" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df.melt(ignore_index<span class="op">=</span><span class="va">False</span>).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="753">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -2241,12 +2239,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="barplot" class="level1">
 <h1>barplot</h1>
-<div id="a1aef197-fcec-4b06-831c-317ee5dc0640" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="835">
+<div id="a1aef197-fcec-4b06-831c-317ee5dc0640" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)<span class="op">\</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>.query(<span class="st">'Nationality=="Korea Republic" or Nationality=="Japan"'</span>)<span class="op">\</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>[[<span class="st">'Nationality'</span>,<span class="st">'Overall'</span>,<span class="st">'Age'</span>]].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb16-4"><a href="#cb16-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="835">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
@@ -2336,10 +2334,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="geom_col" class="level2">
 <h2 class="anchored" data-anchor-id="geom_col">geom_col</h2>
 <p><code>-</code> 예시1: 한국과 일본의 평균능력치 비교</p>
-<div id="cdc35d4f-c409-4614-be02-7174720e4aab" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="765">
+<div id="cdc35d4f-c409-4614-be02-7174720e4aab" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()</span>
 <span id="cb17-2"><a href="#cb17-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="765">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
@@ -2368,17 +2366,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="4e377707-33fc-4d0d-a3ea-b9abaa41b9dc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="766">
+<div id="4e377707-33fc-4d0d-a3ea-b9abaa41b9dc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
+</div>
 </div>
 <p><code>-</code> 예시2: 한국과 일본의 평균능력치 비교 (색상변경)</p>
-<div id="dd82f18e-73ea-479b-ad3c-f87b4c2bdc20" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="767">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()</span>
-<span id="cb19-2"><a href="#cb19-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="767">
+<div id="dd82f18e-73ea-479b-ad3c-f87b4c2bdc20" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()</span>
+<span id="cb20-2"><a href="#cb20-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
 <div>
 
 
@@ -2407,18 +2408,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="bd742ef5-de50-4e8a-a6fe-4b796871bd23" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="769">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="co">#ggplot(data)+geom_col(aes(x='Nationality',y='Overall',color='Nationality'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bd742ef5-de50-4e8a-a6fe-4b796871bd23" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#ggplot(data)+geom_col(aes(x='Nationality',y='Overall',color='Nationality'))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
+</div>
 </div>
 <p><code>-</code> 예시3: 한국과 일본의 평균연령 비교</p>
-<div id="68e87796-12aa-4006-8578-bba8bcd560b0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="770">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Age'</span>:np.mean}).reset_index()</span>
-<span id="cb21-2"><a href="#cb21-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="770">
+<div id="68e87796-12aa-4006-8578-bba8bcd560b0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Age'</span>:np.mean}).reset_index()</span>
+<span id="cb23-2"><a href="#cb23-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 
 
@@ -2447,21 +2451,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="b886b25b-03e1-4855-b349-09e368a4909f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="772">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Age'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b886b25b-03e1-4855-b349-09e368a4909f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Age'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="geom_col-positiondodge" class="level2">
 <h2 class="anchored" data-anchor-id="geom_col-positiondodge">geom_col + position=‘dodge’</h2>
 <p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치 비교</p>
-<div id="1d58af4f-5455-4799-ade3-643be780d3fb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="786">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb23-3"><a href="#cb23-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="786">
+<div id="1d58af4f-5455-4799-ade3-643be780d3fb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-3"><a href="#cb26-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
@@ -2505,21 +2512,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="515b600d-045e-4047-afda-aa3326aff2ef" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="788">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="515b600d-045e-4047-afda-aa3326aff2ef" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="geom_col-coord_flip" class="level2">
 <h2 class="anchored" data-anchor-id="geom_col-coord_flip">geom_col + coord_flip()</h2>
 <p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치 비교 (90도회전)</p>
-<div id="85047c21-a17e-4570-88aa-8bb4e011dfdf" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="789">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb25-3"><a href="#cb25-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="789">
+<div id="85047c21-a17e-4570-88aa-8bb4e011dfdf" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 
 
@@ -2563,22 +2573,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="401aaa7a-63d8-4a2a-9516-e7ee5b7824a3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="790">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="op">+</span>coord_flip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="401aaa7a-63d8-4a2a-9516-e7ee5b7824a3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="op">+</span>coord_flip()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="geom_col-facet_wrapvar" class="level2">
 <h2 class="anchored" data-anchor-id="geom_col-facet_wrapvar">geom_col + facet_wrap(var)</h2>
 <p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치 비교 (면분할)</p>
-<div id="8efc20bb-3bd2-41ec-94e7-c698267dcb2d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="791">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb27-3"><a href="#cb27-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="791">
+<div id="8efc20bb-3bd2-41ec-94e7-c698267dcb2d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb32-3"><a href="#cb32-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
 
@@ -2622,19 +2635,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="0491c361-bb5f-4804-bf8f-ef1d89259418" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="795">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="op">+</span>facet_wrap(<span class="st">'level_1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0491c361-bb5f-4804-bf8f-ef1d89259418" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="op">+</span>facet_wrap(<span class="st">'level_1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
 </div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
+</div>
 </div>
 <p><code>-</code> 예시2: 한국과 일본의 평균연령+평균능력치 비교 (면분할)</p>
-<div id="33ff9053-6326-4b05-9357-f25424692c87" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="796">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb29-3"><a href="#cb29-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="796">
+<div id="33ff9053-6326-4b05-9357-f25424692c87" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean,<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'value'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb35-3"><a href="#cb35-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 
 
@@ -2678,22 +2694,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="2b268e64-00ca-4561-bf3e-5f6d725078ec" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="797">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="op">+</span>facet_wrap(<span class="st">'Nationality'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2b268e64-00ca-4561-bf3e-5f6d725078ec" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'level_1'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="op">+</span>facet_wrap(<span class="st">'Nationality'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="geom_col-facet_gridvar_y-var_x" class="level2">
 <h2 class="anchored" data-anchor-id="geom_col-facet_gridvar_y-var_x">geom_col + facet_grid(‘var_y ~ var_x’)</h2>
 <p><code>-</code> 예시1: 한국과 일본의 평균연령+평균능력치+최대능력치 비교 (면분할)</p>
-<div id="b4a0e90b-0919-4bb3-ae2e-c334bfdf4ebb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="808">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:[np.mean,np.<span class="bu">max</span>],<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>.melt(ignore_index<span class="op">=</span><span class="va">False</span>).reset_index()</span>
-<span id="cb31-3"><a href="#cb31-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="808">
+<div id="b4a0e90b-0919-4bb3-ae2e-c334bfdf4ebb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:[np.mean,np.<span class="bu">max</span>],<span class="st">'Age'</span>:np.mean})<span class="op">\</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>.melt(ignore_index<span class="op">=</span><span class="va">False</span>).reset_index()</span>
+<span id="cb38-3"><a href="#cb38-3"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 
 
@@ -2726,14 +2745,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">2</td>
 <td>Japan</td>
 <td>Overall</td>
-<td>amax</td>
+<td>max</td>
 <td>79.000000</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>Korea Republic</td>
 <td>Overall</td>
-<td>amax</td>
+<td>max</td>
 <td>89.000000</td>
 </tr>
 <tr class="odd">
@@ -2756,151 +2775,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="d897e32e-1396-4494-a1f3-14782da4aa08" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="811">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(fill<span class="op">=</span><span class="st">'Nationality'</span>,x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="op">+</span>facet_grid(<span class="st">'variable_1~variable_0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d897e32e-1396-4494-a1f3-14782da4aa08" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(fill<span class="op">=</span><span class="st">'Nationality'</span>,x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'value'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)<span class="op">\</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="op">+</span>facet_grid(<span class="st">'variable_1~variable_0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls15_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
 </div>
-</div>
-</section>
-<section id="geom_bar-vs-geom_col" class="level2">
-<h2 class="anchored" data-anchor-id="geom_bar-vs-geom_col">geom_bar vs geom_col</h2>
-<p><code>-</code> 예시1: 한국과 일본의 단순 선수 숫자 비교 (with goem_col)</p>
-<div id="1097be74-e1eb-4f11-a253-d825ae6078a6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="820">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>data<span class="op">=</span>df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Age'</span>:<span class="st">'count'</span>}).reset_index().rename({<span class="st">'Age'</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb33-2"><a href="#cb33-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="820">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>284</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>177</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="051b412b-6c85-494b-97e4-d8ce96a74fc1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="821">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'count'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-35-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 예시2: 한국과 일본의 단순 선수 숫자 비교 (with goem_bar)</p>
-<div id="2df3d619-d3b6-450c-a218-9430078e0bf0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="823">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>특징1: 원래 데이터프레임 그대로 하는게 아니라 뭔가 변형된 값이 출력 (정확하게는 groupby + count가 변형요소)</li>
-<li>특징2: y는 당연히 count이므로 y를 명시할 필요가 없음. (잘 생각해보면 명시하고 싶어도 명시할 수 없음, y는 groupby + count 에 의해서 계산된 값이고 df자체에는 존재하지 않음)</li>
-</ul>
-<p><code>-</code> 이렇게 약속된 변형은 <code>stat='count'</code> 옵션 때문에 가능함</p>
-<ul>
-<li>stat=’count’는 그룹바이이후에 count를 하라는 의미</li>
-</ul>
-<div id="329541f6-6217-4829-8c79-9e4a4fc3a472" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="836">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> <code>stat='identity'</code> 로 옵션을 바꾸면 약속된 변환이 수행되지 않음</p>
-<ul>
-<li>stat=’identity’는 아무 변환도 하지말라는 의미</li>
-</ul>
-<div id="d5cbb1e3-25b0-4a57-81da-12a2fc164aa1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="837">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'identity'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>KeyError: 'y'</code></pre>
-</div>
-</div>
-<ul>
-<li>에러가난다.</li>
-</ul>
-<p>(참고) 사실 아래의 3개의 코드가 모두 같다. &lt;– 수업시간에 설명 X</p>
-<div id="999d756d-ea7b-4b45-a34d-926975b8ae88" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="839">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'..count..'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'count'</span>)</span>
-<span id="cb39-2"><a href="#cb39-2"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'count'</span>) <span class="co"># y='..count..' 생략,</span></span>
-<span id="cb39-3"><a href="#cb39-3"></a>ggplot(df)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>)) <span class="co"># y='..count..' 생략, stat='count' 생략</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
-<section id="geom_bar의-불편한점" class="level2">
-<h2 class="anchored" data-anchor-id="geom_bar의-불편한점">geom_bar()의 불편한점</h2>
-<p><code>-</code> 사실 편하라고 만든것 같은데, 그닥 편하지 않음.</p>
-<ul>
-<li>편하라고 만든 점1: groupby를 자동으로 해줘서 groupby를 못하는 유저들이 사용하기 편리하게 함 -&gt; 그런데 우리는 groupby 잘함</li>
-<li>편하라고 만든 점2: groupby이후 count연산을 알아서 해줌 -&gt; 그런데 count연산만 알아서해주고 그 이외의 연산은 잘 지원안됨</li>
-</ul>
-<p><code>-</code> 결론: groupby + count 조합에서만 편리하고 나머지는 편하지 않다.</p>
-<p><code>-</code> 불편한 예시: 나라별 overall의 평균을 geom_bar()로 플랏해보라.</p>
-<div id="0a1e3721-b37b-44ef-a840-36c288d226ea" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="827">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>data<span class="op">=</span> df.groupby(<span class="st">'Nationality'</span>).agg({<span class="st">'Overall'</span>:np.mean}).reset_index()</span>
-<span id="cb40-2"><a href="#cb40-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="827">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Nationality</th>
-<th data-quarto-table-cell-role="th">Overall</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Japan</td>
-<td>66.478873</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Korea Republic</td>
-<td>65.457627</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="573c1bb9-20e0-4396-b638-ccc37fefa814" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="833">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>ggplot(data)<span class="op">+</span>geom_bar(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>),stat<span class="op">=</span><span class="st">'identity'</span>)</span>
-<span id="cb41-2"><a href="#cb41-2"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'Nationality'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,fill<span class="op">=</span><span class="st">'Nationality'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 </section>
 <section id="심슨의-역설" class="level1">
 <h1>심슨의 역설</h1>
+<p><code>-</code> ref- <a href="https://github.com/guebin/DV2022/blob/master/posts/ds.pdf">데이터 과학자의 사고법: 더 나은 선택을 위한 통계학적 통찰의 힘</a></p>
+<ul>
+<li>구매할만한 책입니다</li>
+</ul>
 <p><code>-</code> 버클리대학교의 입학데이터</p>
 <ul>
 <li><a href="https://github.com/guebin/DV2022/blob/master/_notebooks/ds.pdf" class="uri">https://github.com/guebin/DV2022/blob/master/_notebooks/ds.pdf</a></li>
@@ -2909,12 +2801,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>1973년 가을학기의 입학통계에 따르면 지원하는 남성이 여성보다 훨씬 많이 합격했고, 그 차이가 너무 커서 우연의 일치라 보기 어렵다.</li>
 </ul>
-<div id="fe2654b3-0bad-479e-ad65-f441f87c3bd4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>,header<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])<span class="op">\</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>.stack().stack().reset_index()<span class="op">\</span></span>
-<span id="cb42-3"><a href="#cb42-3"></a>.rename({<span class="st">'level_0'</span>:<span class="st">'department'</span>,<span class="st">'level_1'</span>:<span class="st">'result'</span>,<span class="st">'level_2'</span>:<span class="st">'gender'</span>,<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb42-4"><a href="#cb42-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="fe2654b3-0bad-479e-ad65-f441f87c3bd4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>,header<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])<span class="op">\</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>.stack().stack().reset_index()<span class="op">\</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>.rename({<span class="st">'level_0'</span>:<span class="st">'department'</span>,<span class="st">'level_1'</span>:<span class="st">'result'</span>,<span class="st">'level_2'</span>:<span class="st">'gender'</span>,<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb41-4"><a href="#cb41-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
 <div>
 
 
@@ -3106,9 +2998,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="시각화1-전체합격률" class="level2">
 <h2 class="anchored" data-anchor-id="시각화1-전체합격률">시각화1: 전체합격률</h2>
 <p><code>-</code> df1</p>
-<div id="25745d96-9e78-4c9d-816b-56b3d94f2d4b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="25745d96-9e78-4c9d-816b-56b3d94f2d4b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>_df1<span class="op">=</span>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()</span>
+<span id="cb42-2"><a href="#cb42-2"></a>_df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
 <div>
 
 
@@ -3153,9 +3046,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> df2</p>
-<div id="74dfa00b-744d-4322-a667-a6f6bd7b52c7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="74dfa00b-744d-4322-a667-a6f6bd7b52c7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>_df2<span class="op">=</span> df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb43-2"><a href="#cb43-2"></a>_df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
 <div>
 
 
@@ -3185,10 +3079,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> merge: 두개의 데이터프레임을 합친다</p>
-<div id="5220da8c-f12a-4bf7-9b12-dffbe5ab3a89" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="5220da8c-f12a-4bf7-9b12-dffbe5ab3a89" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>_df1.merge(_df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
 <div>
 
 
@@ -3237,12 +3130,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div id="ba3f554c-f457-476a-81d0-835e1a4969c3" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>_df2.merge(_df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="87">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">count2</th>
+<th data-quarto-table-cell-role="th">result</th>
+<th data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>female</td>
+<td>1835</td>
+<td>fail</td>
+<td>1063</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>female</td>
+<td>1835</td>
+<td>pass</td>
+<td>772</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>male</td>
+<td>2691</td>
+<td>fail</td>
+<td>1291</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>male</td>
+<td>2691</td>
+<td>pass</td>
+<td>1400</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p><code>-</code> 비율계산</p>
-<div id="600c3d40-462e-4066-b78e-f9610a21634f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb46-3"><a href="#cb46-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="d3a2dac4-9275-4cec-8462-8499ac2fff87" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>_df_merged <span class="op">=</span> _df1.merge(_df2)</span>
+<span id="cb46-2"><a href="#cb46-2"></a>_df_merged.<span class="bu">eval</span>(<span class="st">'rate=count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
 <div>
 
 
@@ -3297,13 +3240,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 시각화</p>
-<div id="41daa713-18b7-42e9-b837-f4985f9ddd26" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>data1<span class="op">=</span> df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
-<span id="cb47-4"><a href="#cb47-4"></a>ggplot(data1.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="10bca78a-7b01-4ecc-af43-9e421c85a123" class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>data <span class="op">=</span> _df_merged.<span class="bu">eval</span>(<span class="st">'rate=count/count2'</span>).query(<span class="st">'result=="pass"'</span>)</span>
+<span id="cb47-2"><a href="#cb47-2"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">result</th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">count2</th>
+<th data-quarto-table-cell-role="th">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>female</td>
+<td>pass</td>
+<td>772</td>
+<td>1835</td>
+<td>0.420708</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>male</td>
+<td>pass</td>
+<td>1400</td>
+<td>2691</td>
+<td>0.520253</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="41daa713-18b7-42e9-b837-f4985f9ddd26" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>ggplot(data)<span class="op">\</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>,fill<span class="op">=</span><span class="st">'gender'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-47-output-1.png" class="img-fluid"></p>
+<p><img src="ls15_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 <p><code>-</code> 결론: 남자의 합격률이 더 높다. <span class="math inline">\(\to\)</span> 성차별이 있어보인다(?)</p>
@@ -3311,9 +3296,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="시각화2-학과별-합격률" class="level2">
 <h2 class="anchored" data-anchor-id="시각화2-학과별-합격률">시각화2: 학과별 합격률</h2>
 <p><code>-</code> df2</p>
-<div id="c22158c9-d88e-4243-9c27-1060ee2ac5b3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div id="c22158c9-d88e-4243-9c27-1060ee2ac5b3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>_df <span class="op">=</span> df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:<span class="st">'sum'</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb50-2"><a href="#cb50-2"></a>_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
 <div>
 
 
@@ -3406,10 +3392,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> merge</p>
-<div id="77aff4b4-3a76-4d42-9aae-4e1372f12ef9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="77aff4b4-3a76-4d42-9aae-4e1372f12ef9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>_df_merged <span class="op">=</span> df.merge(_df)</span>
+<span id="cb51-2"><a href="#cb51-2"></a>_df_merged.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="93">
 <div>
 
 
@@ -3649,23 +3635,162 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 시각화</p>
-<div id="2afb855c-2430-4ecc-9c9e-08c0435d307e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>data2<span class="op">=</span>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
-<span id="cb50-3"><a href="#cb50-3"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))<span class="op">\</span></span>
-<span id="cb50-4"><a href="#cb50-4"></a><span class="op">+</span>facet_wrap(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ae2db63e-7d18-4830-b3d1-016782d2f321" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>_df_merged.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>).query(<span class="st">'result=="pass"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="94">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">department</th>
+<th data-quarto-table-cell-role="th">result</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">count2</th>
+<th data-quarto-table-cell-role="th">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A</td>
+<td>pass</td>
+<td>female</td>
+<td>89</td>
+<td>108</td>
+<td>0.824074</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>A</td>
+<td>pass</td>
+<td>male</td>
+<td>511</td>
+<td>825</td>
+<td>0.619394</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>B</td>
+<td>pass</td>
+<td>female</td>
+<td>18</td>
+<td>25</td>
+<td>0.720000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>B</td>
+<td>pass</td>
+<td>male</td>
+<td>352</td>
+<td>560</td>
+<td>0.628571</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>C</td>
+<td>pass</td>
+<td>female</td>
+<td>202</td>
+<td>593</td>
+<td>0.340641</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>C</td>
+<td>pass</td>
+<td>male</td>
+<td>121</td>
+<td>325</td>
+<td>0.372308</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>D</td>
+<td>pass</td>
+<td>female</td>
+<td>131</td>
+<td>375</td>
+<td>0.349333</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>D</td>
+<td>pass</td>
+<td>male</td>
+<td>138</td>
+<td>417</td>
+<td>0.330935</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17</td>
+<td>E</td>
+<td>pass</td>
+<td>female</td>
+<td>94</td>
+<td>393</td>
+<td>0.239186</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>E</td>
+<td>pass</td>
+<td>male</td>
+<td>54</td>
+<td>191</td>
+<td>0.282723</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">21</td>
+<td>F</td>
+<td>pass</td>
+<td>female</td>
+<td>238</td>
+<td>341</td>
+<td>0.697947</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>F</td>
+<td>pass</td>
+<td>male</td>
+<td>224</td>
+<td>373</td>
+<td>0.600536</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="2afb855c-2430-4ecc-9c9e-08c0435d307e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>data <span class="op">=</span> _df_merged.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>).query(<span class="st">'result=="pass"'</span>)</span>
+<span id="cb53-2"><a href="#cb53-2"></a>ggplot(data)<span class="op">\</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))<span class="op">\</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="op">+</span>facet_wrap(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-50-output-1.png" class="img-fluid"></p>
+<p><img src="ls15_files/figure-html/cell-45-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 <ul>
 <li>학과별로 살펴보니 오히려 A,B,F,D의 경우 여성의 합격률이 높다.</li>
 </ul>
 <p><code>-</code> 교재에서 설명한 이유: 여성이 합격률이 낮은 학과에만 많이 지원하였기 때문</p>
-<div id="c1eec845-0d17-4061-a1d3-eb696edd5e2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'department'</span>,y<span class="op">=</span><span class="st">'count2'</span>,fill<span class="op">=</span><span class="st">'gender'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c1eec845-0d17-4061-a1d3-eb696edd5e2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>ggplot(data)<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'department'</span>,y<span class="op">=</span><span class="st">'count2'</span>,fill<span class="op">=</span><span class="st">'gender'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls15_files/figure-html/cell-51-output-1.png" class="img-fluid"></p>
+<p><img src="ls15_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="103">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 <ul>

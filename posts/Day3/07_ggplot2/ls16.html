@@ -277,7 +277,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ggplot" id="toc-ggplot" class="nav-link" data-scroll-target="#ggplot"><code>#</code> ggplot</a></li>
   <li><a href="#해석" id="toc-해석" class="nav-link" data-scroll-target="#해석"><code>#</code> 해석</a></li>
   </ul></li>
-  <li><a href="#그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면" id="toc-그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면" class="nav-link" data-scroll-target="#그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면">그냥 궁금해서: 진짜 만약에 아이스크림과 소아마비가 관련있는 경우라면?</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ls16.out.ipynb" download="ls16.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
@@ -317,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day3/07_ggplot2/ls16.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div id="49180247-abad-48f8-8f2c-34d12d554cd2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="2">
+<div id="49180247-abad-48f8-8f2c-34d12d554cd2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -345,15 +344,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="toy-exam">Toy exam</h2>
 <p><code>-</code> 교재의 예제상황은 예를들면 아래와 같다.</p>
 <p>(숨은진짜상황1)</p>
-<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \epsilon\]</span></p>
-<div id="05c003a2-2698-409b-b7cf-1389ae54a450" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
+<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \text{오차}\]</span></p>
+<div id="05c003a2-2698-409b-b7cf-1389ae54a450" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>np.random.seed(<span class="dv">1</span>) </span>
 <span id="cb2-2"><a href="#cb2-2"></a>temp<span class="op">=</span> np.array([<span class="op">-</span><span class="fl">10.2</span>, <span class="op">-</span><span class="fl">5.2</span>, <span class="fl">0.1</span>, <span class="fl">10.1</span>, <span class="fl">12.2</span>, <span class="fl">14.7</span>, </span>
 <span id="cb2-3"><a href="#cb2-3"></a>                <span class="fl">25.4</span>, <span class="fl">26.8</span>, <span class="fl">28.9</span>, <span class="fl">35.1</span>, <span class="fl">32.2</span>, <span class="fl">34.6</span>])</span>
 <span id="cb2-4"><a href="#cb2-4"></a>eps<span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">12</span>,scale<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb2-5"><a href="#cb2-5"></a>icecream<span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> temp <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d4b66f0a-3e6e-4b1b-9b8b-dd6c4593aaac" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="49">
+<div id="d4b66f0a-3e6e-4b1b-9b8b-dd6c4593aaac" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>plt.plot(temp,icecream,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
@@ -363,13 +362,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>온도와 아이스크림 판매량의 산점도</li>
 </ul>
 <p>(숨은진짜상황2)</p>
-<p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.5 \times \text{온도} + \epsilon\]</span> - 좌변은 소아마비임을 나타내는 어떠한 반응수치라고 생각하자.</p>
-<div id="d3599e18-7588-4317-8507-c97a509759e7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
+<p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.5 \times \text{온도} + \text{오차}\]</span> - 좌변은 소아마비임을 나타내는 어떠한 반응수치라고 생각하자.</p>
+<div id="d3599e18-7588-4317-8507-c97a509759e7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>np.random.seed(<span class="dv">2</span>) </span>
 <span id="cb4-2"><a href="#cb4-2"></a>eps <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">12</span>,scale<span class="op">=</span><span class="dv">5</span>) </span>
 <span id="cb4-3"><a href="#cb4-3"></a>disease <span class="op">=</span> <span class="dv">30</span><span class="op">+</span> temp<span class="op">*</span> <span class="fl">0.5</span> <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="af20bcb0-ca6c-497d-8d4d-a9bf09357ea4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
+<div id="af20bcb0-ca6c-497d-8d4d-a9bf09357ea4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.plot(temp,disease,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
@@ -380,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><strong>(우리가 데이터로부터 관측한 상황)</strong></p>
 <p><code>-</code> 아이스크림과 질병의 산점도를 그려보자.</p>
-<div id="63d7ba21-5a3a-400e-ab84-df62e9361f2e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="52">
+<div id="63d7ba21-5a3a-400e-ab84-df62e9361f2e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.plot(icecream,disease,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
@@ -419,13 +418,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>ex1: 온도가 비슷한 그룹끼리 묶어보자.</li>
 </ul>
 <p><code>-</code> 올바른 분석: 온도가 비슷한 그룹끼리 묶어서 그려보자. <span class="math inline">\(\to\)</span> 상관계수가 줄어들 것이다.</p>
-<div id="1be32e39-e7d3-442c-8187-49a1a6486741" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="53">
+<div id="1be32e39-e7d3-442c-8187-49a1a6486741" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plt.plot(icecream[:<span class="dv">6</span>],disease[:<span class="dv">6</span>],<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div id="1874550d-87eb-442a-8b96-b7d7b3f7ba16" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="54">
+<div id="1874550d-87eb-442a-8b96-b7d7b3f7ba16" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>plt.plot(icecream[<span class="dv">6</span>:],disease[<span class="dv">6</span>:],<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
@@ -441,10 +440,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="자료생성-좀-더-그럴듯한-자료-만들기" class="level2">
 <h2 class="anchored" data-anchor-id="자료생성-좀-더-그럴듯한-자료-만들기">자료생성: 좀 더 그럴듯한 자료 (만들기)</h2>
 <p><code>-</code> 지난 시간의 toy example은 데이터가 너무 작아서 억지스러움 <span class="math inline">\(\to\)</span> <a href="https://data.kma.go.kr/cmmn/main.do">기상자료개방포털</a>, 회원가입해야 자료받을 수 있음.</p>
-<div id="6331f68b-1b5e-493f-b105-36dedd93ea2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="3">
+<div id="6331f68b-1b5e-493f-b105-36dedd93ea2c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>_df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/temp.csv'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a>_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -580,9 +579,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 평균기온만 선택</p>
-<div id="d62ea173-2905-45ed-a5f9-dbee209307ca" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="4">
+<div id="d62ea173-2905-45ed-a5f9-dbee209307ca" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>pd.Series(_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>0       지점번호
 1        지점명
 2         일시
@@ -593,27 +592,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 dtype: object</code></pre>
 </div>
 </div>
-<div id="41d53ee3-5675-4d85-907b-84ed04e3c214" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="5">
+<div id="41d53ee3-5675-4d85-907b-84ed04e3c214" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>temp <span class="op">=</span> np.array(_df.iloc[:,<span class="dv">3</span>])</span>
 <span id="cb12-2"><a href="#cb12-2"></a>temp[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>array([-0.5,  1.4,  2.6,  2. ,  2.5])</code></pre>
 </div>
 </div>
 <section id="숨은진짜상황1-온도-to-아이스크림-판매량" class="level3">
 <h3 class="anchored" data-anchor-id="숨은진짜상황1-온도-to-아이스크림-판매량"><code>#</code> 숨은진짜상황1: 온도 <span class="math inline">\(\to\)</span> 아이스크림 판매량</h3>
 <p><code>-</code> 아래와 같은 관계가 있다고 하자.</p>
-<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \epsilon\]</span></p>
-<div id="83ed06fc-2367-470b-abce-b752b61e4acb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="6">
+<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \text{오차}\]</span></p>
+<div id="83ed06fc-2367-470b-abce-b752b61e4acb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>np.random.seed(<span class="dv">1</span>)</span>
 <span id="cb14-2"><a href="#cb14-2"></a>eps <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp), scale<span class="op">=</span><span class="dv">10</span>) </span>
 <span id="cb14-3"><a href="#cb14-3"></a>icecream <span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>temp <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5d1faf19-6fce-4839-bfea-0fd1cf0d83ea" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="7">
+<div id="5d1faf19-6fce-4839-bfea-0fd1cf0d83ea" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.plot(temp,icecream,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb15-2"><a href="#cb15-2"></a>plt.xlabel(<span class="st">"temp"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a>plt.ylabel(<span class="st">"icecream"</span>,size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>Text(0, 0.5, 'icecream')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -625,16 +624,16 @@ dtype: object</code></pre>
 <h3 class="anchored" data-anchor-id="숨은진짜상황2-온도-to-소아마비-반응수치"><code>#</code> 숨은진짜상황2: 온도 <span class="math inline">\(\to\)</span> 소아마비 반응수치</h3>
 <p><code>-</code> 아래와 같은 관계가 있다고 하자.</p>
 <p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.5 \times \text{온도} + \epsilon\]</span></p>
-<div id="40e64f29-d45e-4f91-acce-0cde4dfa236a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="8">
+<div id="40e64f29-d45e-4f91-acce-0cde4dfa236a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>np.random.seed(<span class="dv">2</span>) </span>
 <span id="cb17-2"><a href="#cb17-2"></a>eps<span class="op">=</span>np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb17-3"><a href="#cb17-3"></a>disease<span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4602ea22-cde9-40b0-b34e-5183b3f284b8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="9">
+<div id="4602ea22-cde9-40b0-b34e-5183b3f284b8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>plt.plot(temp,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb18-2"><a href="#cb18-2"></a>plt.xlabel(<span class="st">"temp"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a>plt.ylabel(<span class="st">"disease"</span>,size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>Text(0, 0.5, 'disease')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -644,20 +643,20 @@ dtype: object</code></pre>
 </section>
 <section id="우리가-관측한-상황-온도는-은닉되어있음" class="level3">
 <h3 class="anchored" data-anchor-id="우리가-관측한-상황-온도는-은닉되어있음"><code>#</code> 우리가 관측한 상황 (온도는 은닉되어있음)</h3>
-<div id="5ae145fa-afe7-4f95-aa86-69354159276a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="10">
+<div id="5ae145fa-afe7-4f95-aa86-69354159276a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>plt.plot(icecream,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb20-2"><a href="#cb20-2"></a>plt.xlabel(<span class="st">"icecream"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb20-3"><a href="#cb20-3"></a>plt.ylabel(<span class="st">"disease"</span>,size<span class="op">=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>Text(0, 0.5, 'disease')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div id="4a307733-f812-46c3-8ada-1ecc67b254b9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="11">
+<div id="4a307733-f812-46c3-8ada-1ecc67b254b9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>np.corrcoef(icecream,disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>array([[1.        , 0.86298975],
        [0.86298975, 1.        ]])</code></pre>
 </div>
@@ -670,14 +669,14 @@ dtype: object</code></pre>
 <section id="직관-여름만-뽑아서-plot-해보자." class="level2">
 <h2 class="anchored" data-anchor-id="직관-여름만-뽑아서-plot-해보자.">직관: 여름만 뽑아서 plot 해보자.</h2>
 <p><code>-</code> temp&gt;25 (여름으로 간주) 인 관측치만 플랏</p>
-<div id="b6b8e8b4-c157-4450-bbcf-dfffe668f733" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="12">
+<div id="b6b8e8b4-c157-4450-bbcf-dfffe668f733" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>plt.plot(icecream[temp<span class="op">&gt;</span><span class="dv">25</span>],disease[temp<span class="op">&gt;</span><span class="dv">25</span>], <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C1'</span>) <span class="co">## 평균기온이 25도가 넘어가면 여름이라 생각 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 전체적인 산점도</p>
-<div id="6d225cd8-f00f-43fa-906d-46351324c46a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="13">
+<div id="6d225cd8-f00f-43fa-906d-46351324c46a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>fig , ((ax1,ax2), (ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>)) </span>
 <span id="cb25-2"><a href="#cb25-2"></a>ax1.plot(temp,icecream,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">;</span> ax1.set_xlabel(<span class="st">'temp'</span>)<span class="op">;</span> ax1.set_ylabel(<span class="st">'icecream'</span>)<span class="op">;</span> ax1.set_title(<span class="st">"hidden1"</span>)</span>
 <span id="cb25-3"><a href="#cb25-3"></a>ax2.plot(temp,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">;</span> ax2.set_xlabel(<span class="st">'temp'</span>)<span class="op">;</span> ax2.set_ylabel(<span class="st">'disease'</span>)<span class="op">;</span> ax2.set_title(<span class="st">"hidden2"</span>)</span>
@@ -701,10 +700,10 @@ dtype: object</code></pre>
 <section id="df로-자료정리" class="level4">
 <h4 class="anchored" data-anchor-id="df로-자료정리"><code>#</code> df로 자료정리</h4>
 <p><code>-</code> 일단 데이터 프레임을 정리하자.</p>
-<div id="0da18b23-5cc2-4fd4-8952-686df2dbf7f9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="14">
+<div id="0da18b23-5cc2-4fd4-8952-686df2dbf7f9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'icecream'</span>:icecream,<span class="st">'disease'</span>:disease})</span>
 <span id="cb26-2"><a href="#cb26-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -795,18 +794,18 @@ dtype: object</code></pre>
 <section id="구간세분화" class="level3">
 <h3 class="anchored" data-anchor-id="구간세분화"><code>#</code> 구간세분화</h3>
 <p><code>-</code> 온도를 카테고리화 하자 <span class="math inline">\(\to\)</span> 적당한 구긴을 설정하기 위해서 히스토그램을 그려보자.</p>
-<div id="527bc617-a747-4ba4-bb68-4c8880b06480" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="15">
+<div id="527bc617-a747-4ba4-bb68-4c8880b06480" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>df.temp.hist() <span class="co"># ? 이거 14주차쯤 배우는데 미리 스포합니다.. 엄청 편해요 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>&lt;Axes: &gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-22-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div id="f9fdb322-37d2-482f-b90e-96ece889ce88" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="16">
+<div id="f9fdb322-37d2-482f-b90e-96ece889ce88" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>plt.hist(df.temp) <span class="co"># 원래는 이걸 배웠죠</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>(array([  3.,   9.,  29.,  60.,  92.,  86.,  65.,  93., 139.,  80.]),
  array([-12.4 ,  -8.16,  -3.92,   0.32,   4.56,   8.8 ,  13.04,  17.28,
          21.52,  25.76,  30.  ]),
@@ -817,7 +816,7 @@ dtype: object</code></pre>
 </div>
 </div>
 <p><code>-</code> 구간은 5정도로 하면 적당할 것 같다.</p>
-<div id="7b23ef2d-efd0-4db1-bb91-30adfe2fbd3a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="17">
+<div id="7b23ef2d-efd0-4db1-bb91-30adfe2fbd3a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> cut(x): <span class="co"># 이거보다 더 좋은 방법이 있을 것 같긴 한데요..</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>    <span class="cf">if</span> x<span class="op">&lt;</span><span class="dv">0</span>: </span>
 <span id="cb31-3"><a href="#cb31-3"></a>        y<span class="op">=</span><span class="st">'Temp: &lt;0'</span></span>
@@ -835,9 +834,9 @@ dtype: object</code></pre>
 <span id="cb31-15"><a href="#cb31-15"></a>        y<span class="op">=</span><span class="st">'Temp: &gt;30'</span></span>
 <span id="cb31-16"><a href="#cb31-16"></a>    <span class="cf">return</span> y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ed3f4fff-615c-45ad-82e3-76cc6abb9cd7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="18">
+<div id="ed3f4fff-615c-45ad-82e3-76cc6abb9cd7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>df.assign(temp2 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(cut,df.temp)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 
 
@@ -940,25 +939,37 @@ dtype: object</code></pre>
 <section id="ggplot" class="level3">
 <h3 class="anchored" data-anchor-id="ggplot"><code>#</code> ggplot</h3>
 <p><code>-</code> 온도를 색으로 구분하면</p>
-<div id="25fcf5ce-5fe9-474b-896a-4904d5fd65da" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="19">
+<div id="25fcf5ce-5fe9-474b-896a-4904d5fd65da" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>fig <span class="op">=</span> ggplot(data<span class="op">=</span>df.assign(temp2 <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(cut,df.temp))))</span>
 <span id="cb33-2"><a href="#cb33-2"></a>p1 <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>),alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb33-3"><a href="#cb33-3"></a>fig <span class="op">+</span> p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
+</div>
 </div>
 <p><code>-</code> 추세선을 추가하면</p>
-<div id="6e2311af-279d-4cea-bfb9-fb1797e8c015" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>l1 <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6e2311af-279d-4cea-bfb9-fb1797e8c015" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>l1 <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e8732ff4-ac9d-41a9-8e8d-7648b3e6be5a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>fig<span class="op">+</span>p1<span class="op">+</span>l1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e8732ff4-ac9d-41a9-8e8d-7648b3e6be5a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>fig<span class="op">+</span>p1<span class="op">+</span>l1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
+<pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls16_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 <ul>
@@ -982,223 +993,9 @@ dtype: object</code></pre>
 <li>피셔의주장(실험계획법): 그런데 실험계획을 잘하면 흑막을 제거한 효과가 있음 (무작위로 사람뽑아서 담배를 피우게 한다든가)</li>
 <li>인과추론: 실험계획이 사실상 불가능한 경우가 있음 <span class="math inline">\(\to\)</span> 모인 데이터에서 최대한 흑막2,3,4,.. 등이 비슷한 그룹끼리 “매칭”을 시킨다!</li>
 </ul>
+
+
 </section>
-</section>
-<section id="그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면" class="level2">
-<h2 class="anchored" data-anchor-id="그냥-궁금해서-진짜-만약에-아이스크림과-소아마비가-관련있는-경우라면">그냥 궁금해서: 진짜 만약에 아이스크림과 소아마비가 관련있는 경우라면?</h2>
-<p><code>-</code> 온도는 아이스크림 판매에 여전히 영향을 주지만</p>
-<p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \epsilon\]</span></p>
-<div id="ba15a39a-4f42-4c74-ae24-4e8cfeee3f6b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>np.random.seed(<span class="dv">1</span>)</span>
-<span id="cb37-2"><a href="#cb37-2"></a>eps<span class="op">=</span>np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp), scale<span class="op">=</span><span class="dv">10</span>) </span>
-<span id="cb37-3"><a href="#cb37-3"></a>icecream <span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> temp <span class="op">+</span> eps </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>-</code> 수영장이 원인이 아니라 진짜 아이스크림을 먹고 소아마비에 걸린상황이라면?</p>
-<p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0 \times \text{온도} + 0.15 \times \text{아이스크림 판매량} + \epsilon\]</span></p>
-<div id="98933d2b-59eb-4b6a-a167-8639e2ebc1e1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>np.random.seed(<span class="dv">2</span>) </span>
-<span id="cb38-2"><a href="#cb38-2"></a>eps <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb38-3"><a href="#cb38-3"></a>disease<span class="op">=</span> <span class="dv">30</span><span class="op">+</span> <span class="dv">0</span><span class="op">*</span>temp <span class="op">+</span> <span class="fl">0.15</span><span class="op">*</span>icecream <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="058d3f95-8835-486f-8da0-375447152cf9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>df2<span class="op">=</span>pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'icecream'</span>:icecream,<span class="st">'disease'</span>:disease})</span>
-<span id="cb39-2"><a href="#cb39-2"></a>df2.assign(temp2<span class="op">=</span><span class="bu">list</span>(<span class="bu">map</span>(cut,df2.temp)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">temp</th>
-<th data-quarto-table-cell-role="th">icecream</th>
-<th data-quarto-table-cell-role="th">disease</th>
-<th data-quarto-table-cell-role="th">temp2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>-0.5</td>
-<td>35.243454</td>
-<td>34.453002</td>
-<td>Temp: &lt;0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1.4</td>
-<td>16.682436</td>
-<td>32.389832</td>
-<td>Temp: 0~5</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2.6</td>
-<td>19.918282</td>
-<td>28.715350</td>
-<td>Temp: 0~5</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2.0</td>
-<td>13.270314</td>
-<td>35.271089</td>
-<td>Temp: 0~5</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2.5</td>
-<td>33.654076</td>
-<td>31.461240</td>
-<td>Temp: 0~5</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">651</td>
-<td>19.9</td>
-<td>68.839992</td>
-<td>39.693811</td>
-<td>Temp: 15~20</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">652</td>
-<td>20.4</td>
-<td>76.554679</td>
-<td>38.924088</td>
-<td>Temp: 20~25</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">653</td>
-<td>18.3</td>
-<td>68.666079</td>
-<td>41.765212</td>
-<td>Temp: 15~20</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">654</td>
-<td>12.8</td>
-<td>42.771364</td>
-<td>36.842022</td>
-<td>Temp: 10~15</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">655</td>
-<td>6.7</td>
-<td>30.736731</td>
-<td>37.715537</td>
-<td>Temp: 5~10</td>
-</tr>
-</tbody>
-</table>
-
-<p>656 rows × 4 columns</p>
-</div>
-</div>
-</div>
-<div id="028fa96d-8e1f-4763-89fb-5cccf05e801a" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>ggplot(data<span class="op">=</span>df2.assign(temp2<span class="op">=</span><span class="bu">list</span>(<span class="bu">map</span>(cut,df2.temp))))<span class="op">+\</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>geom_point(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>)<span class="op">+\</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>geom_smooth(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,colour<span class="op">=</span><span class="st">'temp2'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="ls16_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>이번엔 partial corr도 유의미하게 나옴</li>
-</ul>
-<p><code>-</code> 단순 corr을 봐서는 “온도-&gt;아이스크림,소아마비” 인지, “온도-&gt;아이스크림-&gt;소아마비” 인지 알기 어렵다.</p>
-<div id="e9bcf204-dec1-4000-847a-d2e99c27613c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>df.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">temp</th>
-<th data-quarto-table-cell-role="th">icecream</th>
-<th data-quarto-table-cell-role="th">disease</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">temp</td>
-<td>1.000000</td>
-<td>0.884366</td>
-<td>0.975609</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">icecream</td>
-<td>0.884366</td>
-<td>1.000000</td>
-<td>0.862990</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">disease</td>
-<td>0.975609</td>
-<td>0.862990</td>
-<td>1.000000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="b02bbaa8-fbcc-4fdc-99ee-80c6823da8db" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>df2.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">temp</th>
-<th data-quarto-table-cell-role="th">icecream</th>
-<th data-quarto-table-cell-role="th">disease</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">temp</td>
-<td>1.000000</td>
-<td>0.884366</td>
-<td>0.725505</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">icecream</td>
-<td>0.884366</td>
-<td>1.000000</td>
-<td>0.830539</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">disease</td>
-<td>0.725505</td>
-<td>0.830539</td>
-<td>1.000000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-
-
 </section>
 </section>
 
