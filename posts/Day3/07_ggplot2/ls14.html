@@ -257,7 +257,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#read-mpg-data" id="toc-read-mpg-data" class="nav-link active" data-scroll-target="#read-mpg-data">read mpg data</a>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#read-mpg-data" id="toc-read-mpg-data" class="nav-link" data-scroll-target="#read-mpg-data">read mpg data</a>
   <ul class="collapse">
   <li><a href="#data-설명" id="toc-data-설명" class="nav-link" data-scroll-target="#data-설명">data 설명</a></li>
   </ul></li>
@@ -320,11 +321,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day3/07_ggplot2/ls14.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<section id="강의영상" class="level1">
+<h1>강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/XlwSIZPcBpM?list=PLQqh36zP38-wkIzw7mwjLE9Aqxjq5EZt-" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <div id="e4dcd742-5451-4f39-b663-731229f838a8" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="read-mpg-data" class="level1">
 <h1>read mpg data</h1>
 <p><code>-</code> ref: https://r4ds.had.co.nz/index.html</p>
@@ -670,9 +675,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="p9를-이용한-산점도-3차원" class="level1">
 <h1>p9를 이용한 산점도 (3차원)</h1>
 <p><code>-</code> 데이터를 다시 관찰</p>
-<div id="3b9915ae-ab9e-4821-b67a-4a8a0efbd093" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="25">
+<div id="3b9915ae-ab9e-4821-b67a-4a8a0efbd093" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="60">
 <div>
 
 
@@ -773,7 +778,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>-</code> class도 함께 plot에 표시하면 데이터를 탐색할때 좀 더 좋을 것 같다.</p>
 <section id="산점도-점크기변경" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경">산점도 + 점크기변경</h2>
-<div id="7abfde83-9969-432a-b648-fd3c11863a75" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="26">
+<div id="7abfde83-9969-432a-b648-fd3c11863a75" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>ggplot(data<span class="op">=</span>df)<span class="op">\</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="op">+</span> geom_point(</span>
 <span id="cb16-3"><a href="#cb16-3"></a>    mapping <span class="op">=</span> aes(</span>
@@ -787,14 +792,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="62">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="산점도-투명도변경" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-투명도변경">산점도 + 투명도변경</h2>
-<div id="cf1fa55d-6853-4022-8084-22f5fd5fe776" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="27">
+<div id="cf1fa55d-6853-4022-8084-22f5fd5fe776" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>ggplot(data<span class="op">=</span>df) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,alpha<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_alpha.py:73: PlotnineWarning: Using alpha for a discrete variable is not advised.</code></pre>
@@ -802,14 +807,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="산점도-투명도점크기를-동시에-적용" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-투명도점크기를-동시에-적용">산점도 + 투명도/점크기를 동시에 적용</h2>
-<div id="24a8b332-9522-43b6-be90-65cedf22cda3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="28">
+<div id="24a8b332-9522-43b6-be90-65cedf22cda3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>ggplot(data<span class="op">=</span>df) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,alpha<span class="op">=</span><span class="st">'class'</span>,size<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_alpha.py:73: PlotnineWarning: Using alpha for a discrete variable is not advised.
@@ -818,55 +823,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="65">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="산점도-형태" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-형태">산점도 + 형태</h2>
-<div id="19cc7058-b841-442c-8f37-49d480bca317" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="29">
+<div id="19cc7058-b841-442c-8f37-49d480bca317" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>ggplot(data<span class="op">=</span>df) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,shape<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="산점도-색깔" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-색깔">산점도 + 색깔</h2>
-<div id="7d6551e6-3498-4acb-ab18-7fd6ff5f8c63" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="30">
+<div id="7d6551e6-3498-4acb-ab18-7fd6ff5f8c63" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="67">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>ggplot(data<span class="op">=</span>df) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="67">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="객체지향적-느낌으로" class="level2">
 <h2 class="anchored" data-anchor-id="객체지향적-느낌으로">객체지향적 느낌으로?</h2>
-<div id="50b557fc-f208-4760-9f07-44c42a4c14e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="31">
+<div id="50b557fc-f208-4760-9f07-44c42a4c14e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="68">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>a2 <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>, y<span class="op">=</span><span class="st">'hwy'</span>, color<span class="op">=</span><span class="st">'class'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e35238a4-1f14-46c3-8ff0-e0110dcb6d41" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="32">
+<div id="e35238a4-1f14-46c3-8ff0-e0110dcb6d41" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="70">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>a1,a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="70">
 <pre><code>({'x': 'displ', 'y': 'hwy'}, {'x': 'displ', 'y': 'hwy', 'color': 'class'})</code></pre>
 </div>
 </div>
-<div id="f8f1e97b-703d-4f66-bc1c-98301bbf910d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="33">
+<div id="f8f1e97b-703d-4f66-bc1c-98301bbf910d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="71">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>point2<span class="op">=</span>geom_point(a2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7eb21b25-4a37-4c9d-aa8f-66a722aa59f2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="34">
+<div id="7eb21b25-4a37-4c9d-aa8f-66a722aa59f2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="74">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>fig<span class="op">+</span>point2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="74">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
@@ -874,16 +879,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="산점도-색깔-적합선" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-색깔-적합선">산점도 + 색깔 + 적합선</h2>
 <p><code>-</code> 일단 색깔이 없는 포인트 지옴부터 연습</p>
-<div id="64eed414-1fa6-4a6c-a6a0-8748667bed22" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="35">
+<div id="64eed414-1fa6-4a6c-a6a0-8748667bed22" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="78">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>fig<span class="op">+</span>point1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell-output cell-output-display" data-execution_count="78">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
-<div id="104f1c58-a69a-4df3-a749-ee275ab6759f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="36">
+<div id="104f1c58-a69a-4df3-a749-ee275ab6759f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="80">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>line1 <span class="op">=</span> geom_smooth(a1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="5474cdfd-42a3-4bc9-9736-07c519fce209" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="37">
@@ -899,7 +904,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> point1(색깔없는 포인트 지옴)을 point2(색깔있는 포인트 지옴)으로 언제든지 바꿔치기 가능!</p>
-<div id="b29f737f-937d-4cf0-a5b8-06f3f6e44e05" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="38">
+<div id="b29f737f-937d-4cf0-a5b8-06f3f6e44e05" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="90">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>fig<span class="op">+</span>point2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
@@ -907,7 +912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="90">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
@@ -927,7 +932,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 공통적인 맵핑규칙은 ggplot()쪽으로 빼기도 한다. (figure를 선언하는 곳에서 공통으로 선언함)</p>
-<div id="4b2c14e4-4f4c-44bf-9e2f-d99098dfa241" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="40">
+<div id="4b2c14e4-4f4c-44bf-9e2f-d99098dfa241" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="91">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>ggplot(data<span class="op">=</span>df,mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="op">+</span> <span class="op">\</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>geom_point(mapping<span class="op">=</span>aes(color<span class="op">=</span><span class="st">'class'</span>)) <span class="op">+</span> <span class="op">\</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a>geom_smooth()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -937,7 +942,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
@@ -946,9 +951,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="p9를-이용한-산점도-4차원" class="level1">
 <h1>p9를 이용한 산점도 (4차원)</h1>
 <p><code>-</code> 데이터를 살펴보자.</p>
-<div id="c83482c0-e769-4d04-a18c-795d67e451b8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="41">
+<div id="c83482c0-e769-4d04-a18c-795d67e451b8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="92">
 <div>
 
 
@@ -1049,15 +1054,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="산점도-점크기변경-색깔" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔">산점도 + 점크기변경 + 색깔</h2>
 <p><code>-</code> drv (전륜, 후륜, 4륜 구동)에 따라서 데이터를 시각화 하고 싶다.</p>
-<div id="273e2d95-5337-4a1e-8339-8c865e9d067e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>ggplot(data<span class="op">=</span>df, mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="op">+</span> geom_point(mapping<span class="op">=</span>aes(size<span class="op">=</span><span class="st">'class'</span>,color<span class="op">=</span><span class="st">'drv'</span>),alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="273e2d95-5337-4a1e-8339-8c865e9d067e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>ggplot(data<span class="op">=</span>df, mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))<span class="op">\</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="op">+</span> geom_point(mapping<span class="op">=</span>aes(</span>
+<span id="cb51-3"><a href="#cb51-3"></a>    size<span class="op">=</span><span class="st">'class'</span>,</span>
+<span id="cb51-4"><a href="#cb51-4"></a>    color<span class="op">=</span><span class="st">'drv'</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a>),alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="94">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
@@ -1068,71 +1077,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="산점도-점크기변경-색깔-객체지향버전" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔-객체지향버전">산점도 + 점크기변경 + 색깔 (객체지향버전)</h2>
 <p><code>-</code> 맵핑규칙</p>
-<div id="a9194e74-ed7b-4a48-8641-73babc83c6dc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="43">
+<div id="a9194e74-ed7b-4a48-8641-73babc83c6dc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>a1,a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="95">
 <pre><code>({'x': 'displ', 'y': 'hwy'}, {'x': 'displ', 'y': 'hwy', 'color': 'class'})</code></pre>
 </div>
 </div>
-<div id="ef7807c1-874b-48c9-a435-15be6bc86d8b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="44">
+<div id="ef7807c1-874b-48c9-a435-15be6bc86d8b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="97">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>a3 <span class="op">=</span> a2.copy() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cc3ef907-869e-4307-a2cf-113f2471cb08" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>a3[<span class="st">'color'</span>] <span class="op">=</span> <span class="st">'drv'</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>a3[<span class="st">'size'</span>] <span class="op">=</span> <span class="st">'class'</span></span>
-<span id="cb57-3"><a href="#cb57-3"></a>a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div id="49f286c8-6ae4-4fb5-a9c6-5619495c9f09" class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>a2,a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="98">
+<pre><code>({'x': 'displ', 'y': 'hwy', 'color': 'class'},
+ {'x': 'displ', 'y': 'hwy', 'color': 'class'})</code></pre>
+</div>
+</div>
+<div id="cc3ef907-869e-4307-a2cf-113f2471cb08" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>a3[<span class="st">'color'</span>] <span class="op">=</span> <span class="st">'drv'</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>a3[<span class="st">'size'</span>] <span class="op">=</span> <span class="st">'class'</span></span>
+<span id="cb59-3"><a href="#cb59-3"></a>a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="99">
 <pre><code>{'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'}</code></pre>
 </div>
 </div>
 <ul>
 <li>아래와 같이 선언해도 괜찮음</li>
 </ul>
-<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>a3<span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>,size<span class="op">=</span><span class="st">'class'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="52ad2a80-c50f-4b6e-9768-27dfd74fc4b5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>point3<span class="op">=</span>geom_point(a3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>a3<span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>,size<span class="op">=</span><span class="st">'class'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="52ad2a80-c50f-4b6e-9768-27dfd74fc4b5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>point3<span class="op">=</span>geom_point(a3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9f154438-ac83-44ff-a875-210b7fdf5daa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="ls14_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="47">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
-</div>
-</div>
-<ul>
-<li>그림의 전체적인 투명도를 조절하면 좋겠음</li>
-</ul>
-<div id="9fcace59-fd5a-4aed-93b9-cf4575cc9038" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>point3<span class="op">=</span>geom_point(a3,alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb64-2"><a href="#cb64-2"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9f154438-ac83-44ff-a875-210b7fdf5daa" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="103">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li>그림의 전체적인 투명도를 조절하면 좋겠음</li>
+</ul>
+<div id="9fcace59-fd5a-4aed-93b9-cf4575cc9038" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>point3<span class="op">=</span>geom_point(a3,alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb66-2"><a href="#cb66-2"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ls14_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="106">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="산점도-점크기변경-색깔-선추가" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔-선추가">산점도 + 점크기변경 + 색깔 + 선추가</h2>
-<div id="7dc2ca2f-9371-41bd-8627-f05f4418c93b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7dc2ca2f-9371-41bd-8627-f05f4418c93b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="ls14_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>
+<p><img src="ls14_files/figure-html/cell-36-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="110">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
@@ -1140,27 +1156,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="산점도-점크기변경-색깔-drv별로-선추가" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔-drv별로-선추가">산점도 + 점크기변경 + 색깔 + drv별로 선추가</h2>
 <p><code>-</code> 맵핑규칙</p>
-<div id="9276840b-01a5-4092-8e61-1c7a4a8474e5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>a1,a2,a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="50">
+<div id="9276840b-01a5-4092-8e61-1c7a4a8474e5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>a1,a2,a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="111">
 <pre><code>({'x': 'displ', 'y': 'hwy'},
  {'x': 'displ', 'y': 'hwy', 'color': 'class'},
  {'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'})</code></pre>
 </div>
 </div>
-<div id="6d85bf5a-0ee1-4571-9b72-3966915fc14f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>a4 <span class="op">=</span> a2.copy() </span>
-<span id="cb72-2"><a href="#cb72-2"></a>a4[<span class="st">'color'</span>]<span class="op">=</span><span class="st">'drv'</span></span>
-<span id="cb72-3"><a href="#cb72-3"></a>a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div id="6d85bf5a-0ee1-4571-9b72-3966915fc14f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>a4 <span class="op">=</span> a2.copy() </span>
+<span id="cb74-2"><a href="#cb74-2"></a>a4[<span class="st">'color'</span>]<span class="op">=</span><span class="st">'drv'</span></span>
+<span id="cb74-3"><a href="#cb74-3"></a>a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="112">
 <pre><code>{'x': 'displ', 'y': 'hwy', 'color': 'drv'}</code></pre>
 </div>
 </div>
-<div id="cad06cb0-d847-4dac-bc48-1b29c7765c89" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>line2 <span class="op">=</span> geom_smooth(a4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cad06cb0-d847-4dac-bc48-1b29c7765c89" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>line2 <span class="op">=</span> geom_smooth(a4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="181ccb9a-3edc-4d81-8e77-00e7605bfbe0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>fig <span class="op">+</span> point3 <span class="op">+</span>line2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="181ccb9a-3edc-4d81-8e77-00e7605bfbe0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="118">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>fig <span class="op">+</span> point3 <span class="op">+</span> line2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
@@ -1168,54 +1184,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 /home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="ls14_files/figure-html/cell-39-output-2.png" class="img-fluid"></p>
+<p><img src="ls14_files/figure-html/cell-40-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="53">
+<div class="cell-output cell-output-display" data-execution_count="118">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 <p><code>-</code> 선의 색깔을 동일하게 하고 선의 타입을 변경하여 drv를 표시하고 싶다면?</p>
-<div id="4022f4f1-1c6d-49b0-b60f-8a91c07f7714" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>a1,a2,a3,a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="54">
+<div id="4022f4f1-1c6d-49b0-b60f-8a91c07f7714" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="119">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>a1,a2,a3,a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="119">
 <pre><code>({'x': 'displ', 'y': 'hwy'},
  {'x': 'displ', 'y': 'hwy', 'color': 'class'},
  {'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'},
  {'x': 'displ', 'y': 'hwy', 'color': 'drv'})</code></pre>
 </div>
 </div>
-<div id="33406531-5e85-4b2f-a449-706df31e6650" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>a5<span class="op">=</span>a1.copy()</span>
-<span id="cb80-2"><a href="#cb80-2"></a>a5[<span class="st">'linetype'</span>]<span class="op">=</span><span class="st">'drv'</span> </span>
-<span id="cb80-3"><a href="#cb80-3"></a>a5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div id="33406531-5e85-4b2f-a449-706df31e6650" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a>a5<span class="op">=</span>a1.copy()</span>
+<span id="cb82-2"><a href="#cb82-2"></a>a5[<span class="st">'linetype'</span>]<span class="op">=</span><span class="st">'drv'</span> </span>
+<span id="cb82-3"><a href="#cb82-3"></a>a5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="121">
 <pre><code>{'x': 'displ', 'y': 'hwy', 'linetype': 'drv'}</code></pre>
 </div>
 </div>
-<div id="a2cb5e05-4253-4abe-b7cf-cd0eb2e6d165" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a>line3 <span class="op">=</span> geom_smooth(a5,size<span class="op">=</span><span class="fl">0.5</span>,color<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a2cb5e05-4253-4abe-b7cf-cd0eb2e6d165" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="122">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>line3 <span class="op">=</span> geom_smooth(a5,size<span class="op">=</span><span class="fl">0.5</span>,color<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3e1f6026-0c3e-4846-b8dd-6074c81b14e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3e1f6026-0c3e-4846-b8dd-6074c81b14e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.
-/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="ls14_files/figure-html/cell-43-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="57">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
-</div>
-</div>
-<p><code>-</code> 전체적인 추세선도 추가하고 싶다면?</p>
-<div id="31347452-ed3c-4d4f-8f90-db803d81da33" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line3<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.
-/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
 /home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
 /home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
 /home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
@@ -1223,14 +1222,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-44-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="58">
+<div class="cell-output cell-output-display" data-execution_count="125">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
-<p><code>-</code> 그려보니까 역시 drv별로 그려지는 추세선은 색깔별로 구분하는게 좋겠음.</p>
-<div id="edc0aee8-0b9f-4d2b-9579-8cb00a08eb89" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>line2 <span class="op">=</span> geom_smooth(a4,size<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb89-2"><a href="#cb89-2"></a>fig<span class="op">+</span>point3<span class="op">+</span>line2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 전체적인 추세선도 추가하고 싶다면?</p>
+<div id="31347452-ed3c-4d4f-8f90-db803d81da33" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
@@ -1240,6 +1238,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="ls14_files/figure-html/cell-45-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="128">
+<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
+</div>
+</div>
+<p><code>-</code> 그려보니까 역시 drv별로 그려지는 추세선은 색깔별로 구분하는게 좋겠음.</p>
+<div id="edc0aee8-0b9f-4d2b-9579-8cb00a08eb89" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>line2 <span class="op">=</span> geom_smooth(a4,size<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
+<span id="cb91-2"><a href="#cb91-2"></a>fig<span class="op">+</span>point3<span class="op">+</span>line2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/scales/scale_size.py:49: PlotnineWarning: Using size for a discrete variable is not advised.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
+/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="ls14_files/figure-html/cell-46-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="59">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>

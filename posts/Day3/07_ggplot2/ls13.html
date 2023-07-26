@@ -257,7 +257,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
   <li><a href="#간단한-시각화-matplotlib" id="toc-간단한-시각화-matplotlib" class="nav-link" data-scroll-target="#간단한-시각화-matplotlib">간단한 시각화: matplotlib</a>
   <ul class="collapse">
   <li><a href="#line-plot" id="toc-line-plot" class="nav-link" data-scroll-target="#line-plot">line plot</a>
@@ -318,88 +319,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><a href="https://colab.research.google.com/github/guebin/PP2023SUM/blob/main/posts/Day3/07_ggplot2/ls13.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<section id="강의영상" class="level1">
+<h1>강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/XlwSIZPcBpM?list=PLQqh36zP38-yXZ9kUCZjkHNdqvIMXf7Wh" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div id="c70fcf6c-7742-4977-93ab-1e5af85c07df" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="31">
+<div id="c70fcf6c-7742-4977-93ab-1e5af85c07df" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="134">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="간단한-시각화-matplotlib" class="level1">
 <h1>간단한 시각화: matplotlib</h1>
+<div id="ec603478-bdb2-4ac0-b7d5-7869a32ca056" class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="line-plot" class="level2">
 <h2 class="anchored" data-anchor-id="line-plot">line plot</h2>
 <section id="기본플랏" class="level3">
 <h3 class="anchored" data-anchor-id="기본플랏">기본플랏</h3>
 <p><code>-</code> 예시1</p>
-<div id="2fd487dc-7b82-4c99-815e-e148670b6787" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>x<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
-<span id="cb2-2"><a href="#cb2-2"></a>y<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2fd487dc-7b82-4c99-815e-e148670b6787" class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>x<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb3-2"><a href="#cb3-2"></a>y<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6d0a7cba-9754-42c8-979b-1e8b80872af3" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6d0a7cba-9754-42c8-979b-1e8b80872af3" class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+<p><img src="ls13_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="모양변경" class="level3">
 <h3 class="anchored" data-anchor-id="모양변경">모양변경</h3>
 <p><code>-</code> 예시1</p>
-<div id="ad2cf6c9-1645-4d54-b496-c077f573bed3" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>plt.plot(x,y,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 예시2</p>
-<div id="0c4c11e7-907f-4a8f-8f96-cdf0b01b2c15" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.plot(x,y,<span class="st">':'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ad2cf6c9-1645-4d54-b496-c077f573bed3" class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.plot(x,y,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시3</p>
-<div id="913d788c-161d-4d4a-bd66-b411777b2d11" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.plot(x,y,<span class="st">'-.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 예시2</p>
+<div id="0c4c11e7-907f-4a8f-8f96-cdf0b01b2c15" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.plot(x,y,<span class="st">':'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3</p>
+<div id="913d788c-161d-4d4a-bd66-b411777b2d11" class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plt.plot(x,y,<span class="st">'-.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls13_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="색상변경" class="level3">
 <h3 class="anchored" data-anchor-id="색상변경">색상변경</h3>
 <p><code>-</code> 예시1</p>
-<div id="e3c54959-94c1-4303-bde7-829bc6cb25bd" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>plt.plot(x,y,<span class="st">'r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e3c54959-94c1-4303-bde7-829bc6cb25bd" class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>plt.plot(x,y,<span class="st">'r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+<p><img src="ls13_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예시2</p>
-<div id="fd462e84-18e6-4b83-b455-ec93647bb32e" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>plt.plot(x,y,<span class="st">'k'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fd462e84-18e6-4b83-b455-ec93647bb32e" class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>plt.plot(x,y,<span class="st">'k'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+<p><img src="ls13_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="모양-색상변경" class="level3">
 <h3 class="anchored" data-anchor-id="모양-색상변경">모양 + 색상변경</h3>
 <p><code>-</code> 예시1</p>
-<div id="3070f4b3-a7e5-412b-9373-6daf0472e495" class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>plt.plot(x,y,<span class="st">'--r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3070f4b3-a7e5-412b-9373-6daf0472e495" class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>plt.plot(x,y,<span class="st">'--r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<p><img src="ls13_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예시2: 순서변경 가능</p>
-<div id="707afef4-6f8b-46c2-b334-8c187b96a23a" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>plt.plot(x,y,<span class="st">'r--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="707afef4-6f8b-46c2-b334-8c187b96a23a" class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>plt.plot(x,y,<span class="st">'r--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<p><img src="ls13_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -491,48 +501,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="기본플랏-1" class="level3">
 <h3 class="anchored" data-anchor-id="기본플랏-1">기본플랏</h3>
 <p><code>-</code> 예시1</p>
-<div id="3456bd70-120d-4a5c-b3fd-3b2643e0aaec" class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 예시2</p>
-<div id="edfb5a3b-b01e-434b-9085-c8d36f113b08" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>plt.plot(x,y,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3456bd70-120d-4a5c-b3fd-3b2643e0aaec" class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시3</p>
-<div id="4c0346d7-cdd6-44c8-9bc2-e957fef52d9d" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>plt.plot(x,y,<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 예시2</p>
+<div id="edfb5a3b-b01e-434b-9085-c8d36f113b08" class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>plt.plot(x,y,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3</p>
+<div id="4c0346d7-cdd6-44c8-9bc2-e957fef52d9d" class="cell" data-execution_count="147">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>plt.plot(x,y,<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls13_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="색깔변경" class="level3">
 <h3 class="anchored" data-anchor-id="색깔변경">색깔변경</h3>
 <p><code>-</code> 예시1</p>
-<div id="73a3652f-d5f8-444a-a3d0-567079757002" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>plt.plot(x,y,<span class="st">'or'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 예시2</p>
-<div id="570af8cc-8de2-484d-a08d-3eb4b899236d" class="cell" data-execution_count="75">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.plot(x,y,<span class="st">'db'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="73a3652f-d5f8-444a-a3d0-567079757002" class="cell" data-execution_count="148">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.plot(x,y,<span class="st">'or'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시3</p>
-<div id="6405ffef-b43c-4e45-bc46-35a5f743dd6e" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>plt.plot(x,y,<span class="st">'bx'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 예시2</p>
+<div id="570af8cc-8de2-484d-a08d-3eb4b899236d" class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>plt.plot(x,y,<span class="st">'db'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3</p>
+<div id="6405ffef-b43c-4e45-bc46-35a5f743dd6e" class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>plt.plot(x,y,<span class="st">'bx'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls13_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -540,40 +550,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dot-connected-plot" class="level2">
 <h2 class="anchored" data-anchor-id="dot-connected-plot">dot-connected plot</h2>
 <p><code>-</code> 예시1: 마커와 라인스타일을 동시에 사용하면 dot-connected plot이 된다.</p>
-<div id="7366e5ee-7cc4-435d-bd20-8f42c8e4522f" class="cell" data-execution_count="77">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>plt.plot(x,y,<span class="st">'o-'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 예시2: 당연히 색도 적용가능함</p>
-<div id="3404441f-9334-44b8-b9cd-c4dfcdb4e553" class="cell" data-execution_count="78">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>plt.plot(x,y,<span class="st">'o--r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7366e5ee-7cc4-435d-bd20-8f42c8e4522f" class="cell" data-execution_count="151">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>plt.plot(x,y,<span class="st">'o-'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시3: 서로 순서를 바꿔도 상관없다.</p>
-<div id="fc083444-f564-4637-8503-7cacbe2115c5" class="cell" data-execution_count="79">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>plt.plot(x,y,<span class="st">'ro--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 예시2: 당연히 색도 적용가능함</p>
+<div id="3404441f-9334-44b8-b9cd-c4dfcdb4e553" class="cell" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>plt.plot(x,y,<span class="st">'o--r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="ls13_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 예시3: 서로 순서를 바꿔도 상관없다.</p>
+<div id="fc083444-f564-4637-8503-7cacbe2115c5" class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>plt.plot(x,y,<span class="st">'ro--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="ls13_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="겹쳐그리기" class="level2">
 <h2 class="anchored" data-anchor-id="겹쳐그리기">겹쳐그리기</h2>
 <p><code>-</code> 예시1</p>
-<div id="4e6512dc-9d15-4377-b1c6-d5dacffe4270" class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>x <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="fl">0.1</span>)</span>
-<span id="cb20-2"><a href="#cb20-2"></a>eps <span class="op">=</span> np.random.randn(<span class="dv">100</span>) </span>
-<span id="cb20-3"><a href="#cb20-3"></a>y <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4e6512dc-9d15-4377-b1c6-d5dacffe4270" class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>x <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>,<span class="fl">0.1</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>eps <span class="op">=</span> np.random.randn(<span class="dv">100</span>) </span>
+<span id="cb21-3"><a href="#cb21-3"></a>y <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="bbb23346-99f6-4c58-9f86-82996efc1793" class="cell" data-execution_count="91">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>plt.plot(x,y,<span class="st">'.'</span>)</span>
-<span id="cb21-2"><a href="#cb21-2"></a>plt.plot(x,<span class="dv">2</span><span class="op">*</span>x,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bbb23346-99f6-4c58-9f86-82996efc1793" class="cell" data-execution_count="155">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>plt.plot(x,y,<span class="st">'.'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>plt.plot(x,<span class="dv">2</span><span class="op">*</span>x,<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<p><img src="ls13_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -628,18 +638,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="미나드처럼-그리는게-왜-어려운가" class="level2">
 <h2 class="anchored" data-anchor-id="미나드처럼-그리는게-왜-어려운가">미나드처럼 그리는게 왜 어려운가?</h2>
 <p><code>-</code> 몸무게, 키, 성별, 국적</p>
-<div id="7bcad704-f318-4119-87da-1c1f6e8e65e5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="92">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>df1<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv'</span>)</span>
-<span id="cb22-2"><a href="#cb22-2"></a>df2<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv'</span>)  </span>
-<span id="cb22-3"><a href="#cb22-3"></a>df3<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv'</span>) </span>
-<span id="cb22-4"><a href="#cb22-4"></a>df4<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/foreign.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7bcad704-f318-4119-87da-1c1f6e8e65e5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>df1<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a>df2<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv'</span>)  </span>
+<span id="cb23-3"><a href="#cb23-3"></a>df3<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv'</span>) </span>
+<span id="cb23-4"><a href="#cb23-4"></a>df4<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/foreign.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 미나드의 접근방법</p>
-<div id="ed01e5bb-e659-4442-9bda-e14f1404e633" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="133">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>_df <span class="op">=</span> pd.concat([pd.concat([df1,df2],axis<span class="op">=</span><span class="dv">1</span>).assign(g<span class="op">=</span><span class="st">'m'</span>),df3.assign(g<span class="op">=</span><span class="st">'f'</span>)])</span>
-<span id="cb23-2"><a href="#cb23-2"></a>df <span class="op">=</span> pd.concat([_df.assign(g2<span class="op">=</span><span class="st">'korea'</span>),df4.assign(g2<span class="op">=</span><span class="st">'foreign'</span>)]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-3"><a href="#cb23-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="133">
+<div id="ed01e5bb-e659-4442-9bda-e14f1404e633" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="157">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>_df <span class="op">=</span> pd.concat([pd.concat([df1,df2],axis<span class="op">=</span><span class="dv">1</span>).assign(g<span class="op">=</span><span class="st">'m'</span>),df3.assign(g<span class="op">=</span><span class="st">'f'</span>)])</span>
+<span id="cb24-2"><a href="#cb24-2"></a>df <span class="op">=</span> pd.concat([_df.assign(g2<span class="op">=</span><span class="st">'korea'</span>),df4.assign(g2<span class="op">=</span><span class="st">'foreign'</span>)]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-3"><a href="#cb24-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="157">
 <div>
 
 
@@ -738,19 +748,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="a0ee707e-1f0c-498a-a492-055e941f1c7d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>sns.scatterplot(</span>
-<span id="cb24-2"><a href="#cb24-2"></a>    data<span class="op">=</span>df,</span>
-<span id="cb24-3"><a href="#cb24-3"></a>    x<span class="op">=</span><span class="st">'w'</span>,</span>
-<span id="cb24-4"><a href="#cb24-4"></a>    y<span class="op">=</span><span class="st">'h'</span>,</span>
-<span id="cb24-5"><a href="#cb24-5"></a>    hue<span class="op">=</span><span class="st">'g'</span>,</span>
-<span id="cb24-6"><a href="#cb24-6"></a>    style<span class="op">=</span><span class="st">'g2'</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div id="a0ee707e-1f0c-498a-a492-055e941f1c7d" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>sns.scatterplot(data<span class="op">=</span>df,x<span class="op">=</span><span class="st">'w'</span>,y<span class="op">=</span><span class="st">'h'</span>,hue<span class="op">=</span><span class="st">'g'</span>,style<span class="op">=</span><span class="st">'g2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="158">
 <pre><code>&lt;Axes: xlabel='w', ylabel='h'&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="ls13_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+<p><img src="ls13_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Exception ignored in atexit callback: &lt;bound method InteractiveShell.atexit_operations of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7feb4cc1f490&gt;&gt;
+Traceback (most recent call last):
+  File "/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3875, in atexit_operations
+    self._atexit_once()
+  File "/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 3854, in _atexit_once
+    self.reset(new_session=False)
+  File "/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/IPython/core/interactiveshell.py", line 1373, in reset
+    self.history_manager.reset(new_session)
+  File "/home/cgb2/anaconda3/envs/py310/lib/python3.10/site-packages/IPython/core/history.py", line 597, in reset
+    self.dir_hist[:] = [Path.cwd()]
+  File "/home/cgb2/anaconda3/envs/py310/lib/python3.10/pathlib.py", line 993, in cwd
+    return cls(cls._accessor.getcwd())
+FileNotFoundError: [Errno 2] No such file or directory</code></pre>
 </div>
 </div>
 <p><code>-</code> 어려운점: (1) 센스가 없어서 hue/style을 이용하여 그룹을 구분할 생각을 못함 (2) long df (=tidy data) 형태로 데이터를 정리할 생각을 못함 (3) long df 형태로 데이터를 변형하는 코드를 모름</p>
